@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Sahel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 
+	  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+-->
+        <script src="lib/jquery-3.3.1.min.js"></script>
+        <script src="lib/jquery-ui-1.12.1.min.js"></script>
+<!--    // popup placement
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+-->
+
+        <script src="lib/d3.v4.min.js"></script>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="lib/bootstrap-4.0.0/bootstrap.min.js"></script>
+
+        <script src="js/appState.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/main.js"></script>
+<style>
+body { 
+  color: #cfd0d2;
+  background: #20262e;
+}
+
+.containerUI {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.headerUI {
+  grid-column: span 12; 
+  border-bottom: 1px solid #2d333b;
+}
+.navigation-menuUI {
+  grid-column: span 2;
+  border-right: 1px solid #2d333b;
+  min-height: calc(100vh - 90px);
+  max-height: calc(100vh - 90px);
+  overflow: auto;
+}
+
+.main-contentUI {
+  grid-column: span 10;
+}
+
+.footerUI {
+  grid-column: span 12; 
+  background: #20262e;
+  border-top: 1px solid #2d333b;
+}
+
+.item {
+  transition: height 0.10s;
+  transition-timing-function: ease-out;
+  height: 1.5rem;
+}
+
+.ui-collapse {
+  height: 0px;
+  overflow: hidden;
+}
+
+.checkbox{
+   width: 1.5rem;
+   height: 1.5rem;
+   background: transparent url(img/square-regular.svg) no-repeat;
+   margin-left: 1rem;
+}
+
+.checklabel {
+  padding-left: 30px;
+}
+
+.checked{
+   background: transparent url(img/check-square-regular.svg) no-repeat;
+}
+
+
+</style>
+    </head>
+    <body>
+      
+      
+  <div class="containerUI">
+    <div class="headerUI"><h1>Sahel DB</h1></div>
+    <div class="navigation-menuUI">
+    
+<!--
+      <div id="accordion">
+        <div id="country" class="submenu">
+          <div class="header"><h2>Country</h2></div>
+          <div class="item">box word</div>
+          <div class="item">box word</div>
+          <div class="item">box word</div>
+        </div>
+        <div id="dataset" class="submenu">
+          <div class="header"><h2>Dataset</h2></div>
+          <div class="item">box word</div>
+          <div class="item">box word</div>
+        </div>
+        <div id="indicator" class="submenu">
+          <div class="header"><h2>Indicator</h2></div>
+          <div class="item">box word</div>
+          <div class="item">box word</div>
+          <div class="item">box word</div>
+          <div class="item">box wordd</div>
+        </div>
+      </div>
+-->
+<!--
+         <div id="accordion">
+        <h3>Section 1</h3>
+        <div>
+          <p>
+          Mali<br>
+          Gambia<br>
+          C1 <br>
+          c3<br>
+          sd<br>
+          sdaf<br>
+          asdf<br>
+          asdfs<br>
+          sd<br>
+          sdf<br>
+          
+          </p>
+        </div>
+        <h3>Section 2</h3>
+        <div>
+          <p>
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+          purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+          velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+          suscipit faucibus urna.
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+          purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+          velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+          suscipit faucibus urna.
+          
+          </p>
+        </div>
+      </div>
+-->
+    </div>
+    <div class="main-contentUI">...</div>
+    <div class="footerUI">...</div>
+  </div>
+  
+<!--
+      <p id="button">Click here</p>
+            
+      <span id="main"></span>
+      
+-->
+ 
+
+    </body>
+</html>
+
+
+
