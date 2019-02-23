@@ -73,40 +73,102 @@ class filterBar {
   
 }
 
-// search filter
+// Jquery autocomplete width fixer
+//~ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+  //~ var ul = this.menu.element;
+  //~ ul.outerWidth(this.element.outerWidth());
+//~ }
+
 // grouping ö (none, group, dataset, only selected)
 // year filter
 // read real dataset
 // onclick indicatorname -> info
 // "similar to" menu
-// set get
+// set
+// resize dropdown for largest text
 class accordionSelector {
   constructor(selector, id, headers, state) {
     this.id = id;
+    this.collapsed=true;
     $(selector).append(`<div id="${id}"><h2>Selections:</h2></div>`);
     
     headers.forEach((d) => {
-      $("#" + id).append(`<div id="${d}" class="submenu"><div class="header"><h3>${d}</h3></div></div>`);
+      $("#" + id).append(
+        `<div id="${d}" class="submenu">
+          <div class="header"> <h3>${d}</h3> </div> 
+          <div class="search-container item ui-collapse"><input class="search" placeholder="Search" autocomplete="on"/> <div class="search-cancel"></div> </div>
+        </div>`); //<img class="search-cancel"/>
       });   
 
-    $("#" + id + " .header").on("click", function(e) {
-      $(this).siblings().toggleClass("ui-collapse");
-      });
+    $("#" + id + " .header").on("click", {parent: this}, function(e) {
+      //$(this).siblings().toggleClass("ui-collapse");
       
-
+      if (e.data.parent.collapsed) {
+        $(this).siblings().removeClass('ui-collapse'); 
+        // e.data.parent.filter(header, $("#" + header + ".search").val()$(this).siblings().find(".search").val());
+        var header = $(this).children().html();
+        //$(this).siblings().find(".search").val()
+        e.data.parent.filter(header, $("#" + header + " .search").val());
+      } else 
+        $(this).siblings().addClass('ui-collapse'); 
+      e.data.parent.collapsed = !e.data.parent.collapsed;
+      });
   }
   
   filter(header, text) {
+    $("#" + header + " > .search-content").removeClass("ui-collapse");
+    $("#" + header + " > .search-content").filter(function (i,d) {
+      // console.log($(d).find(".checklabel").val());
+      return ! $(d).find(".checklabel").html().includes(text);
+      }).addClass("ui-collapse");
   }
   
   addItems(header, items) {
     items.forEach((d) => {
-      $("#" + header).append(`<div class="item ui-collapse"><label class="checkbox"><h5 class="checklabel">${d}</h3></label></div>`);
+      $("#" + header).append(`<div class="item ui-collapse search-content"><label class="checkbox"><h5 class="checklabel">${d}</h3></label></div>`);
       });     
       
+      // enable checkbox
       $("#" + header + " .checkbox").click(function(){ 
-        $(this).toggleClass('checked') 
+        $(this).toggleClass('checked'); 
+      });
+      
+      // enable circle-x
+      $("#" + header + " .search-cancel").click(function(){ 
+        $("#" + header + " .search").val(''); 
+        $("#" + header + " > .search-content").removeClass("ui-collapse");
+      });
+      
+      // turn on autocomplete
+      $("#" + header + " .search").autocomplete({ source: items });
+      
+      // enter key event
+      $("#" + header + " .search").keyup({parent: this}, function(e) {
+        // if (e.key == "Enter") {
+          $("#" + header + " .search").autocomplete('close');
+          e.data.parent.filter(header, $("#" + header + " .search").val());
+        //}
       });
   }
-  // get, set
+  
+  // get set state
+  val(state) {
+    if (state == undefined) {
+      var state = {};
+      $("#" + this.id + " .header").children().each((i,d) => {
+        var id = $(d).html();
+        $("#" + id + " > .search-content").each((i,d) => {
+           if ($(d).find(".checkbox").hasClass("checked")) {
+             var val = $(d).find(".checklabel").html();
+             // console.log(id + " " + val);
+             if (id in state)
+               state[id].push(val);
+             else
+               state[id] = [val];
+           }
+          });
+        });
+        return (state);
+    }
+  }
 }

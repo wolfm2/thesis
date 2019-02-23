@@ -15,6 +15,7 @@ $.urlParam = function(name){ // https://www.sitepoint.com/url-parameters-jquery/
   }
 }
 
+var test;
 function init () {
   d3.selectAll("#button").on("click", function() {
     console.log("clicked");
@@ -30,10 +31,11 @@ function init () {
   appStateDecode();
   
   var as = new accordionSelector(".navigation-menuUI", "accordion", ["Country", "Dataset", "Indicator"], null)
-  as.addItems("Country", ["test","this","that"]);
+  as.addItems("Country", ["test","this","thatasdfasdfasdfasdfasdfasdfasdfa"]);
   as.addItems("Dataset", ["test", "that"]);
   as.addItems("Indicator", ["test","this","that"]);
-
+  console.log(as.val());
+  test = as;
 }
 
 //////////
