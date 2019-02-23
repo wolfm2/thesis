@@ -1,0 +1,112 @@
+.containerUI {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.headerUI {
+  grid-column: span 12; 
+  border-bottom: 1px solid #2d333b;
+}
+
+.navigation-menuUI {
+  grid-column: span 2;
+  border-right: 1px solid #2d333b;
+  min-height: calc(100vh - 90px);
+  max-height: calc(100vh - 90px);
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.main-contentUI {
+  grid-column: span 10;
+}
+
+.footerUI {
+  grid-column: span 12; 
+  background: #20262e;
+  border-top: 1px solid #2d333b;
+}
+
+.item {
+  transition: all 0.10s;
+  transition-timing-function: ease-out;
+  height: 1.5rem;
+}
+
+.ui-collapse {
+  height: 0px !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+.ui-disable {
+  opacity: .5;
+}
+
+.checkbox{
+   width: 1.5rem;
+   height: 1.5rem;
+   background: transparent url(../img/square-regular.svg) no-repeat;
+   margin-left: 1rem;
+}
+
+.checklabel {
+  padding-left: 30px;
+}
+
+.checked{
+   background: transparent url(../img/check-square-regular.svg) no-repeat;
+}
+
+.search-container {
+  border: 1.5px solid;
+  border-radius: 5px;
+  height: 1.6rem;
+  margin: 0px 5px 2px 15px;
+  overflow: hidden;
+}
+
+.search-cancel {
+  height: 1.4rem;
+  width: 1.4rem;
+  background-image: url("../img/times-circle-regular.svg");
+  float: right;
+}
+
+.search {
+  color: inherit;
+  mw-border: 1.5px solid inherit;
+  border: none;
+  background: transparent;
+  width: 7rem;
+  height: 1rem;
+  margin-left: 5px;
+}
+
+.search:focus{
+  outline: none;
+}
+
+::placeholder { 
+  color: #cfd0d2;
+  opacity: 1; /* Firefox */
+}
+
+input:focus::placeholder { 
+  mw-color:transparent; 
+  opacity: .2;
+}
+
+ul.ui-autocomplete {
+  list-style: none;
+  list-style-type: none;
+  padding: 2px;
+  margin: 5px;
+  width: auto;
+  position: absolute !important; // handles width problem
+}
+
+/* hides autocomplete status information */
+.ui-helper-hidden-accessible { 
+  display: none !important;
+}
