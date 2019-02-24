@@ -21,7 +21,7 @@ function appStateEncode() {
   var state = [{version:0.01}];
   
   stateCallbacks.forEach(function (o) {
-    state.push({id:o["id"], state:o["that"].getState()});
+    state.push({id:o["id"], state:o["that"].val()});
   });
   
   var opts = encodeURI(JSON.stringify(state));

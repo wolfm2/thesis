@@ -86,8 +86,9 @@ class filterBar {
 // "similar to" menu
 // set
 // resize dropdown for largest text
+// selecting item from menu does not filter
 class accordionSelector {
-  constructor(selector, id, headers, state) {
+  constructor(selector, id, headers) {
     this.id = id;
     this.collapsed=true;
     $(selector).append(`<div id="${id}"><h2>Selections:</h2></div>`);
@@ -100,19 +101,16 @@ class accordionSelector {
         </div>`); //<img class="search-cancel"/>
       });   
 
-    $("#" + id + " .header").on("click", {parent: this}, function(e) {
-      //$(this).siblings().toggleClass("ui-collapse");
-      
+   $("#" + id + " .header").on("click", {parent: this}, function(e) { // expose accordion section event
       if (e.data.parent.collapsed) {
         $(this).siblings().removeClass('ui-collapse'); 
-        // e.data.parent.filter(header, $("#" + header + ".search").val()$(this).siblings().find(".search").val());
         var header = $(this).children().html();
-        //$(this).siblings().find(".search").val()
         e.data.parent.filter(header, $("#" + header + " .search").val());
       } else 
         $(this).siblings().addClass('ui-collapse'); 
       e.data.parent.collapsed = !e.data.parent.collapsed;
       });
+    
   }
   
   filter(header, text) {
@@ -157,18 +155,58 @@ class accordionSelector {
       var state = {};
       $("#" + this.id + " .header").children().each((i,d) => {
         var id = $(d).html();
+        state[id] = [];
         $("#" + id + " > .search-content").each((i,d) => {
-           if ($(d).find(".checkbox").hasClass("checked")) {
-             var val = $(d).find(".checklabel").html();
-             // console.log(id + " " + val);
-             if (id in state)
-               state[id].push(val);
-             else
-               state[id] = [val];
-           }
+          if ($(d).find(".checkbox").hasClass("checked")) {
+           var val = $(d).find(".checklabel").html();
+           state[id].push(val);
+          }
           });
         });
         return (state);
     }
+  }
+}
+
+// sidebar
+class sideBar {
+  constructor(selector, headers, items) {
+    appStateRegister("Selectors", this);
+    
+    this.as = new accordionSelector(selector, "accordion", headers)
+    headers.forEach((d,i) => {
+      this.as.addItems(d,items[i]);
+      });
+      
+    this.yearMin = 1993;
+    this.yearMax = 2000;
+    
+    // slider
+    $(".navigation-menuUI").append(`
+      <div id="slider-container">
+        <h6><div id="amount">Years: </div></h6>
+        <div id='slider-range'></div>
+      </div>
+      `);
+      
+    $( "#amount" ).html( "Years: " + this.yearMin + " - " + this.yearMax );
+    
+    $( "#slider-range" ).slider({
+      parent: this,
+        range: true,
+        min: this.yearMin,
+        max: this.yearMax,
+        values: [ this.yearMin, this.yearMax ],
+        slide: function( e, ui ) {
+          $( "#amount" ).html( "Years: " + ui.values[0] + " - " + ui.values[1] );
+        }
+      }); 
+  }
+  
+  val(state) {
+    var val = $("#slider-range").slider("values");
+    this.yearMin = val[0];
+    this.yearMax = val[1];
+    return {selections:this.as.val(), year:{"low":this.yearMin, "high":this.yearMax}};
   }
 }

@@ -5,12 +5,12 @@
 
 .headerUI {
   grid-column: span 12; 
-  border-bottom: 1px solid #2d333b;
+  border-bottom: 1px solid var(--divider);
 }
 
 .navigation-menuUI {
   grid-column: span 2;
-  border-right: 1px solid #2d333b;
+  border-right: 1px solid var(--divider);
   min-height: calc(100vh - 90px);
   max-height: calc(100vh - 90px);
   overflow: auto;
@@ -23,8 +23,8 @@
 
 .footerUI {
   grid-column: span 12; 
-  background: #20262e;
-  border-top: 1px solid #2d333b;
+  background: var(-bg);
+  border-top: 1px solid var(--divider);
 }
 
 .item {
@@ -88,7 +88,7 @@
 }
 
 ::placeholder { 
-  color: #cfd0d2;
+  color: var(--fg);
   opacity: 1; /* Firefox */
 }
 
@@ -96,6 +96,8 @@ input:focus::placeholder {
   mw-color:transparent; 
   opacity: .2;
 }
+
+/* JQuery UI */
 
 ul.ui-autocomplete {
   list-style: none;
@@ -106,7 +108,32 @@ ul.ui-autocomplete {
   position: absolute !important; // handles width problem
 }
 
+#slider-container {
+  margin: 15px;
+  padding-top: 20px;
+}
+
 /* hides autocomplete status information */
+/*
 .ui-helper-hidden-accessible { 
   display: none !important;
+}
+*/
+.ui-slider-horizontal {
+  width: 100%;
+  height: 2.4px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.ui-slider-handle {
+  border: 3px solid !important;
+  border-color: inherit !important;
+  height: 1rem !important;
+  width: 1rem !important;
+  border-radius: 50%;
+  background: var(--bg) !important;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -.15rem;
 }

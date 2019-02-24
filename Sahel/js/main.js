@@ -23,19 +23,15 @@ function init () {
   });
   
   // create UI ELEMENTS
-  var fb = new filterBar("testid", "testcl", {cx:100, cy:100, width:300, height:20, x:200, y:200});   
-  
-  // $(function() {$( "#accordion" ).accordion();});
-
+  // var fb = new filterBar("testid", "testcl", {cx:100, cy:100, width:300, height:20, x:200, y:200});   
   
   appStateDecode();
   
-  var as = new accordionSelector(".navigation-menuUI", "accordion", ["Country", "Dataset", "Indicator"], null)
-  as.addItems("Country", ["test","this","thatasdfasdfasdfasdfasdfasdfasdfa"]);
-  as.addItems("Dataset", ["test", "that"]);
-  as.addItems("Indicator", ["test","this","that"]);
-  console.log(as.val());
-  test = as;
+  var headers = ["Country", "Dataset", "Indicator"];
+  var items = [["test","this","thatasdfasdfasdfasdfasdfasdfasdfa"],["test", "that"],["test","this","that"]];
+  
+  var sb = new sideBar(".navigation-menuUI", headers, items);
+  test = sb;
 }
 
 //////////

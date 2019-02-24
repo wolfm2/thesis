@@ -1,5 +1,10 @@
+:root {
+  --bg: #20262e; 
+  --fg: #cfd0d2;
+  --divider: #2d333b;
+}
 
 body { 
-  color: #cfd0d2;
-  background: #20262e;
+  color: var(--fg);
+  background: var(--bg);
 }
