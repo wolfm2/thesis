@@ -80,13 +80,11 @@ class filterBar {
 //~ }
 
 // grouping ö (none, group, dataset, only selected)
-// year filter
 // read real dataset
 // onclick indicatorname -> info
 // "similar to" menu
 // set
-// resize dropdown for largest text
-// selecting item from menu does not filter
+// bug: click on autocomplete string -> filter
 class accordionSelector {
   constructor(selector, id, headers) {
     this.id = id;
