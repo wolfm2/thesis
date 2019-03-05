@@ -126,6 +126,28 @@ ul.ui-autocomplete {
   border-radius: 25px;
 }
 
+.ui-slider-vertical {
+	width: 1rem;
+	height: 190px;
+	background: transparent;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.ui-slider-range {
+	border-top: 2px solid var(--fg) !important;
+	border-bottom: 2px solid var(--fg) !important;
+	width: 2rem !important;
+	transform: translateX(-.55rem);
+  background: transparent;
+  border-radius: 0%;
+}
+
+.range-vfilter {
+	color: var(--fg);
+  transform: rotate(-90deg) translateX(-10rem);
+}
+
 .ui-slider-handle {
   border: 3px solid !important;
   border-color: inherit !important;
@@ -137,3 +159,13 @@ ul.ui-autocomplete {
   -webkit-appearance: none;
   margin-top: -.15rem;
 }
+	
+#filter-container .ui-slider-handle {
+	opacity: .4;
+}
+
+#filter-container .ui-slider-handle:hover {
+	opacity:1;
+} 
+
+	
