@@ -170,9 +170,9 @@ class accordionSelector {
   }
 }
 
-var test;
 function addFilter() {
-	test = new filter("filter-container", "blorch", true, [2000, 2010]);
+	test0 = new filter("filter-container", "blorch", true, [2000, 2010]);
+	test1 = new filter("filter-container", "blah", true, [2000, 2010]);
 }
 
 class filter {

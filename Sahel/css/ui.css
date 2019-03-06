@@ -141,11 +141,13 @@ ul.ui-autocomplete {
 	transform: translateX(-.55rem);
   background: transparent;
   border-radius: 0%;
+	opacity: 0.4;
 }
 
 .range-vfilter {
 	color: var(--fg);
   transform: rotate(-90deg) translateX(-10rem);
+	opacity: 0.4;
 }
 
 .ui-slider-handle {
@@ -161,7 +163,8 @@ ul.ui-autocomplete {
 }
 	
 #filter-container .ui-slider-handle {
-	opacity: .4;
+	opacity: 0;
+	transform: translate(.3rem, -.1rem);
 }
 
 #filter-container .ui-slider-handle:hover {
