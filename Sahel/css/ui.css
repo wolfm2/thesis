@@ -1,12 +1,29 @@
-.containerUI {
+.containerUI, #filter-UI {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.headerUI {
+.headerUI, #filter-header-UI {
   grid-column: span 12; 
   border-bottom: 1px solid var(--divider);
 }
+
+#filter-header-UI {
+  border-top: 1px solid var(--divider);
+}
+
+#filter-UI:has(.filter-widgets-UI) {
+	content: "No Indicators Selected";
+}
+
+.filter-widgets-UI {
+	grid-column: span 1;
+}
+
+.filter-widgets-UI.lighterbg {
+	background: var(-lbg);
+}
+
 
 .navigation-menuUI {
   grid-column: span 2;
@@ -19,6 +36,10 @@
 
 .main-contentUI {
   grid-column: span 10;
+}
+
+#vis-UI {
+  height: 40%;
 }
 
 .footerUI {
@@ -119,6 +140,7 @@ ul.ui-autocomplete {
   display: none !important;
 }
 */
+
 .ui-slider-horizontal {
   width: 100%;
   height: 2.4px;
@@ -146,11 +168,23 @@ ul.ui-autocomplete {
 
 .range-vfilter {
 	color: var(--fg);
-  transform: rotate(-90deg) translateX(-10rem);
+  /* transform: rotate(-90deg) translateX(-10rem); */
 	opacity: 0.4;
+	overflow: hidden;
+	width: 3rem;
 }
 
-.ui-slider-handle {
+
+
+.filter-widgets-UI .ui-slider-vertical {
+	transform:	translateX(1rem);
+} 
+
+.filter-widgets-UI:nth-child(even), .ui-darken {
+	filter: brightness(60%);
+} 
+
+.filter-widgets-UI .ui-slider-handle {
   border: 3px solid !important;
   border-color: inherit !important;
   height: 1rem !important;
@@ -162,12 +196,12 @@ ul.ui-autocomplete {
   margin-top: -.15rem;
 }
 	
-#filter-container .ui-slider-handle {
+.filter-widgets-UI .ui-slider-handle {
 	opacity: 0;
 	transform: translate(.3rem, -.1rem);
 }
 
-#filter-container .ui-slider-handle:hover {
+.filter-widgets-UI .ui-slider-handle:hover {
 	opacity:1;
 } 
 

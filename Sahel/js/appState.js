@@ -18,14 +18,6 @@ function appStateRegister(id, that) {
 
 // create state encoded for URI
 function appStateEncode() {
-  //~ var state = [{version:0.01}];
-  
-  //~ stateCallbacks.forEach(function (o) {
-    //~ state.push({id:o["id"], state:o["that"].val()});
-  //~ });
-  
-  //~ var opts = encodeURI(JSON.stringify(state));
-  //~ console.log(window.location.href.match(/^[^\#\?]+/)[0] + "?state=" + opts);
   var state = {};
   state['version'] = version;
   
@@ -40,14 +32,12 @@ function appStateEncode() {
 // decode state from URI
 function appStateDecode() {
   var state = JSON.parse($.urlParam("state"));
-  if (state != null)
+  if (state != null) {
 		stateCallbacks.forEach(function (o) {
 			o["that"].val(state[o["id"]]);
 		});
-    //~ state.forEach((d) => {
-      //~ if (d.version != null)
-        //~ version = d.version;
-      //~ else
-        //~ stateChange(version, d.id, d.state);
-      //~ });
+		stateCallbacks.forEach(function (o) {
+			o["that"].val(state[o["id"]]);
+		});
+	}
 }

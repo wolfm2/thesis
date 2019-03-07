@@ -1,18 +1,28 @@
 // TODO
 
+// APPSTATE:
 // warn about adding same id twice
 // warn about bad state versions
 // state version logic
+// VAL GETS BACK NAME OF ELEMENT
+// DOUBLE CALL TO DECODE because selectors CREATE filters
 
-// ACCORDION SELECTOR
-// grouping ö (none, group, dataset, only selected)
+//~ var popUpHandle = window.open();
+//~ popUpHandle.document.body.append("test")
+//~ popUpHandle.jQuery("#filter-header-UI").html("sdf")
+//~ popUpHandle.document["test"] = 123
+
+// ACCORDION SELECTOR:
+// grouping (none, group, dataset, only selected)
 // onclick indicatorname -> info
 // "similar to" menu
 // bug: click on autocomplete string -> filter
 
-// Filters
-// categorical
-// range
+// FILTERS:
+// categorical: cant do.  assuming all countries in dataset selected
+// for "country" only: could turn on and off through vis
+// set info
+// val
 
 var version = 0.01;
 var svg;
@@ -35,31 +45,25 @@ displayDatasetNames = {
 };
 
 function dataInit (rows) {
-  // create UI ELEMENTS
-  // var fb = new filterBar("testid", "testcl", {cx:100, cy:100, width:300, height:20, x:200, y:200});   
-  
-  //~ var headers = ["Dataset", "Country", "Indicator"];
-  //~ var countries = Object.values(d3.set(rows, function(d) {return d.Country}));
-  //~ var keys = Object.keys(rows[0]);
-  //~ var items = [[displayDatasetNames[JSON.stringify(keys)]],
-							//~ countries,
-							//~ keys.filter(ind => ind !== 'Country' && ind !== 'Year')]; // remove all Country and Year indicators from view
-							
+	
   var keys = Object.keys(rows[0]);
   var headers = [displayDatasetNames[JSON.stringify(keys)]];
   // var countries = Object.values(d3.set(rows, function(d) {return d.Country}));
   // 
-  var items = [keys.filter(ind => ind !== 'Country' && ind !== 'Year')]; // remove all Country and Year indicators from view
+  var items = [keys.filter(ind => ind !== 'Country')]; // remove all Country and Year indicators from view
 
-  var yearRange = [d3.min(rows, function(d) { return d.Year; }), d3.max(rows, function(d) { return d.Year; })];
+  // var yearRange = [d3.min(rows, function(d) { return d.Year; }), d3.max(rows, function(d) { return d.Year; })];
   
-  var sb = new sideBar(".navigation-menuUI", headers, items, yearRange);
+  var sb = new sideBar(".navigation-menuUI", headers, items); // , yearRange
+  
+  $("#filter-UI").append("<div id='filter-filler-msg'>No&nbsp;Indicators&nbsp;Selected<div>");
   
   appStateDecode();
 }
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal
 
+var ds = new dataset;
 // each dataset is preprocessed to contain a country,year col and only the desired indicators
 // exceptions values can be Number for default number conversion or bespoke function
 var dsImportList = {"IIAG/MW-Sahel-4Indicators-2018_IIAG_RawData.csv":{														// list of all indicators
@@ -72,9 +76,7 @@ function init () {
     appStateEncode();
   });
   
-  $(".main-contentUI").append(`<div id="filter-container"></div>`);  // filter container
-  
-  dsImport(dsImportList, dataInit);
+  ds.init(dsImportList, dataInit); // init datasets
 }
 
 //////////

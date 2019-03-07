@@ -123,6 +123,7 @@ class accordionSelector {
 		// enable checkbox
 		$("#" + header + " .checkbox").click(function(){ 
 			$(this).toggleClass('checked'); 
+			updateFilters();
 		});
 		
 		// enable circle-x
@@ -167,59 +168,109 @@ class accordionSelector {
 				})
 			
 		}
+		updateFilters();
   }
 }
 
-function addFilter() {
-	test0 = new filter("filter-container", "blorch", true, [2000, 2010]);
-	test1 = new filter("filter-container", "blah", true, [2000, 2010]);
+function sliderChanged( e, ui, that ) {
+	var me = e==null?that:this;
+	var dset = $(me).attr('data-ds-name');
+	var ind = $(me).attr('data-ind-name');
+	
+	//var sliderId = $(this).attr("id");
+	//console.log(ui.values[0] + " - " + ui.values[1] + $(this).attr('id'));
+	var pre = ds.maxPrecision(dset, ind);  // TODO PASS maxPre into CB
+	if (pre > 2) pre = 2;
+	var low = ui.values[0].toFixed(pre);
+	var high = ui.values[1].toFixed(pre);
+	$("#filter-header-UI").html(`<span class="ui-darken">${dset}</span><b>:</b><span class="ui-darken">${ind}</span> ${low}<b> - </b>${high}`);
+}
+
+function updateFilters() {
+	// wrap and move one by one
+	$(".filter-widgets-UI").wrapAll("<div id='filter-oldwidgets-UI' /div>");
+	var state = {};
+  
+  stateCallbacks.forEach(function (o) {
+    state[o["id"]] = o["that"].val();
+  });
+  
+  var datasets = state.Selectors.accordion; // list of datasets
+  
+  Object.keys(datasets).forEach(d=>{
+		datasets[d].forEach(ind=>{
+			container = `#filter-oldwidgets-UI #${ind}-container`
+			if ( $(container).length == 0 ) {
+				var range = ds.minMax(d, ind);
+				var maxPre = ds.maxPrecision(d, ind);
+				new filter("filter-UI", "IIAG", ind, true, [range.min, range.max], maxPre);
+			} else
+				$(container).appendTo("#filter-UI");
+			});
+		});
+		
+	$("#filter-oldwidgets-UI").remove();
+	if ( $("#filter-UI:has('.filter-widgets-UI')").length == 0 ) // add message
+		$("#filter-UI").append("<div id='filter-filler-msg'>No&nbsp;Indicators&nbsp;Selected<div>");
+	else 
+		$("#filter-filler-msg").remove();
 }
 
 class filter {
-	constructor(containerId, indicatorName, isRange, values) {
+	constructor(containerId, datasetName, indicatorName, isRange, values, maxPre) {
+		appStateRegister(indicatorName, this);
 		if ( $("#" + containerId).length == 0) {
 			console.log(containerId + " does not exist.")
 		}
-		this.yearMin = values[0];
-		this.yearMax = values[1]
+		
+		this.min = values[0];
+		this.max = values[1]
 		this.sliderId = indicatorName;
-		// slider
+		// slider <div id="${this.sliderId}-amount">Years: </div>
     $("#" + containerId).append(`
-      <div id="${this.sliderId}-container">
-        <h6><div id="${this.sliderId}-amount">Years: </div></h6>
-        <div id="${this.sliderId}"></div>
+      <div id="${this.sliderId}-container" class="filter-widgets-UI">
+        <div id="${this.sliderId}" data-ds-name="${datasetName}" data-ind-name="${this.sliderId}"></div>
+        <div id="${this.sliderId}-label" class="range-vfilter"><h6>${this.sliderId}</h6></div>
       </div>
       `);
       
-    //~ <div id="rot" style="
-    //~ /* width: 90px; */
-    //~ color: red;
-    //~ transform: rotate(90deg);
-//~ ">test&nbsp;this&nbsp;is</div>
-  
-    $( `#${this.sliderId}-amount` ).html( "Years: " + this.yearMin + " - " + this.yearMax );
-    
+		if (maxPre == 0)
+		  var step = 1;
+		else 
+			var step = 10 ** (-1 * maxPre);
+    // var step = (this.max - this.min) / 100;
     $( `#${this.sliderId}` ).slider({
 			orientation: "vertical",
       parent: this,
+      step: step,
 			range: true,
-			min: this.yearMin,
-			max: this.yearMax,
-			values: [ this.yearMin, this.yearMax ],
-			slide: function( e, ui ) {
-				var sliderId = $(this).attr("id");
-				// $( `#${sliderId}-amount` ).html( "Years: " + ui.values[0] + " - " + ui.values[1] );
-        }
+			min: this.min,
+			max: this.max,
+			values: [ this.min, this.max ],
+			slide: sliderChanged
       }); 
     
+    $( `#${this.sliderId}` ).hover(e => {
+			var values = $(`#${this.sliderId}`).slider("values");
+			sliderChanged(null, {values}, $(`#${this.sliderId}`));
+			})
     // add label  
-    $("#" + this.sliderId).append(`<div id="${this.sliderId}-label" class="range-vfilter">tessdfsdfst&nbsp;this&nbsp;is</div>`)
+    // $("#" + this.sliderId).append(`<div id="${this.sliderId}-label" class="range-vfilter">tessdfsdfst&nbsp;this&nbsp;is</div>`)
 	}
+	
+	val(state) {
+		if (state == undefined) {
+			return {[this.sliderId]:$(`#${this.sliderId}`).slider("values")};
+		} else {
+			$( `#${this.sliderId}` ).slider("values", 0, state[this.sliderId][0]);
+			$( `#${this.sliderId}` ).slider("values", 1, state[this.sliderId][1]);
+		}
+  }
 }
 
 // sidebar
 class sideBar {
-  constructor(selector, headers, items, yearRange) {
+  constructor(selector, headers, items) { // , yearRange
     appStateRegister("Selectors", this);
     
     this.asId = "accordion";
@@ -228,46 +279,46 @@ class sideBar {
       this.as.addItems(d,items[i]);
       });
     
-    this.sliderId = "slider-year";
-    this.yearMin = yearRange[0];
-    this.yearMax = yearRange[1];
+    //~ this.sliderId = "slider-year";
+    //~ this.yearMin = yearRange[0];
+    //~ this.yearMax = yearRange[1];
     
-    // slider
-    $(".navigation-menuUI").append(`
-      <div id="${this.sliderId}-container">
-        <h6><div id="${this.sliderId}-amount">Years: </div></h6>
-        <div id="${this.sliderId}"></div>
-      </div>
-      `);
+    //~ // slider
+    //~ $(".navigation-menuUI").append(`
+      //~ <div id="${this.sliderId}-container">
+        //~ <h6><div id="${this.sliderId}-amount">Years: </div></h6>
+        //~ <div id="${this.sliderId}"></div>
+      //~ </div>
+      //~ `);
       
-    $( `#${this.sliderId}-amount` ).html( "Years: " + this.yearMin + " - " + this.yearMax );
+    //~ $( `#${this.sliderId}-amount` ).html( "Years: " + this.yearMin + " - " + this.yearMax );
     
-    $( `#${this.sliderId}` ).slider({
-      parent: this,
-        range: true,
-        min: this.yearMin,
-        max: this.yearMax,
-        values: [ this.yearMin, this.yearMax ],
-        slide: function( e, ui ) {
-					var sliderId = $(this).attr("id");
-          $( `#${sliderId}-amount` ).html( "Years: " + ui.values[0] + " - " + ui.values[1] );
-        }
-      }); 
+    //~ $( `#${this.sliderId}` ).slider({
+      //~ parent: this,
+        //~ range: true,
+        //~ min: this.yearMin,
+        //~ max: this.yearMax,
+        //~ values: [ this.yearMin, this.yearMax ],
+        //~ slide: function( e, ui ) {
+					//~ var sliderId = $(this).attr("id");
+          //~ $( `#${sliderId}-amount` ).html( "Years: " + ui.values[0] + " - " + ui.values[1] );
+        //~ }
+      //~ }); 
   }
   
   val(state) {
 		if (state == undefined) {
 			var val = $(`#${this.sliderId}`).slider("values");
-			this.yearMin = val[0];
-			this.yearMax = val[1];
-			return {[this.asId]:this.as.val(), year:{"low":this.yearMin, "high":this.yearMax}}; // WARNING [] usage might be unique to new browsers!
+			this.min = val[0];
+			this.max = val[1];
+			return {[this.asId]:this.as.val(), range:{"low":this.min, "high":this.max}}; // WARNING [] usage might be unique to new browsers!
 		} else {
 			// accordion state
 			this.as.val(state[this.asId]);
-			//year
-			$( `#${this.sliderId}` ).slider("values", 0, state.year.low);
-			$( `#${this.sliderId}` ).slider("values", 1, state.year.high);
-			$( `#${this.sliderId}-amount` ).html( "Years: " + state.year.low + " - " + state.year.high );
+			//~ //year
+			//~ $( `#${this.sliderId}` ).slider("values", 0, state.range.low);
+			//~ $( `#${this.sliderId}` ).slider("values", 1, state.range.high);
+			//~ $( `#${this.sliderId}-amount` ).html( "Years: " + state.range.low + " - " + state.range.high );
 		}
   }
 }
