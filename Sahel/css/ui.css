@@ -12,9 +12,11 @@
   border-top: 1px solid var(--divider);
 }
 
-#filter-UI:has(.filter-widgets-UI) {
-	content: "No Indicators Selected";
+/*
+#filter-UI {
+	height: 10rem;
 }
+*/
 
 .filter-widgets-UI {
 	grid-column: span 1;
@@ -39,7 +41,7 @@
 }
 
 #vis-UI {
-  height: 40%;
+  height: 65%;
 }
 
 .footerUI {
@@ -150,7 +152,7 @@ ul.ui-autocomplete {
 
 .ui-slider-vertical {
 	width: 1rem;
-	height: 190px;
+	height: 6rem;
 	background: transparent;
 	cursor: pointer;
 	border-radius: 5px;
