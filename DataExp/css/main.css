@@ -1,0 +1,11 @@
+:root {
+  --fg: #cfd0d2;
+  --bg: #20262e; 
+  --lbg: #101315;
+  --divider: #2d333b;
+}
+
+body { 
+  color: var(--fg);
+  background: var(--bg);
+}

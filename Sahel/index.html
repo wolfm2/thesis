@@ -7,55 +7,276 @@
     <title>Sahel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- 
-    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
-    <link rel="stylesheet" href="css/normalize.min.css">
--->
-   
     <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/jquery-ui-1.12.1.min.js"></script>
     
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/themes/smoothness/theme.css">
-<!--    // popup placement
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
--->
 
     <script src="lib/d3.v4.min.js"></script>
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="lib/bootstrap-4.0.0/bootstrap.min.js"></script>
-
-    <script src="js/appState.js"></script>
-    <script src="js/ui.js"></script>
+    
     <script src="js/datasets.js"></script>
     <script src="js/main.js"></script>
 
     <link rel="stylesheet" href="css/ui.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/typography.css">
+
   </head>
   
   <body>
-    <div class="containerUI">
-      <div class="headerUI"><h1>Sahel DB</h1></div>
-      <div class="navigation-menuUI"></div>
-      <div class="main-contentUI">...
-				<div id="vis-UI"></div>
-				<div id="filter-UI">
-					<div id="filter-header-UI">Indicators</div>
+
+	<div id="nav-circle"></div>
+	
+	<div id="sec-intro" class="section">
+		<h2>Sahel and the Sustainable Development Goals</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>
+			
+	<div id="sec-fragility" class="section">
+		<h2>What is Fragility?</h2>
+
+		
+		<div id="grid-outer" class="grid-container">
+			
+			<div id="vis-big" class="grid-item grid-vis">
+				<h5>Burkina Faso - Composite</h5>		
+				<iframe id="vis-ifs-lvl0-big" class="vis vis-star" src="addons/star" onload="frameInit(this)"></iframe>
+			</div>
+			
+			<div id="grid-inner" class="grid-container">
+				<div class="grid-item grid-title">
+					<h5>Burkina Faso</h5>
 				</div>
-      </div>
-      <div class="footerUI">...</div>
-    </div>
-  
-<!--
-      <p id="button">Click here</p>
-      <span id="main"></span>
--->
+				<div class="grid-item grid-title">
+					<h5>Cameroon</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Chad</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Gambia</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Guinea</h5>
+				</div>
+				
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-burkina_faso" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-cameroon" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-chad" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-gambia" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-guinea" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				
+				<div class="grid-item grid-title">
+					<h5>Mali</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Mauritania</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Niger</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Nigeria</h5>
+				</div>
+				<div class="grid-item grid-title">
+					<h5>Senegal</h5>
+				</div>
+				
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-mali" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-mauritania" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-niger" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-nigeria" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+				<div class="grid-item grid-vis">		
+					<iframe id="vis-ifs-lvl0-senegal" class="vis vis-star" src="addons/star"></iframe>
+				</div>
+			</div>
+		
+		</div>
+
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>			
+			
+			
+	<div id="sec-all-fragility" class="section">
+		<h2>The Fragile States Index Composite Indicators</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>			
+			
+	<div id="sec-fragility-by-country" class="section">
+		<h2>Indicators by Country</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>			
+			
+			
+	<div id="sec-violent-entrepreneurs" class="section">
+		<h2>Violent Entrepreneurs</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>			
+			
+			
+	<div id="sec-sdg-funding" class="section">
+		<h2>SDG Funding</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>			
+			
+			
+	<div id="sec-copenhagen" class="section">
+		<h2>Copenhagen Consensus Center</h2>
+		<div class="vis-container">
+			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+		</div>
+		<div class="vis-text">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			</p>
+			<p>
+				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			</p>
+			<p>
+				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			</p>
+			<p>
+				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			</p>
+		</div>
+	</div>		
+
   </body>
+  
+  <script src="js/addons.js"></script>
   
 </html>
 
-
+<!-- https://www.joomlashack.com/blog/tutorials/layering-items-within-css-grid/
+<div style="
+    position: absolute;
+    font-size: 40vh;
+    display: flex;
+    width: 90%;
+    height: 75%;
+    opacity: .02;
+    justify-content: center;
+    align-items: center;
+    "><div style="
+    /* width: 20vh; */
+    /* height: 20vh; */
+">2007
+    </div>
+</div>
+-->
 

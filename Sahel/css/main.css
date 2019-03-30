@@ -1,11 +1,10 @@
 :root {
-  --fg: #cfd0d2;
-  --bg: #20262e; 
-  --lbg: #101315;
-  --divider: #2d333b;
+  --fg: #1f1f1f;
+  --bg: #fafafa; 
 }
 
 body { 
   color: var(--fg);
   background: var(--bg);
+  margin: 0% 5% 0% 5%;
 }
