@@ -7,7 +7,7 @@
 // TODO
 // Create warnings log for all missing data. Eg: Mali does not have 2008
 
-// js version is crap
+// js version is crap 
 // significance formatter - does not enforce unneeded float zeros after float
 function maxSign(num, s) {
 	if (s == undefined) s = 2;
