@@ -7,10 +7,17 @@
 // TODO
 // Create warnings log for all missing data. Eg: Mali does not have 2008
 
+// js version is crap
+// significance formatter - does not enforce unneeded float zeros after float
+function maxSign(num, s) {
+	if (s == undefined) s = 2;
+	return (parseInt([num][0]*(1*(10**s)))/(10**s));
+}
+
 // pre-massage dataset, derive country and year, indicators from raw read
 // TODO: check if key exists rather than adding a default one only to overwrite it
 class dataset {
-	init (importList, dataInit) {
+	init (importList) {
 		this.names = {};
 		Object.keys(importList).forEach((path) => {
 			d3.csv("data/" + path, 
@@ -34,11 +41,20 @@ class dataset {
 					ds.names[dsName] = rows;
 					// console.log(rows);
 					// check errors
-					dataInit(rows);
+					ds.dataInit(rows);
 				});
 			});
 	}
 	
+	// callback from dataset reader object
+	dataInit (rows) {
+		
+		var keys = Object.keys(rows[0]);
+		var dataset_init = displayDatasetNames[JSON.stringify(keys)];
+		
+		dataset_init(rows); // call dataset specific handler
+	}
+
 	// get info on specific indicator
 	minMax (ds, ind) {
 		var rows = this.names[ds];

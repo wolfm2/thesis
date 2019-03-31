@@ -76,6 +76,11 @@
   grid-gap: 10px;
 }
 
+.ui-controls {
+	height: 2em;
+	padding: 0px 1em 0px 1em;
+}
+
 /*
 .containerUI, #filter-UI {
   display: grid;

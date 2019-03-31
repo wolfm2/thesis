@@ -25,7 +25,7 @@ body {
 
 <style>
 .radar-chart .area {
-  fill-opacity: 0.7;
+  fill-opacity: 0.5;
 }
 .radar-chart.focus .area {
   fill-opacity: 0.3;
@@ -51,7 +51,7 @@ body {
 <script src="lib/radar-chart.js"></script>
 
 <script>
-RadarChart.defaultConfig.color = function() {};
+RadarChart.defaultConfig.color = function() {return "#ff0055"};
 RadarChart.defaultConfig.radius = 3;
 RadarChart.defaultConfig.w = 400;
 RadarChart.defaultConfig.h = 400;
@@ -80,7 +80,9 @@ function render() {
   star.enter().append('g').classed('star', 1);
   star
     .call(chart);
+    
+  d3.selectAll(".axis line").attr("stroke-dasharray", "5,5");
+  d3.selectAll(".axis line").style("stroke-width", "3px");  
 }
 
-d3.selectAll(".axis line").attr("stroke-dasharray", "5,5");
 </script>
