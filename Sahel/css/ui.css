@@ -11,6 +11,7 @@
 	transform-origin: top left;
 }
 
+/* ADDONS */
 .vis {
 	border-width: 0px;
 	transform-origin: top left;
@@ -19,6 +20,41 @@
 	hheight: 100%;
 }
 
+/* SDGs */
+#sdg-grid-outer {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 10px;
+  height: 47vh;
+}
+
+#sdg-grid-outer #vis-big {
+  display: inline-grid;
+  height: inherit;
+	grid-area: 1/2;
+}
+
+#sdg-grid-outer #vis-big-txt {
+	grid-area: 1/2;
+}
+
+#sdg-grid-outer #vis-big img{
+  height: inherit;
+}
+
+#sdg-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 5px;
+  justify-items: center;
+	grid-area: 1/1;
+}
+
+.sdg-img img{
+	height: 15vh;
+}
+
+/* STAR */
 .grid-title {
 	text-align: center;
 }
@@ -33,31 +69,6 @@
 
 #grid-inner .grid-vis {
 	height: 30vh;
-}
-
-/*
-.vis-container {
-	width: 100%;
-	height: 200px;
-	margin: 20px 0px 20px 0px;
-}
-*/
-
-.vis-text {
-	margin: 20px 0px 20px 0px;
-	column-count: 2;
-  column-gap: 40px;
-	column-rule-style: solid;
-  column-rule-width: 1px;
-  column-rule-color: lightblue;
-}
-
-.vis-text p:first-child:first-letter {
-    float: left;
-    font-size: 30px;
-    line-height: 1;
-    font-weight: bold;
-    margin-right: 9px;
 }
 
 #sec-fragility #grid-outer {
@@ -76,6 +87,25 @@
   grid-gap: 10px;
 }
 
+/* TEXT COPY */
+.vis-text {
+	margin: 20px 0px 20px 0px;
+	column-count: 2;
+  column-gap: 40px;
+	column-rule-style: solid;
+  column-rule-width: 1px;
+  column-rule-color: lightblue;
+}
+
+.vis-text p:first-child:first-letter {
+    float: left;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: bold;
+    margin-right: 9px;
+}
+
+/* CONTROLS */
 .ui-controls {
 	height: 2em;
 	padding: 0px 1em 0px 1em;

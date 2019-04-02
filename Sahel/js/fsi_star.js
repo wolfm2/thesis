@@ -50,7 +50,7 @@ function fsi_star_cb(t,isSmall) {
 		$("#vis-big-title").html(`${FSI.bigCountry} - ${FSI.bigIsComposite?"Composite":"Individual"}`);
 		var d = FSI.data.filter(d => {return (d.Year == FSI.yearCur && d.Country == FSI.bigCountry)})[0];
 		iC.RadarChart.defaultConfig.color = function() {return "#7fcdbb"};
-		iC.chart.config({factor: .75, maxValue: FSI.dataMax, minValue: FSI.dataMin});		
+		iC.chart.config({factor: .75, maxValue: FSI.dataMax, minValue: FSI.dataMin, radius: 6});		
 		
 		$("#grid-inner-bg").html(FSI.yearCur); // Update year
 	}
@@ -63,9 +63,9 @@ function fsi_star_cb(t,isSmall) {
 	var starData = [{
 		className: FSI.bigCountry,
 		axes: [
-			{axis: "Cohesion", value: maxSign(cohesion)}, //xOffset: -20   does not work
+			{axis: "Cohesion", value: maxSign(cohesion), yOffset: 15}, //xOffset: -20   does not work
 			{axis: "Economic", value: maxSign(economic)}, 
-			{axis: "Political", value: maxSign(political)},  
+			{axis: "Political", value: maxSign(political), yOffset: -15},  
 			{axis: "Social", value: maxSign(social)},  
 		]
 	}];
@@ -99,14 +99,20 @@ function FSI_init(rows) {
 	FSI.yearMin = d3.min(rows, d => {return d["Year"]});
 	FSI.yearMax = d3.max(rows, d => {return d["Year"]});
 	FSI.yearCur = FSI.yearMax;
-	FSI.bigCountry = sahelNames[0];
+	FSI.bigCountry = "Mali"; // sahelNames[0];
   
   // create rank color ramp
-  var rankColors = ["#FF0000", "#FFFF00", "#00FF00"];
+  //~ var rankColors = ["#FF0000", "#FFFF00", "#00FF00"];
 
-	FSI.rankColor = d3.scaleLinear()
-		.domain(d3.range(1, 180, 180.0 / rankColors.length))
-		.range(rankColors);
+	//~ FSI.rankColor = d3.scaleLinear()
+		//~ .domain(d3.range(1, 180, 180.0 / rankColors.length))
+		//~ .range(rankColors);
+  
+  //~ FSI.rankColor = d3.scaleSequential(d3.interpolateLab("#FF0000", "#00FF00"))
+    //~ .domain([1, 180])
+  
+  FSI.rankColor = d3.scaleSequential(d3.interpolateHsl("#FF0000", "#00FF00"))
+    .domain([1, 180])
   
   // create big data structure - chop off floating point
 	$("#grid-inner").append(`

@@ -1,8 +1,9 @@
 // TODO
 // send THIS to read csv / get rid of ds in class, displayDatasetNames
+
 // FSI STAR
-// popup font
-// transitionDuration
+// popup font, average FSI.minData
+
 // ATTRIBUTIONS
 // WDI, FSI, FONTAWSOME, Pauline, text citations
 // attrib and link to https://fontawesome.com/license
@@ -46,5 +47,6 @@ var dsImportList = {				// list of all indicators
 // MAIN //
 //////////
 $(document).ready(function() {  
+	sdg_init();
   ds.init(dsImportList); // init datasets
 });
