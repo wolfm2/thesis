@@ -1,6 +1,9 @@
 // TODO
 // send THIS to read csv / get rid of ds in class, displayDatasetNames
 
+// SDG
+// Select specific sdgs
+
 // FSI STAR
 // popup font, average FSI.minData
 
@@ -9,6 +12,14 @@
 // attrib and link to https://fontawesome.com/license
 
 sahelNames = ["Burkina Faso", "Cameroon", "Chad", "Gambia", "Guinea", "Mali", "Mauritania", "Niger", "Nigeria", "Senegal"];
+
+// returns a range in array form
+function range(start, end) {
+	var offset = 0;
+	if (start != 0) offset = start;
+	return Array.from({length: end-start+1}, (v, k) => k+offset);
+}
+Array.from({length: FSI.yearMax-FSI.yearMin+1}, (v, k) => k+FSI.yearMin)
 
 function IIAG_init(rows) {
 	console.log("IIAG");

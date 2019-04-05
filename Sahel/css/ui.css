@@ -1,3 +1,8 @@
+.hidden {
+	opacity: 0;
+	z-index: -5;
+}
+
 .section {
 	padding: 90px 0px 90px 0px;
 }
@@ -21,38 +26,72 @@
 }
 
 /* SDGs */
+/*
 #sdg-grid-outer {
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 10px;
   height: 47vh;
 }
+*/
 
+/*
 #sdg-grid-outer #vis-big {
   display: inline-grid;
   height: inherit;
 	grid-area: 1/2;
 }
+*/
 
+/*
 #sdg-grid-outer #vis-big-txt {
 	grid-area: 1/2;
 }
+*/
 
+/*
 #sdg-grid-outer #vis-big img{
   height: inherit;
 }
+*/
 
-#sdg-grid-inner {
+#sdg-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 5px;
   justify-items: center;
 	grid-area: 1/1;
+	width: fit-content;
+	margin: auto;
 }
 
 .sdg-img img{
 	height: 15vh;
 }
+
+#sdg-txt-container {
+  z-index: 2;
+  width: 100%; 
+  grid-area: 1/1/4/7;
+}
+
+#sdg-txt {
+	color: white;
+	font-size: 2rem;
+	margin: 10px;
+}
+
+#sdg-txt-target {
+	width: 30vw;
+	margin: auto
+}
+
+#sdg-back, #sdg-frwd {
+	height: 3rem;
+	padding: 0px 0px 0px 5px;
+	filter: invert(100%);
+}
+
 
 /* STAR */
 .grid-title {
@@ -71,6 +110,10 @@
 	height: 30vh;
 }
 
+#grid-inner .grid-item  {
+	transition:opacity .2s linear;
+}
+
 #sec-fragility #grid-outer {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -85,6 +128,21 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
+}
+
+#fsi-star-year-bg {
+	grid-area: 1/1/5/6;
+	justify-self: center;
+	align-self: center;
+	opacity: .02;
+	font-size: 40vh;
+}
+
+#fsi-star-individual-bg {
+	grid-area: 1/1/5/6;
+	justify-self: center;
+	align-self: center;
+	transition:opacity .2s linear;
 }
 
 /* TEXT COPY */

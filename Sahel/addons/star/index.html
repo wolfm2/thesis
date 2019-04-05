@@ -68,6 +68,12 @@ var svg = d3.select('body').append('svg')
   .attr('width', cfg.w)
   .attr('height', cfg.h);
 
+// mw
+var mw = {}
+mw.mouseoverFcn = function(d) {console.log(d3.select(this).html())}
+mw.mouseoutFcn = function(d) {}
+
+
 //chart.config({w: cfg.w / 4, h: cfg.h / 4, axisText: false, levels: 0, circles: false});
 // chart.config({factor: .85});
 
@@ -83,6 +89,10 @@ function render() {
     
   d3.selectAll(".axis line").attr("stroke-dasharray", "5,5");
   d3.selectAll(".axis line").style("stroke-width", "3px");  
+	d3.selectAll(".legend").on("mouseover", mw.mouseoverFcn); 
+	d3.selectAll(".legend").on("mouseout", mw.mouseoutFcn);
+	
 }
+
 
 </script>

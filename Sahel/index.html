@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="lib/bootstrap-4.0.0/bootstrap.min.js"></script>
     
+    <script src="lib/Chart.bundle.min.js"></script>
+		<script src="lib/chartjs-plugin-colorschemes.min.js"></script>
+		<script src="lib/chartjs-plugin-annotation.min.js"></script>
+    
     <link rel="stylesheet" href="css/ui.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/typography.css">
@@ -34,11 +38,15 @@
 <!--
 			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
 -->
-			<div id="sdg-grid-outer" class="grid-container">
-				<div id="sdg-grid-inner" class="grid-container"></div>
-				<div id="vis-big-txt">CONTENT</div>
-				<div id="vis-big"><img src="img/SDG/E_SDG_goals_icons-rgb-18.jpg"></div>
+			<div id="sdg-grid" class="grid-container">
+				<div id="sdg-txt-container">
+				  <div id="sdg-txt"></div>
+				</div>
 			</div>
+			<center><div>
+				<img id="sdg-back" class="ui-controls" src="img/angle-left-solid.svg">
+				<img id="sdg-frwd" class="ui-controls" src="img/angle-right-solid.svg">
+			</div></center>
 		</div>
 		<div class="vis-text">
 			<p>
@@ -70,13 +78,8 @@
 			<div id="grid-inner" class="grid-container">
 				
 				<!-- https://www.joomlashack.com/blog/tutorials/layering-items-within-css-grid/-->
-				<div id="grid-inner-bg" style="
-					grid-area: 1/1/5/6;
-					justify-self: center;
-					align-self: center;
-					opacity: .02;
-					font-size: 40vh;
-					"></div>
+				<div id="fsi-star-year-bg"></div>
+				<canvas id="fsi-star-individual-bg" class="hidden"></canvas>
 
 			</div>
 		</div>
@@ -109,7 +112,7 @@
 	<div id="sec-all-fragility" class="section">
 		<h2>The Fragile States Index Composite Indicators</h2>
 		<div class="vis-container">
-			<iframe id="vis-intro" class="vis" src="/addons/country"></iframe>
+			<iframe id="vis-test" class="vis" src="https:/Sahel/addons/country" data-src="Sahel/addons/country"></iframe>
 		</div>
 		<div class="vis-text">
 			<p>
@@ -216,6 +219,7 @@
 
   </body>
   
+  <script src="js/constants.js"></script>
   <script src="js/addons.js"></script>
   <script src="js/sdg.js"></script>
   <script src="js/fsi_star.js"></script>
