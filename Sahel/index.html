@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/themes/smoothness/theme.css">
 
     <script src="lib/d3.v4.min.js"></script>
+		<script src="lib/topojson.js"></script>
+		<script src="lib/datamaps.world.js"></script>
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="lib/bootstrap-4.0.0/bootstrap.min.js"></script>
@@ -30,49 +32,119 @@
   
   <body>
 
-	<div id="nav-circle"></div>
-	
-	<div id="sec-intro" class="section">
-		<h2>Sahel and the Sustainable Development Goals</h2>
-		<div class="vis-container">
-<!--
-			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
--->
-			<div id="sdg-grid" class="grid-container">
-				<div id="sdg-txt-container">
-				  <div id="sdg-txt"></div>
-				</div>
-			</div>
-			<center><div>
-				<img id="sdg-back" class="ui-controls" src="img/angle-left-solid.svg">
-				<img id="sdg-frwd" class="ui-controls" src="img/angle-right-solid.svg">
-			</div></center>
-		</div>
-		<div class="vis-text">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
-			</p>
-			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
-			</p>
-			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
-			</p>
-			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
-			</p>
+	<div id="sec-title">
+		<div id="text">
+			<h1>Sahel and the Sustainable Development Goals</h1>
+			<h2>An Interactive Companion to...</h2>
 		</div>
 	</div>
 			
+
+	<div id="sec-indicators-by-country" class="section">
+		<h2>What is the Sahel and why is it considered fragile?</h2>
+		<div class="vis-container">
+			<canvas id="indicators"></canvas>
+			<span>Climate</span>
+			<span>Economies</span>
+			<span>Politics</span>
+			<span>Population</span>
+<!--
+			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
+-->
+		</div>
+		<div class="vis-text">
+			<p>
+			From an ecological perspective Sahel, is a strip running around 4800 miles coast to coast in the top middle section of Africa. The region ranges in width between approximately 100 miles 2 almost 400 miles high end encompasses some 1 million square miles of arid and semi-arid grasslands. a point of clarification, various multilateral organizations may operationalize distinct definitions of what nations constitute the Sahel. As I am featuring the Sustainable Development Goals later in this page, it makes sense to use the definition agreed on by the same stakeholder multilateral organizations. For them, the Sahel is composed of 10 different sovereign states. They include: Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal.
+			</p>
+			<p>
+				<b>Climate</b>
+				<p>
+				This Western area of the Sahel is largely subject to, and dependent on the rains of the yearly monsoon. The warming of the land encourages the flow a humidity from the ocean and the potential of rain which typically arrives typically between July through August. Many crops although reasonably resilient are still functioning in the upper bounds of their limitations. In this way even small variances in rainfall to have far-ranging effects since it is estimated that 70% of the region relies on the rain to survive. since the 1950s the region has experienced rainfall instability postulated to at least in part be the result of increase climate change precipitating technologies leading to an increase in density of air particulates. in the more than two decades spanning from 1970 to 1993, 20 years of drought were experienced regionally. Since this point the weather has been harder to forecast with what years followed by extremely dry ones making forecasting and agricultural planning extremely difficult.
+				</p>
+				Climatologists have worried that this instability could lead to a circular chain of events where when the land has less vegetation on it it will reflect more sunlight. This would in turn diminish the temperature difference between the land and the sea and in so doing we can the drawing in of humid are so crucial to a healthy monsoon. Additionally, experts agree that this process has been exacerbated by poor farming techniques, overgrazing, lack of a coherent and regional environmental policy, and deforestation.
+				<p>				
+				The situation was made dramatically worse in 2010 when the entire region was affected by a massive heat wave and drought. Temperatures spiked beyond 120F in some towns during this period. As a result crop yields were massively slashed as well as similar numbers for livestock production. Lake Chad a key water reservoir serving populations of more than 20 million people in Cameroon, Chad, Niger, and Nigeria has over the last 40 years seen its water availability shrink by 90%. Due to unsustainable water extraction and the current climate experts suggest the lake is unlikely to ever return to its previous levels without human intervention. 
+				</p>
+			</p>
+			<p>
+				<b>Economies</b>
+				<P>
+					Closely related to climate is the damaged the monsoon instability had on the Sahel regions employment numbers. across the entire region agriculture is the largest employer. It is estimated to contribute as much as 45% of the GDP of some countries in the region.
+				</P>
+				<P>
+					Also, between 2007 and 2008 world markets experienced searching food prices as a result of the deprecation of the US dollar, market speculation, and other contributors. The effects of this were disproportionately felt by the world's poor populations. In the Sahara where some countries have household expenditures ranging between 40% and 70% devoted for food purchasing, the effects were severe. By one estimate in Burkina Faso, prices for millet rose 40% between 2007 and 2008. in the aftermath of the price spike, as trading stabilized for much of the first world, prices in much of the developing world including the Sahel remained high regardless.
+				</P>
+			</p>
+			<p>
+				<b>Politics</b>
+				<P>
+					As with Mali a reduced capacity to provide services and protections challenged the legitimacy of many states in the Sahel region. Opportunists and terrorists alike leveraged the regional porosity of borders which the United Nations Office for Drugs and Crime reports has generated 3.8 billion annually throughout the Sahel while relying on the propagation of illicit products from criminal networks and drug traffickers.
+				</P>
+			</p>
+			<p>
+				<b>Population</b>
+				<p>
+					Numbers for the Sahel can sometimes be difficult to estimate due to spotty local reporting, the fact that the Sahel is not delineated by state boundaries, and the presence of large numbers of nomadic pastoralists. That said, excluding northern Nigeria between 1950 and 2010 populations are reported to have more than tripled, exceeding more than a hundred million people in total.
+				</p>
+				<p>
+					A burgeoning youth demographic saw countries like Burkina Faso hit a population median age of just 17 years, in comparison with 37.2 years for the United States. This situation further disrupted already stressed education services,  job markets, and food supplies. Across most of the region fertility rates remain high while child mortality rates have sunk. Forms of family planning are not incentivized and education programs, while some exist, must contend with underfunded research initiatives and an inability to generate and roll out new programs. This impacts most notably the use of contraception which rates among the lowest in the world. 
+				</p>
+				<p>
+					From the perspective of the UN, sustainable development is defined as one that does not impair the livelihoods of future generations. While proponents of this idea would suggest that curbing population growth is central to the concept of stability the region, it is not expected to achieve zero population growth before 2100.
+				</p>
+			</p>	
+			<p>
+				When trying to understand the regional multilateral initiatives and the nature of the long-standing and pervasive problems in the Sahel and how they abetted in the formation of the current crisis it is useful to understand what is meant by state fragility. Arguably, the role of the state is also in part to provide unified and codified services to its citizens thus protecting them from environmental, political, economic shocks and other forms of destabilizing influences. If this can be assumed to be true, then the legitimacy of a state can therefore be defined in part as the state's ability to provide social services such as sanitation, food, water, health, and education in addition to supporting markets where goods can be bought and sold and, perhaps most importantly for the state, taxed.  
+			</p>
+			<p>
+				Essential concepts such as fragility and its correlates are featured centrally by most every multilateral research, action and or policy creation organization such as the IMF, World Bank, United Nations, G5 Sahel, Sahel Alliance et. al. when assessing a country's progress or aid requirements.  It would be useful for an idea central to much of their rhetoric to have an agreed-upon and common-use definition or, failing this, an explicit contextual note when an organization chooses to attenuate, or expand on a generally available definition.  It is unfortunate that, for the purposes of this discussion, neither exist.  Regardless, since whole initiatives are rarely the exclusive uncoordinated effort of a single organization, and bodies such as the Sahel Alliance, whose stated objectives include facilitating such coordination, exist, it would be most useful to establish an equally general and acceptable cross-organizational notion of fragility. 
+			</p>
+			<p>
+				TODO: Add PH about above exemplar indicators and how they suggest fragility
+			</p>
+		</div>
+	</div>	
+			
+	  <style>
+    .active { fill: blue !important;}
+		#container1 {
+			padding-bottom: 0px !important;
+		}
+	</style>		
+	<div id="sec-violent-entrepreneurs" class="section">
+		<h2>How have "violent entrepreneurs" contributed to the fragility of the region?</h2>
+		<div class="vis-container">
+			<div id="container1" style="border:1px dotted blue; width: 700px; height: 350px; position: relative;"></div>
+
+<!--
+			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
+-->
+		</div>
+		<div class="vis-text">
+			<p>
+				The Armed Conflict Location and Event Data (ACLED) project has created and maintains a trusted, free to use, data set that catalogs "dates actors type of violence locations and fatalities of all reported political violence and protest" in Africa and around the world. Additionally, they author an annual report which encourages stakeholders to learn about crucial conflicts which are often underreported in popular media. most recently in their "Ten Conflicts to Worry About in 2019"  the Sahel region was singled out and brought to the fore as being "most likely  to be the geopolitical Dilemma of 2019"
+			</p>
+			<p>
+				Among other countries the report focuses on the Resurgence of militant activity and conflict in Mali as well as the increasing activities of community-based militias and farmer and herder conflicts which are often involve issues such as access to resources and selectively favorable government policy.			</p>
+			<p>
+			Particularly the terrorists in the area present new challenges to governance in that their activities are not always demarcated by national borders.  The Islamic State for its part expressly asserts that they do not wish to govern within borders, instead asserting that their their sovereignty of the caliphate is bounded only by those who accept the bayat (pledge) which includes all believers in all countries wherever they might reside. In creating a unified identity for followers of Islam they have become centrally inspirational to their following.  This gave rise to the phenomena of the transnational fighter who was formed "from the junction between globalised communications/transportation technology and violent dynamics".
+			</p>
+			<p>
+			Up to about six years ago their presence within these fighting forces was seen as simply anomalous. In fact, it wasn't until around 2013 that a term for transnationally mobilized fighters even came into the discourse in political science literature making the phenomena even more difficult to study. Subsequent to this, it has been determined that these selfsame fighters are responsible for greater degrees of violence making those organizations that employ them disproportionately successful. Regionally this has supported the rise of so-called mezzanine rulers who, in collapsed States or States suffering from legitimacy problems and accompanying governance vacuums, endeavor to inject themselves between the government and the people by providing sporadic governance and services.
+			</p>
+		</div>
+	</div>	
+	
+			
 	<div id="sec-fragility" class="section">
-		<h2>What is Fragility?</h2>
+		<h2>Fragile States Index: One methodology for codifying fragility.</h2>
 
 		
 		<div id="grid-outer" class="grid-container">
 			
 			<div id="vis-big" class="grid-item grid-vis">
 				<h5 id="vis-big-title" ></h5>		
-				<iframe id="vis-ifs-lvl0-big" class="vis vis-star" src="https:/thesis/Sahel/addons/star/" onload="fsi_star_cb(this,false)"></iframe>
+				<iframe id="vis-ifs-lvl0-big" class="vis vis-star" src="http:/thesis/Sahel/addons/star/" onload="fsi_star_cb(this,false)"></iframe>
 			</div>
 			
 			<div id="grid-inner" class="grid-container">
@@ -94,50 +166,48 @@
 		
 		<div class="vis-text">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+				In an effort to avoid the potentially problematic and, at times, vertically siloed definition provided by the World Bank it is instructive here to return the focus to the Fund for Peace(FFP).  As mentioned, the FFP is a purveyor of methodologies and data for the assessment of a very well-articulated list of different modes of state fragility. It is particularly germane to the discussion at this point in that, while generating indices that could be thought to be analogs to those existing at the World Bank, the Fund for Peace indicators more commonly known as the Fragile States Index (FSI) are referred to in the work of most of the aforementioned multilateral organizations.  
 			</p>
 			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+				The Fragile States Index is divided into four major rubrics. They are cohesion, economic, political, and lastly social and cross-cutting indicators (CAST).  That is an enumeration of various social, economic, and political pressures faced by a country.  It is worth noting here that even the FFP asserts that their indicators are non-exhaustive and are "intended only as an entry point for further interpretive analysis by the user".
 			</p>
 			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+				<b>Cohesion</b><br>
+				The cohesion indicator focuses on how power is leveraged to potentially disenfranchise a population and contribute to perceived state legitimacy.  It measures violence and force in a multiplicity of forms. Most useful for this discussion is an account of militias a police force or military attempting to overthrow a rightful government, or a government or using the same to repress a population or proponents of a competing political party.  Acts of terror, banditry and vigilantism of course covered as well as criminality both organized and not, making it extremely relevant for measuring the effect of the illicit trade within the Sahel.
+			</p>
+				<b>Economic</b><br>
+				The economic indicator is a composite of themes which in their most general sense are assays of the overall tendency of the market for the last year but also takes into account other less direct phenomena. As might be expected, GDP and public sector debt figure centrally.  Additionally, measures of inflation and interest rates, employment numbers, and confidence levels both from trained economist and the citizenry.
+			<p>
+				<b>Political</b><br>
+				The political domain externally quantifies state legitimacy, with regards to service and infrastructural equity, and access to a common rule of law. Purporting to assiduously avoid evaluating legitimacy in terms of democratic ideals, legitimacy is divided into one of two buckets. In the first come concepts of electoral veracity. Are elections orderly and do they reflect the will of the people or are only a select few encouraged to vote, while others find it unreasonably difficult to do so or engage in boycotts? Do transitions in government take place at all and, if not, are those in power representative of their populations? Are those in power administrating in a transparent fashion or is political capital fortified and solidified by endemic types of corruption such as nepotism, oligarchies, end embezzlement? Public confidence in these institutions and methodologies of course relevant here as well as manifestations of the converse such as sustained protests, acts of civil disobedience and at the extreme end, the rise of insurgencies that may hope to disrupt governance processes.
 			</p>
 			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+				<b>Social &amp; Cross Cutting</b><br>
+				The first component of this indicator is a measure of demographic pressures which is further subdivided into one of two forms; pressures from the citizenry and from geography. While the first considers issues such as population explosions resulting in a large youth demographic, or sustainable population growth with regards to available resources, the letter quantifies what this paper has formally referred "shocks" and will for the purposes of the Sahel analysis be used to explore the result of large scale environmental disruptions such as the region-wide drought.
 			</p>
 		</div>
-	</div>			
+	</div>							
 			
-			
-	<div id="sec-all-fragility" class="section">
-		<h2>The Fragile States Index Composite Indicators</h2>
+	
+	<div id="sec-sdg" class="section">
+		<h2>What are the Sustainable Development Goals?</h2>
 		<div class="vis-container">
-			<iframe id="vis-test" class="vis" src="https:/thesis/Sahel/addons/country/" data-src="Sahel/addons/country"></iframe>
-		</div>
-		<div class="vis-text">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
-			</p>
-			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
-			</p>
-			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
-			</p>
-			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
-			</p>
-		</div>
-	</div>			
-			
-	<div id="sec-fragility-by-country" class="section">
-		<h2>Indicators by Country</h2>
-		<div class="vis-container">
+<!--
 			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+-->
+			<div id="sdg-grid" class="grid-container">
+				<div id="sdg-txt-container">
+				  <div id="sdg-txt"></div>
+				</div>
+			</div>
+			<center><div>
+				<img id="sdg-back" class="ui-controls" src="img/angle-left-solid.svg">
+				<img id="sdg-frwd" class="ui-controls" src="img/angle-right-solid.svg">
+			</div></center>
 		</div>
 		<div class="vis-text">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+				When trying to understand the regional multilateral initiatives and the nature of the long-standing and pervasive problems in the Sahel and how they abetted in the formation of the current crisis it is useful to understand what is meant by state fragility. Arguably, the role of the state is also in part to provide unified and codified services to its citizens thus protecting them from environmental, political, economic shocks and other forms of destabilizing influences. If this can be assumed to be true, then the legitimacy of a state can therefore be defined in part as the state's ability to provide social services such as sanitation, food, water, health, and education in addition to supporting markets where goods can be bought and sold and, perhaps most importantly for the state, taxed.  
 			</p>
 			<p>
 				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
@@ -149,82 +219,54 @@
 				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
 			</p>
 		</div>
-	</div>			
-			
-			
-	<div id="sec-violent-entrepreneurs" class="section">
-		<h2>Violent Entrepreneurs</h2>
-		<div class="vis-container">
-			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
-		</div>
-		<div class="vis-text">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
-			</p>
-			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
-			</p>
-			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
-			</p>
-			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
-			</p>
-		</div>
-	</div>			
-			
+	</div>
+	
 			
 	<div id="sec-sdg-funding" class="section">
-		<h2>SDG Funding</h2>
+		<h2>SDG Progress</h2>
 		<div class="vis-container">
-			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+			<canvas id="indicators"></canvas>
 		</div>
 		<div class="vis-text">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+				FROM Sahel SUPPORT PLAN:  What they say they say they hae accomplished 
 			</p>
 			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+				and failed at	
 			</p>
 			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
-			</p>
-			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+				illustrated by indicators
 			</p>
 		</div>
 	</div>			
 			
 			
 	<div id="sec-copenhagen" class="section">
-		<h2>Copenhagen Consensus Center</h2>
+		<h2>Making the SDGs more effective: The Copenhagen Consensus</h2>
 		<div class="vis-container">
-			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
+			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
 		</div>
 		<div class="vis-text">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim metus magna, pulvinar efficitur leo bibendum ut. Donec ante justo, tincidunt nec lorem id, aliquet aliquam massa. Cras dignissim nibh nec pretium lacinia. Mauris ac sapien id mi mattis feugiat. Vivamus interdum cursus dui, eu vehicula est eleifend nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam nec urna a risus feugiat scelerisque.
+			In addition to the funding gap there are also critics vying for an unequal valuation of the more than 100 SDG targets. The Copenhagen consensus, a think tank which counts among its panel members for Nobel laureates in economy, released an expert panel recommendation for 2030 targets in early 2015. In the 18 months prior to the recommendation, they established a foundation of more than a hundred peer reviewed analyses from 82 "top economists" which call into question the efficacy of creating more than 100 targets for the SDGs.  The 2015 recommendation aggregated this research and rated each target by "value for money" in terms of country development over the lifespan of the project.  Prioritizing 19 targets above all above all others, they assert, would have the effect of doubling or quadrupling foreign aid. The panel suggests that prioritizing most effective goals instead of promising "everything to everyone" implementation would net between 20 to $40 in social benefits per every dollar spent as opposed to less than $10 if all targets are pursued equally.
 			</p>
 			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+				TODO Explain what it is more.	
 			</p>
 			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
-			</p>
-			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+				TODO How would you split it up? Change the valuations above to see how they rate
 			</p>
 		</div>
 	</div>		
 
   </body>
   
-<!--
   <script src="js/constants.js"></script>
--->
   <script src="js/addons.js"></script>
   <script src="js/sdg.js"></script>
   <script src="js/fsi_star.js"></script>
+  <script src="js/wdi.js"></script>
+  <script src="js/acled.js"></script>
 	<script src="js/datasets.js"></script>
 	<script src="js/main.js"></script>
 </html>

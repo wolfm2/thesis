@@ -14,6 +14,14 @@ function maxSign(num, s) {
 	return (parseInt([num][0]*(1*(10**s)))/(10**s));
 }
 
+// deepens an array - groups by n indexes
+function groupBy(arr, n) {
+  var group = [];
+  for (var i = 0, end = arr.length / n; i < end; ++i)
+    group.push(arr.slice(i * n, (i + 1) * n));
+  return group;
+}
+
 // pre-massage dataset, derive country and year, indicators from raw read
 // TODO: check if key exists rather than adding a default one only to overwrite it
 class dataset {
@@ -26,33 +34,16 @@ class dataset {
 					headers.forEach ((e) => { // build default list
 						accessors[e] = d[e];
 						});
-					accessors['Year'] = +d.Year;
 					var exceptions = dsImportList[path].exceptions;
 					Object.keys(exceptions).forEach ((e) => { // build exception list
 						if (exceptions[e] == Number)
 							accessors[e] = +d[e];
 						});
 					return accessors;
-				},
-				function(error, rows) {  
-					var keys = Object.keys(rows[0]);
-					// Associate indicators with dataset. CB doesn't allow added data.   
-					var dsName = displayDatasetNames[JSON.stringify(keys)];  // wow this is stupid.
-					ds.names[dsName] = rows;
-					// console.log(rows);
-					// check errors
-					ds.dataInit(rows);
-				});
-			});
-	}
-	
-	// callback from dataset reader object
-	dataInit (rows) {
-		
-		var keys = Object.keys(rows[0]);
-		var dataset_init = displayDatasetNames[JSON.stringify(keys)];
-		
-		dataset_init(rows); // call dataset specific handler
+				}, 
+				dsImportList[path].initFcn
+			);
+		});
 	}
 
 	// get info on specific indicator

@@ -95,16 +95,17 @@ function fsi_star_cb(t,isSmall) {
 }
 
 var colorRanges = [Chart.colorschemes.brewer.OrRd4, Chart.colorschemes.brewer.RdPu4, Chart.colorschemes.brewer.PuBuGn4, Chart.colorschemes.brewer.BuGn4];
-var colNames = [["C1: Security Apparatus", "C2: Factionalized Elites", "C3: Group Grievance"], 
-								["E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain"], 
-								["P1: State Legitimacy", "P2: Public Services", "P3: Human Rights"], 
-								["S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"]];
+//~ var colNames = [["C1: Security Apparatus", "C2: Factionalized Elites", "C3: Group Grievance"], 
+								//~ ["E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain"], 
+								//~ ["P1: State Legitimacy", "P2: Public Services", "P3: Human Rights"], 
+								//~ ["S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"]];
 
 function setChartData(){
 	var colorSet = range(0,3).map(d => colorRanges[d].slice(1)); // take last 3 colors
 	
 	return range(0,2).map(i => {
-		var labels = colNames[FSI.chartDataIdx];
+		// var labels = colNames[FSI.chartDataIdx];
+		var labels = groupBy(ds.FSIcols.slice(1), 3)[FSI.chartDataIdx];
 		var colors = colorSet[FSI.chartDataIdx];
 		return {
 			label: labels[i],
@@ -118,7 +119,7 @@ function setChartData(){
 	});
 }
 
-function FSI_init(rows) {
+function FSI_init(errors, rows) {
 	console.log("FSI");
 	
 	FSI.nData = d3.nest().key(k=>k.Year).key(k=>k.Country).object(rows); // nested
@@ -170,7 +171,7 @@ function FSI_init(rows) {
 				var row = parseInt(i/5);
 				var col = (i%5)+1;
 				var title = `<div class="grid-item grid-title" style="grid-area:${row?3:1}/${col};"><h5>${d}</h5><h6 data-name="${d}">Rank:</h6></div>`;
-				var iframe = `<div class="grid-item grid-vis" style="grid-area:${row?4:2}/${col};"> <iframe id="vis-ifs-lvl0-${d}" class="vis vis-star" src="addons/star" data-name="${d}" onload="fsi_star_cb(this,true)"></iframe> </div>`
+				var iframe = `<div class="grid-item grid-vis" style="grid-area:${row?4:2}/${col};"> <iframe id="vis-ifs-lvl0-${d}" class="vis vis-star" src="http:/thesis/Sahel/addons/star/" data-name="${d}" onload="fsi_star_cb(this,true)"></iframe> </div>`
 				
 				var idx = parseInt(i/5); 
 				$(`#grid-inner #fsi-title-${idx}`).append(title);
@@ -219,18 +220,6 @@ function FSI_init(rows) {
   
   // chart
   var ctx = document.getElementById('fsi-star-individual-bg').getContext('2d');
-
-	Chart.defaults.global.tooltips.mode = 'nearest';
-	Chart.defaults.global.defaultFontFamily = "Open Sans";
-	Chart.defaults.global.animation.animationDuration = 500;
-	Chart.defaults.global.animation.easing = "linear";
-	Chart.defaults.global.elements.point.pointStyle = "cross";
-	Chart.defaults.global.elements.point.radius = 6;
-	Chart.defaults.global.legend.labels.boxWidth = 20;
-	
-	// TODO 
-	// fix iframes
-	// test of ff / osx
 	
 	$("#vis-ifs-lvl0-big").mouseenter(d => {
 		$("#grid-inner .grid-item").addClass("hidden");
@@ -246,48 +235,8 @@ function FSI_init(rows) {
 	});
 	
 	
-	
-	FSI.chart = new Chart(ctx, {
-		type: 'line',
-		data: {
-			labels: range(FSI.yearMin, FSI.yearMax),
-			//datasets: setChartData(),
-		},
-		options: {
-			legend: {
-				 onClick: (e) => e.stopPropagation()
-			},
-			//~ plugins: {
-				//~ colorschemes: {
-					//~ scheme: 'brewer.Blues4'
-				//~ }
-			//~ },  
-			annotation: {
-					annotations: [
-						{
-							type: "line",
-							mode: "vertical",
-							scaleID: "x-axis-0",
-							value: FSI.yearCur,
-							borderColor: 'rgba(0, 0, 0, 0.5)',
-							borderWidth: 3
-						}
-					]
-			 },     
-			tooltips: {
-				mode: "x-axis",
-			},
-			animation: {
-				duration: 200// general animation time
-			},
-			hover: {
-        animationDuration: 0 // duration of animations when hovering an item
-      }, 
-			elements: {
-				line: {
-					tension: 0 // disables bezier curves
-				}
-			}
-		}
-	});
+	var cfg = jQuery.extend(true, {}, defCfgLineGraph);
+	cfg.data.labels = range(FSI.yearMin, FSI.yearMax);
+	cfg.options.annotation.annotations[0].value = FSI.yearCur;
+	FSI.chart = new Chart(ctx, cfg);
 }

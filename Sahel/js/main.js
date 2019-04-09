@@ -19,38 +19,39 @@ function range(start, end) {
 	if (start != 0) offset = start;
 	return Array.from({length: end-start+1}, (v, k) => k+offset);
 }
-Array.from({length: FSI.yearMax-FSI.yearMin+1}, (v, k) => k+FSI.yearMin)
 
-function IIAG_init(rows) {
+function IIAG_init(errors, rows) {
 	console.log("IIAG");
 }
-
-// STUPID 
-// Can't get source url from d3.csv callbacks
-// HACK make bespoke dataset name -> row hash as returned by the d3.csv accessor function
-displayDatasetNames = {
-	[JSON.stringify(["Country", "Year", "JudAutWEF", "JudAuthVDEM", "JudIndGI", "ARTPRovPregWomUNAIDS"])]:IIAG_init,
-	[JSON.stringify(["", "Country", "Year", "Rank", "Total", "C1: Security Apparatus", "C2: Factionalized Elites", "C3: Group Grievance", "E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain", "P1: State Legitimacy", "P2: Public Services", "P3: Human Rights", "S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"])]:FSI_init
-};
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal
 
 var ds = new dataset;
 
+var ds = {
+	obj: new dataset,
+	FSIcols: ["Year", "C1: Security Apparatus", "C2: Factionalized Elites", "C3: Group Grievance", 
+				"E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain", 
+				"P1: State Legitimacy", "P2: Public Services", "P3: Human Rights", 
+				"S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"],
+	WDIcols: range(1960, 2018)
+}
 // each dataset is preprocessed to contain a country,year col and only the desired indicators
 // exceptions values can be Number for default number conversion or bespoke function
 var dsImportList = {				// list of all indicators
 		"IIAG/MW-Sahel-4Indicators-2018_IIAG_RawData.csv":{														
 			exceptions:{
 				JudAutWEF:Number, JudAuthVDEM:Number, JudIndGI:Number, ARTPRovPregWomUNAIDS:Number
-			}	// list of exceptions to default accessor
+			},	// list of exceptions to default accessor
+			initFcn: IIAG_init
 		},
 		"FSI/fsi_sahel_allYears.csv":{											
-			exceptions:{"C1: Security Apparatus":Number, "C2: Factionalized Elites":Number, "C3: Group Grievance":Number, 
-				"E1: Economy":Number, "E2: Economic Inequality":Number, "E3: Human Flight and Brain Drain":Number, 
-				"P1: State Legitimacy":Number, "P2: Public Services":Number, "P3: Human Rights":Number, 
-				"S1: Demographic Pressures":Number, "S2: Refugees and IDPs":Number, "X1: External Intervention":Number
-			}
+			exceptions:Object.fromEntries(ds.FSIcols.map(d => [d, Number])),
+			initFcn: FSI_init
+		},
+		"WDI/wdi_sahel_allYears.csv":{											
+			exceptions:Object.fromEntries(ds.WDIcols.map(d => [d, Number])),
+			initFcn: WDI_init
 		}
 	};
 
@@ -59,5 +60,5 @@ var dsImportList = {				// list of all indicators
 //////////
 $(document).ready(function() {  
 	sdg_init();
-  ds.init(dsImportList); // init datasets
+  ds.obj.init(dsImportList); // init datasets
 });
