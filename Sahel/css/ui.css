@@ -46,6 +46,11 @@
     justify-content: center;
 }
 
+/* VIOLENT */
+#sec-violent-entrepreneurs .vis-container {
+	text-align: center;
+}
+
 /* SDGs */
 #sdg-grid {
   display: grid;

@@ -34,7 +34,8 @@ var ds = {
 				"E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain", 
 				"P1: State Legitimacy", "P2: Public Services", "P3: Human Rights", 
 				"S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"],
-	WDIcols: range(1960, 2018)
+	WDIcols: range(1960, 2018),
+	ACLEDcols: ["LATITUDE", "LONGITUDE", "FATALITIES", "TIMESTAMP"]
 }
 // each dataset is preprocessed to contain a country,year col and only the desired indicators
 // exceptions values can be Number for default number conversion or bespoke function
@@ -52,6 +53,10 @@ var dsImportList = {				// list of all indicators
 		"WDI/wdi_sahel_allYears.csv":{											
 			exceptions:Object.fromEntries(ds.WDIcols.map(d => [d, Number])),
 			initFcn: WDI_init
+		},
+		"ACLED/acled_sahel_gt2007.csv":{											
+			exceptions:Object.fromEntries(ds.ACLEDcols.map(d => [d, Number])),
+			initFcn: ACLED_init
 		}
 	};
 

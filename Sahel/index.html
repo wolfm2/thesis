@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/themes/smoothness/theme.css">
 
+    <script src="lib/d3.v3.min.js"></script>
+    <script> d3v3 = d3; window.d3 = null; </script>
     <script src="lib/d3.v4.min.js"></script>
-		<script src="lib/topojson.js"></script>
+ 		<script src="lib/topojson.js"></script>
 		<script src="lib/datamaps.world.js"></script>
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -114,8 +116,13 @@
 	<div id="sec-violent-entrepreneurs" class="section">
 		<h2>How have "violent entrepreneurs" contributed to the fragility of the region?</h2>
 		<div class="vis-container">
-			<div id="container1" style="border:1px dotted blue; width: 700px; height: 350px; position: relative;"></div>
 
+			<div id="container1" style="border:1px dotted blue; width: 700px; height: 350px; position: relative;"></div>
+			<div>
+				<img id="star-back" class="ui-controls" src="img/angle-left-solid.svg">
+				<img id="star-ctrl" class="ui-controls" src="img/play-circle-solid.svg">
+				<img id="star-frwd" class="ui-controls" src="img/angle-right-solid.svg">
+			</div>
 <!--
 			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
 -->
