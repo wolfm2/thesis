@@ -33,6 +33,12 @@
 	hheight: 100%;
 }
 
+/*  VIOLENCE MAP */
+.active { fill: blue !important;}
+#violence-map {
+	padding-bottom: 0px !important;
+}
+
 /* INDIV & SDG INDICATORS */
 #sec-indicators-by-country #indicators, #sec-sdg-funding #indicators{
 /*
@@ -48,7 +54,7 @@
 
 /* VIOLENT */
 #sec-violent-entrepreneurs .vis-container {
-	text-align: center;
+	ttext-align: center;
 }
 
 /* SDGs */
