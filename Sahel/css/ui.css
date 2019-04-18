@@ -34,8 +34,32 @@
 }
 
 /*  VIOLENCE MAP */
+
+#sec-violent-entrepreneurs .vis-container {
+	display: flex;
+	flex-direction: column;
+}
+
+#violence-date {
+	font-family: Open Sans;
+	font-size: 3rem; 
+	transform: translateY(5rem);
+}
+
+.hoverinfo {
+	font-family: Open Sans;
+}
+
+#violence-date, #violence-map, #violence-controls {
+	margin: auto;
+}
+
+/*
 .active { fill: blue !important;}
+*/
+
 #violence-map {
+	border: 0px !important;
 	padding-bottom: 0px !important;
 }
 
@@ -45,6 +69,14 @@
 	max-height: 48vh;
 */
 	max-width: 60%;
+}
+
+#sec-indicators-by-country {
+	padding-bottom: 2rem;
+}
+
+#sec-indicators-by-country .vis-container {
+	padding-top: 2rem;
 }
 
 #sec-indicators-by-country .vis-container, #sec-sdg-funding .vis-container {

@@ -75,8 +75,8 @@ function ACLED_init(errors, rows) {
 		geographyConfig: {
 			popupOnHover: false,
 			highlightOnHover: false,
-			borderColor: '#444',
-			borderWidth: 1
+			borderColor: '#434',
+			borderWidth: 2
 		},
 		bubblesConfig: {
 			popupTemplate: function(geography, data) {

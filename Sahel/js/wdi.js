@@ -1,6 +1,7 @@
 WDI = {
 	nData: null,
-	chart: null
+	chart: null,
+	indIdx: 0
 }
 
 function WDI_init(errors, rows) {
@@ -9,17 +10,42 @@ function WDI_init(errors, rows) {
 	WDI.yearMin = 2007;
 	WDI.yearMax = 2016;
 	
-	var inds = [["AG.PRD.CROP.XD", "AG.LND.AGRI.ZS", "SN.ITK.DEFC.ZS"]];
+	WDI.chartInfo = [
+		{
+			title: "Agriculture",
+			country: "Mali", // should be array
+			labels: ["Grain Crop Yield","Agri Land (hectares)","Other indicator"],
+			inds: ["AG.PRD.CROP.XD", "SN.ITK.DEFC.ZS", "AG.LND.AGRI.ZS"],
+			colors: colorRanges[0].slice(1)
+		},
+		{
+			title: "IDP",
+			country: "Gambia, The", // should be array
+			labels: ["Grain Crop Yield","Agri Land (hectares)","Other indicator"],
+			inds: ["AG.LND.AGRI.ZS", "AG.PRD.CROP.XD", "SN.ITK.DEFC.ZS"],
+			colors: colorRanges[1].slice(1)
+		},
+		{
+			title: "Jobs",
+			country: "Senegal", // should be array
+			labels: ["Grain Crop Yield","Agri Land (hectares)","Other indicator"],
+			inds: ["AG.PRD.CROP.XD", "AG.LND.AGRI.ZS", "SN.ITK.DEFC.ZS"],
+			colors: colorRanges[2].slice(1)
+		}		
+	];
 	
 	function setChartData(){
-		var colorSet = range(0,3).map(d => colorRanges[d].slice(1)); // take last 3 colors
 		
+		// $("#sec-indicators-by-country #title h4").html(WDI.chartInfo[WDI.indIdx].title);
 		return range(0,2).map(i => {
-			var labels = inds[0][i];
-			var colors = colorSet[0];
+			var cInfo = WDI.chartInfo[WDI.indIdx];
+			var labels = cInfo.labels[i];
+			var colors = cInfo.colors;
 			return {
 				label: labels,
-				data: range(WDI.yearMin, WDI.yearMax).map(d => WDI.nData["Mali"][inds[0][i]][0][d]),
+				data: range(WDI.yearMin, WDI.yearMax).map(d => WDI.nData[cInfo.country]
+																																[cInfo.inds[i]]
+																																[0][d]),
 				fill: false,
 				borderColor: colors[i],
 				pointBorderColor: colors[i],
@@ -28,8 +54,21 @@ function WDI_init(errors, rows) {
 			}
 		});
 	}
-
-
+	
+	//~ $('#indicators-back').click(function() {
+		//~ WDI.indIdx--;
+		//~ if (WDI.indIdx < 0) WDI.indIdx = WDI.chartInfo.length - 1;
+		//~ WDI.chart.config.data.datasets = setChartData();
+		//~ WDI.chart.update();
+	//~ });
+	
+	//~ $('#indicators-frwd').click(function() { 
+		//~ WDI.indIdx++;
+		//~ if (WDI.indIdx >= WDI.chartInfo.length) WDI.indIdx = 0;
+		//~ WDI.chart.config.data.datasets = setChartData();
+		//~ WDI.chart.update();
+	//~ });
+	
 	//TODO
 	// Make interface to multiple indicators
 	// Look at indiv WDI indicators / scale them by some year
@@ -38,11 +77,11 @@ function WDI_init(errors, rows) {
 	// Add SDG funding indicators
 	
 	// Individual Indicators
-	var ctx = $("#sec-indicators-by-country #indicators")[0].getContext('2d');
-	var cfg = jQuery.extend(true, {}, defCfgLineGraph);
-	cfg.data.labels = range(WDI.yearMin, WDI.yearMax);
-	cfg.data.datasets = setChartData();
-	WDI.chart = new Chart(ctx, cfg);
+	//~ var ctx = $("#sec-indicators-by-country #indicators")[0].getContext('2d');
+	//~ var cfg = jQuery.extend(true, {}, defCfgLineGraph);
+	//~ cfg.data.labels = range(WDI.yearMin, WDI.yearMax);
+	//~ cfg.data.datasets = setChartData();
+	//~ WDI.chart = new Chart(ctx, cfg);
 	// WDI.chart.update();
 
 	// SDG Contrasting Indicators
@@ -50,6 +89,6 @@ function WDI_init(errors, rows) {
 	var cfg = jQuery.extend(true, {}, defCfgLineGraph);
 	cfg.data.labels = range(WDI.yearMin, WDI.yearMax);
 	cfg.data.datasets = setChartData();
-	WDI.chart = new Chart(ctx, cfg);	
+	WDI.SDGchart = new Chart(ctx, cfg);	
 
 }

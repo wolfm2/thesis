@@ -1,11 +1,26 @@
 // TODO
-// send THIS to read csv / get rid of ds in class, displayDatasetNames
+// normalize popups
+// extra <> for map/fragility
+
+// Intro - morph effect
+
+// Indicators - choose IIAG
+
+// ACLED
+// Cloropleth wrong 6/2016 ? 
+// add new vis to show change over time
+
+// FSI STAR
+// popup font, average FSI.minData
+// move date
+// Star callback before nData initted
 
 // SDG
 // Select specific sdgs
 
-// FSI STAR
-// popup font, average FSI.minData
+// SDG Success - choose indicators
+
+// Copenhagen - create
 
 // ATTRIBUTIONS
 // WDI, FSI, FONTAWSOME, Pauline, text citations
@@ -18,10 +33,6 @@ function range(start, end) {
 	var offset = 0;
 	if (start != 0) offset = start;
 	return Array.from({length: end-start+1}, (v, k) => k+offset);
-}
-
-function IIAG_init(errors, rows) {
-	console.log("IIAG");
 }
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal
@@ -40,7 +51,7 @@ var ds = {
 // each dataset is preprocessed to contain a country,year col and only the desired indicators
 // exceptions values can be Number for default number conversion or bespoke function
 var dsImportList = {				// list of all indicators
-		"IIAG/MW-Sahel-4Indicators-2018_IIAG_RawData.csv":{														
+		"IIAG/IIAG_2009+.csv":{														
 			exceptions:{
 				JudAutWEF:Number, JudAuthVDEM:Number, JudIndGI:Number, ARTPRovPregWomUNAIDS:Number
 			},	// list of exceptions to default accessor
