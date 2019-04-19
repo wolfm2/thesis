@@ -94,7 +94,6 @@ function fsi_star_cb(t,isSmall) {
 	} 
 }
 
-var colorRanges = [Chart.colorschemes.brewer.OrRd4, Chart.colorschemes.brewer.RdPu4, Chart.colorschemes.brewer.PuBuGn4, Chart.colorschemes.brewer.BuGn4, Chart.colorschemes.office.Berlin6];
 //~ var colNames = [["C1: Security Apparatus", "C2: Factionalized Elites", "C3: Group Grievance"], 
 								//~ ["E1: Economy", "E2: Economic Inequality", "E3: Human Flight and Brain Drain"], 
 								//~ ["P1: State Legitimacy", "P2: Public Services", "P3: Human Rights"], 

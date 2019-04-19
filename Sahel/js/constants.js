@@ -1,3 +1,8 @@
+
+var sahelNames = ["Burkina Faso", "Cameroon", "Chad", "Gambia", "Guinea", "Mali", "Mauritania", "Niger", "Nigeria", "Senegal"];
+
+var colorRanges = [Chart.colorschemes.brewer.OrRd4, Chart.colorschemes.brewer.RdPu4, Chart.colorschemes.brewer.PuBuGn4, Chart.colorschemes.brewer.BuGn4, Chart.colorschemes.office.Berlin6];
+
 var sdgCopy = [
 		{title:`Goal 1: No Poverty`,
 			targets:`
@@ -361,3 +366,165 @@ defCfgLineGraph = {
 			//~ yearMax: IIAG.yearMax
 		//~ }, 
 	//~ ]
+
+VIS0indicators = [
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"EN.POP.DNST",
+		label:"Pop density",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SP.POP.GROW",
+		label:"pop growth",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SM.POP.REFG.OR",
+		label:"Refugees from org",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SH.STA.BASS.RU.ZS",
+		label:"rural sanit svc",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SH.STA.BASS.ZS",
+		label:"all sani svc",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"MS.MIL.XPND.CD",
+		label:"military expenditure",
+		func:"getRaw"
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"VC.IDP.NWDS",
+		label:"idps",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SH.XPD.CHEX.PC.CD",
+		label:"per capita health expend",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SP.DYN.TFRT.IN",
+		label:"births per woman",
+		func:"getRaw"
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"AG.PRD.FOOD.XD",
+		label:"food production",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"FP.CPI.TOTL.ZG",
+		label:"inflation %",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"SP.ADO.TFRT",
+		label:"ado fertility rate",
+		func:"getRaw"
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"AG.LND.ARBL.HA.PC",
+		label:"ariable land",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"AG.PRD.CREL.MT",
+		label:"relative cerial yield",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	},
+	{
+		years: range(2007, 2016),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"AG.YLD.CREL.KG",
+		label:"cerial yield kg",
+		func:"relAgg",
+		fArgs:{relYear:2007}
+	}
+]
+
+VIS0sections = [
+	{
+		title: "Agriculture",
+		inds: ["WDI:EN.POP.DNST", "WDI:SP.POP.GROW", "WDI:SM.POP.REFG.OR"],
+		infoText: "Stuff",
+		colors: colorRanges[0].slice(1)
+	},
+	{
+		title: "IDP",
+		inds: ["WDI:SH.STA.BASS.RU.ZS", "WDI:SH.STA.BASS.ZS", "WDI:MS.MIL.XPND.CD", "WDI:VC.IDP.NWDS"],
+		infoText: "Stuff",
+		colors: colorRanges[1].slice(1)
+	},
+	{
+		title: "Jobs",
+		inds: ["WDI:SH.XPD.CHEX.PC.CD", "WDI:SP.DYN.TFRT.IN", "WDI:AG.PRD.FOOD.XD", "WDI:FP.CPI.TOTL.ZG"],
+		infoText: "Stuff",
+		colors: colorRanges[2].slice(1)
+	},
+	{
+		title: "stuff",
+		inds: ["WDI:SP.ADO.TFRT", "WDI:AG.LND.ARBL.HA.PC", "WDI:AG.PRD.CREL.MT", "WDI:AG.YLD.CREL.KG"],
+		infoText: "Stuff",
+		colors: colorRanges[2].slice(1)
+	}		
+];
