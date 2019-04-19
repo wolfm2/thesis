@@ -283,3 +283,81 @@ defCfgLineGraph = {
 		}
 	}
 }
+
+// IIAG FULL
+//~ var IIAG_FULL_METRICS = [
+		//~ {
+			//~ title: "Business",
+			//~ labels: ["restrict frgn invest", "Customs", "Bus regulatory env", "Good banks"],
+			//~ inds: ['AbsRestForInvWEF', 'CustProcWEF', 'CompEnvWB', 'SoundBanksWEF'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Government",
+			//~ labels: ["Constraints on GovPower","Absence Judicial Corruption","Free Fair Elections"],
+			//~ inds: ["ConsGovPowerVDEM", "AbsJudCorrVDEM", "FreeFairElecVDEM"],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Education",
+			//~ labels: ["Edu mgmt", "Secondary enroll", "gen bal", "tert enroll", "primary complet"],
+			//~ inds: ['EducSysMgmtWEF', 'SecEducEnroUNESCO', 'GenBalEducUNESCO', 'TertEducEnroUNESCO', 'PrimScholCompWB'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Gender",
+			//~ labels: ["women parliment", "women empowerment"],
+			//~ inds: ['WomLabForPartWB', 'WomPolEmpowerVDEM'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Infrastructure",
+			//~ labels: ["Electric", "Air", "executive transparency and account", "Roads"],
+			//~ inds: ['ElecSuppWEF', 'QualAirTransWEF', 'ExecAccTransWB', 'RoadNetWEF'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Pol 1",
+			//~ labels: ["Diversion pub funds", "Fed budget", "Abs Gov Favoritism", "Constraints gov pwr", "Abs Jud Corrupt", "Free fair elect"],
+			//~ inds: ['AbsDivPubFundWEF', 'BudgMgmtWB','AbsFavGovDecWEF', 'ConsGovPowerVDEM','AbsJudCorrVDEM', 'FreeFairElecVDEM',],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Pol 2",
+			//~ labels: ["jud autonomy", "free fair elect", "Abs legi corrupt", "Access to justice", "agr budget cost", "abs of refugees"],
+			//~ inds: ['JudAutWEF', 'FreeFairExecElecCDD', 'AbsLegCorrVDEM', 'AccJusticeVDEM', 'AgPolCostWEF', 'PolRefUNHCR'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },
+		//~ {
+			//~ title: "Safety 1",
+			//~ labels: ["Food Dep", "media impartial", "Abs Violent Crime", "Human Traf", "Pol Services reliability"],
+			//~ // not great data , 'WatDepAFR'
+			//~ inds: ['FooDepAFR', 'MedImpVDEM', 'ViolCrimeEIU', 'HumTraffUSDS', 'PolServWEF'],
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ },		
+		//~ {
+			//~ title: "Safety 2",
+			//~ labels: ["IDPs", "Prot prop rights", "welfare svs", "riots/protests"],
+			//~ // 'LivStanPoorAFR', not great data
+			//~ inds: ['IntDisPeoIDMC', 'ProtPropRigWEF', 'WelfServWB', 'RiotsProtestsACLED'], 
+			//~ colors: colorRanges[4],
+			//~ yearMin: IIAG.yearMin,
+			//~ yearMax: IIAG.yearMax
+		//~ }, 
+	//~ ]

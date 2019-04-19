@@ -64,6 +64,24 @@
 }
 
 /* INDIV & SDG INDICATORS */
+
+canvas#indicators + #overlay {
+	display: none;
+	position: absolute;
+	background: #333;
+	opacity: .95;
+	border-radius: 5px;
+	color: white;
+  font-size: 3rem;
+  
+	justify-content: center;
+	align-items: center;
+}
+
+canvas#indicators + #overlay #copy {
+  padding: 10px;
+}
+
 #sec-indicators-by-country #indicators, #sec-sdg-funding #indicators{
 /*
 	max-height: 48vh;

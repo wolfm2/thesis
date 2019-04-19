@@ -1,4 +1,3 @@
-// ConsGovPowerVDEM	AbsJudCorrVDEM	FreeFairElecVDEM
 IIAG = {
 	nData: null,
 	chart: null,
@@ -14,79 +13,38 @@ function IIAG_init(errors, rows) {
 
 	IIAG.chartInfo = [
 		{
-			title: "Safety 2",
-			labels: ["IDPs", "Prot prop rights", "welfare svs", "riots/protests"],
-			// 'LivStanPoorAFR', not great data
-			inds: ['IntDisPeoIDMC', 'ProtPropRigWEF', 'WelfServWB', 'RiotsProtestsACLED'], 
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		}, 
-		{
-			title: "Pol 2",
-			labels: ["jud autonomy", "free fair elect", "Abs legi corrupt", "Access to justice", "agr budget cost", "abs of refugees"],
-			inds: ['JudAutWEF', 'FreeFairExecElecCDD', 'AbsLegCorrVDEM', 'AccJusticeVDEM', 'AgPolCostWEF', 'PolRefUNHCR'],
+			title: "Security: Personal",
+			labels: ["Absence of Political Refugees", "Women's Empowerment", "Absence of Riots/Protests"],
+			inds: ['PolRefUNHCR', 'WomPolEmpowerVDEM', 'RiotsProtestsACLED'],
 			colors: colorRanges[4],
 			yearMin: IIAG.yearMin,
 			yearMax: IIAG.yearMax
 		},
-		{
-			title: "Business",
-			labels: ["restrict frgn invest", "Customs", "Bus regulatory env", "Good banks"],
-			inds: ['AbsRestForInvWEF', 'CustProcWEF', 'CompEnvWB', 'SoundBanksWEF'],
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},
-		{
-			title: "Government",
-			labels: ["Constraints on GovPower","Absence Judicial Corruption","Free Fair Elections"],
-			inds: ["ConsGovPowerVDEM", "AbsJudCorrVDEM", "FreeFairElecVDEM"],
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},
-		{
-			title: "Education",
-			labels: ["Edu mgmt", "Secondary enroll", "gen bal", "tert enroll", "primary complet"],
-			inds: ['EducSysMgmtWEF', 'SecEducEnroUNESCO', 'GenBalEducUNESCO', 'TertEducEnroUNESCO', 'PrimScholCompWB'],
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},
-		{
-			title: "Gender",
-			labels: ["women parliment", "women empowerment"],
-			inds: ['WomLabForPartWB', 'WomPolEmpowerVDEM'],
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},
+		// 'IntDisPeoIDMC', "Absence of Internally Displaced Peoples", 
 		{
 			title: "Infrastructure",
-			labels: ["Electric", "Air", "executive transparency and account", "Roads"],
-			inds: ['ElecSuppWEF', 'QualAirTransWEF', 'ExecAccTransWB', 'RoadNetWEF'],
+			labels: ["Road Network Quality", "Air Transport Quality"],
+			inds: ['RoadNetWEF', 'QualAirTransWEF'],
+			colors: colorRanges[4],
+			yearMin: IIAG.yearMin,
+			yearMax: 2012
+		},
+		{
+			title: "State Legitimacy",
+			labels: ["Free/Fair Elections", "Absence Legislative Corruption", "Absence Judicial Corruption", "Constraints on Government Power"],
+			inds: ['FreeFairElecVDEM', 'AbsLegCorrVDEM', 'AbsJudCorrVDEM', 'ConsGovPowerVDEM'],
 			colors: colorRanges[4],
 			yearMin: IIAG.yearMin,
 			yearMax: IIAG.yearMax
 		},
 		{
-			title: "Pol 1",
-			labels: ["Diversion pub funds", "Fed budget", "Abs Gov Favoritism", "Constraints gov pwr", "Abs Jud Corrupt", "Free fair elect"],
-			inds: ['AbsDivPubFundWEF', 'BudgMgmtWB','AbsFavGovDecWEF', 'ConsGovPowerVDEM','AbsJudCorrVDEM', 'FreeFairElecVDEM',],
+			title: "Services: Education",
+			labels: ["Primary Completion", "Secondary Enrollment", "TertiaryEnrollment"],
+			inds: ['PrimScholCompWB', 'SecEducEnroUNESCO', 'TertEducEnroUNESCO'],
 			colors: colorRanges[4],
 			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},
-		{
-			title: "Safety 1",
-			labels: ["Food Dep", "media impartial", "Abs Violent Crime", "Human Traf", "Pol Services reliability"],
-			// not great data , 'WatDepAFR'
-			inds: ['FooDepAFR', 'MedImpVDEM', 'ViolCrimeEIU', 'HumTraffUSDS', 'PolServWEF'],
-			colors: colorRanges[4],
-			yearMin: IIAG.yearMin,
-			yearMax: IIAG.yearMax
-		},		
+			yearMax: 2017
+		}
 	];
 	
 	// average country info by indicator
@@ -161,13 +119,6 @@ function IIAG_init(errors, rows) {
 		IIAG.chart.config.data.datasets = setChartData();
 		IIAG.chart.update();
 	});
-	
-	//TODO
-	// Make interface to multiple indicators
-	// Look at indiv WDI indicators / scale them by some year
-	// Look at IIAG
-	// Look at CROP DATA Pauline gave me
-	// Add SDG funding indicators
 	
 	// Individual Indicators
 	var ctx = $("#sec-indicators-by-country #indicators")[0].getContext('2d');
