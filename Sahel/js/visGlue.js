@@ -24,53 +24,42 @@ function glueRegister(obj, ds, accessors) {
 function glueSetChartData(obj, action){
 	
 	var idx = obj.indIdx;
-	switch(action) {
-		case '-':
-			idx--;
-			if (idx < 0) idx = obj.sections.length - 1;
-			break;
-		case '+':
-			idx++;
-			if (idx >= obj.sections.length) idx = 0
-			break;
-		default:
-			obj.indIdx = action;
-	}
-
-	var cInfo = obj.sections[obj.indIdx];
-	var overlay = $(obj.container + " canvas#indicators + #overlay")
+	var overlay = $(obj.container + " canvas#indicators + #overlay");
+	obj.indIdx = numRotate(obj.indIdx, obj.sections.length - 1, action);
 	
+  var cInfo = obj.sections[obj.indIdx];
 	if (cInfo.infoText != undefined && overlay.css("display") == "none") {
+		
 		overlay.css("width", $(obj.container + " canvas#indicators").width());
 		overlay.css("height", $(obj.container + " canvas#indicators").height());
 		overlay.fadeIn(100);
 		overlay.css("display", "flex");
 		$(obj.container + " canvas#indicators + #overlay #copy").html(cInfo.infoText);
 		
-		$(obj.container + "  #title h4").html(obj.sections[obj.indIdx].title);
+		$(obj.container + "  #title h4").html(cInfo.title);
+		
+		var datasets = range(0,cInfo.inds.length-1).map(i => {
+			var colors = cInfo.colors;
+			var indInfo = obj.indicators[obj.indKey[cInfo.inds[i]]]
+			return {
+				label: indInfo.label,
+				data: obj.accessors[indInfo.dset][indInfo.func](indInfo),
+				fill: false,
+				borderColor: colors[i],
+				pointBorderColor: colors[i],
+				pointBackgroundColor: colors[i],
+				backgroundColor: colors[i] 
+			}
+		});
+			
+		obj.chart.config.data.datasets = datasets;
+		obj.chart.update();
+		
 	} else {
 		//overlay.css("display","none");
 		overlay.fadeOut(100);
-		obj.indIdx = idx;		
-		return;
+		obj.indIdx = idx;	// dont advance	
 	}
-	
-	var datasets = range(0,cInfo.inds.length-1).map(i => {
-		var colors = cInfo.colors;
-		var indInfo = obj.indicators[obj.indKey[cInfo.inds[i]]]
-		return {
-			label: indInfo.label,
-			data: obj.accessors[indInfo.dset][indInfo.func](indInfo),
-			fill: false,
-			borderColor: colors[i],
-			pointBorderColor: colors[i],
-			pointBackgroundColor: colors[i],
-			backgroundColor: colors[i] 
-		}
-	});
-		
-	obj.chart.config.data.datasets = datasets;
-	obj.chart.update();
 }
 
 glueInit = function(obj) {
@@ -95,5 +84,12 @@ glueInit = function(obj) {
 	
 	$(obj.container + ' #frwd').click(function() { 
 		glueSetChartData(obj, '+');
+	});
+	
+	$( window ).resize(function() {
+		var overlay = $(obj.container + " canvas#indicators + #overlay")
+
+		overlay.css("width", $(obj.container + " canvas#indicators").width());
+		overlay.css("height", $(obj.container + " canvas#indicators").height());
 	});
 }
