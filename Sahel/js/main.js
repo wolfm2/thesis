@@ -6,6 +6,9 @@
 
 // Indicators - choose IIAG
 
+// visGlue
+// use chart year for relAgg not indicator year
+
 // ACLED
 // Cloropleth wrong 6/2016 ? 
 // add new vis to show change over time

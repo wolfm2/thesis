@@ -1,12 +1,12 @@
 // data to chart glue
 
 VIS0 = {
-	container: "#sec-sdg-funding",
+	container: "#sec-indicators-by-country",
 	indIdx: 0,
-	datadep: ["WDI"],
+	datadep: ["WDI", "IIAG"],
 	indicators: VIS0indicators,
 	sections: VIS0sections,
-	yearMin: 2007,
+	yearMin: 2009,
 	yearMax: 2016,
 	accessors: {}
 }
@@ -75,7 +75,10 @@ function glueSetChartData(obj, action){
 
 glueInit = function(obj) {
 	obj.indKey = {};
-	obj.indicators.forEach((d,i)=>obj.indKey[d.dset + ":" + d.name] = i) 
+	obj.indicators.forEach((d,i)=> {
+		if ("keyName" in d) obj.indKey[d.dset + ":" + d.keyName] = i;
+		else obj.indKey[d.dset + ":" + d.name] = i;
+		}) 
 	// TODO use keyname if existing
 	// use default countries, years, dset, func if not existing
 	
@@ -86,11 +89,11 @@ glueInit = function(obj) {
 	obj.chart = new Chart(ctx, cfg);
 	glueSetChartData(obj, 0);
 	
-	$(obj.container + ' #change-back').click(function() {
+	$(obj.container + ' #back').click(function() {
 		glueSetChartData(obj, '-');
 	});
 	
-	$(obj.container + ' #change-frwd').click(function() { 
+	$(obj.container + ' #frwd').click(function() { 
 		glueSetChartData(obj, '+');
 	});
 }

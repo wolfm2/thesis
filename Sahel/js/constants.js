@@ -369,52 +369,79 @@ defCfgLineGraph = {
 
 VIS0indicators = [
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"EN.POP.DNST",
 		label:"Pop density",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SP.POP.GROW",
-		label:"pop growth",
+		label:"Population Growth",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
-		countries: sahelNames,
+		years: range(2009, 2016),
+		countries: ["Nigeria"],
 		dset:"WDI",
 		name:"SM.POP.REFG.OR",
-		label:"Refugees from org",
-		func:"relAgg",
-		fArgs:{relYear:2007}
+		keyName:"nigeria:SM.POP.REFG.OR",
+		label:"Nigerian Refugees",
+		func:"getRaw"
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"SM.POP.REFG.OR",
+		keyName:"mali:SM.POP.REFG.OR",
+		label:"Malian Refugees",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Chad"],
+		dset:"WDI",
+		name:"SM.POP.REFG",
+		keyName:"chad:SM.POP.REFG",
+		label:"Chad Asylum Granted",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Cameroon"],
+		dset:"WDI",
+		name:"SM.POP.REFG",
+		keyName:"cameroon:SM.POP.REFG",
+		label:"Cameroon Asylum Granted",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SH.STA.BASS.RU.ZS",
 		label:"rural sanit svc",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SH.STA.BASS.ZS",
-		label:"all sani svc",
+		label:"All Sanitation Svc",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"MS.MIL.XPND.CD",
@@ -422,51 +449,58 @@ VIS0indicators = [
 		func:"getRaw"
 	},
 	{
-		years: range(2007, 2016),
-		countries: sahelNames,
+		years: range(2009, 2016),
+		countries: ["Nigeria"],
 		dset:"WDI",
 		name:"VC.IDP.NWDS",
-		label:"idps",
-		func:"relAgg",
-		fArgs:{relYear:2007}
+		label:"IDPs Fleeing Disasters",
+		func:"getRaw"
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
+		countries: ["Nigeria"],
+		dset:"WDI",
+		name:"VC.IDP.NWCV",
+		label:"IDPs Fleeing Violence",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SH.XPD.CHEX.PC.CD",
 		label:"per capita health expend",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SP.DYN.TFRT.IN",
-		label:"births per woman",
+		label:"Per Woman Births",
 		func:"getRaw"
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"AG.PRD.FOOD.XD",
-		label:"food production",
+		label:"Food Production",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"FP.CPI.TOTL.ZG",
-		label:"inflation %",
+		label:"Percent Inflation",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"SP.ADO.TFRT",
@@ -474,57 +508,148 @@ VIS0indicators = [
 		func:"getRaw"
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"AG.LND.ARBL.HA.PC",
 		label:"ariable land",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"AG.PRD.CREL.MT",
-		label:"relative cerial yield",
+		label:"Cerial Yield",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
 	},
 	{
-		years: range(2007, 2016),
+		years: range(2009, 2016),
 		countries: sahelNames,
 		dset:"WDI",
 		name:"AG.YLD.CREL.KG",
 		label:"cerial yield kg",
 		func:"relAgg",
-		fArgs:{relYear:2007}
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"FreeFairElecVDEM",
+		label:"Free/Fair Elections",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"AbsLegCorrVDEM",
+		label:"Lack of Legislative Corruption",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"ConsGovPowerVDEM",
+		label:"Constraints on Government Power",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"RiotsProtestsACLED",
+		label:"Lack of Riots/Protests",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"PrimScholCompWB",
+		label:"Primary Edu. Completion",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"SecEducEnroUNESCO",
+		label:"Secondary Edu Enrollment",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"TertEducEnroUNESCO",
+		label:"Tertiary Edu. Enrollment",
+		func:"relAgg",
+		fArgs:{relYear:2009}
+	},
+	{
+		years: range(2009, 2016),
+		countries: sahelNames,
+		dset:"IIAG",
+		name:"RoadNetWEF",
+		label:"Road Quality",
+		func:"relAgg",
+		fArgs:{relYear:2009}
 	}
+	
 ]
 
 VIS0sections = [
 	{
-		title: "Agriculture",
-		inds: ["WDI:EN.POP.DNST", "WDI:SP.POP.GROW", "WDI:SM.POP.REFG.OR"],
-		infoText: "Stuff",
-		colors: colorRanges[0].slice(1)
+		title: "Food & Population",
+		inds: ["WDI:SP.POP.GROW", "WDI:AG.PRD.FOOD.XD", "WDI:AG.PRD.CREL.MT"],
+		infoText: "Following the 2010 drought food production in general and cereal yields in specific across the Sahel in 2012 dropped more than 10%, the population continued to grow. (Sahel Average, 2009=100%)",
+		colors: Chart.colorschemes.brewer.YlGnBu4.slice(1)
 	},
 	{
-		title: "IDP",
-		inds: ["WDI:SH.STA.BASS.RU.ZS", "WDI:SH.STA.BASS.ZS", "WDI:MS.MIL.XPND.CD", "WDI:VC.IDP.NWDS"],
-		infoText: "Stuff",
-		colors: colorRanges[1].slice(1)
+		title: "Inflation Spike",
+		inds: ["WDI:FP.CPI.TOTL.ZG"],
+		infoText: "At this time commodities inflation worldwide contributed to an already difficult situation. Unfortunately, after the world markets recovered, Sahel did not until mid 2014.  (Sahel Average)",
+		colors: Chart.colorschemes.brewer.Reds3.slice(2)
 	},
 	{
-		title: "Jobs",
-		inds: ["WDI:SH.XPD.CHEX.PC.CD", "WDI:SP.DYN.TFRT.IN", "WDI:AG.PRD.FOOD.XD", "WDI:FP.CPI.TOTL.ZG"],
-		infoText: "Stuff",
-		colors: colorRanges[2].slice(1)
+		title: "Birth Rate",
+		inds: ["WDI:SP.DYN.TFRT.IN"],
+		infoText: "While fertility metrics across the Sahel have reduced in the last decade, in 2016 they still hover at over 5 children per woman. (Sahel Average)",
+		colors: Chart.colorschemes.brewer.Reds3.slice(1)
 	},
 	{
-		title: "stuff",
-		inds: ["WDI:SP.ADO.TFRT", "WDI:AG.LND.ARBL.HA.PC", "WDI:AG.PRD.CREL.MT", "WDI:AG.YLD.CREL.KG"],
-		infoText: "Stuff",
-		colors: colorRanges[2].slice(1)
-	}		
+		title: "Government Legitimacy",
+		inds: ['IIAG:FreeFairElecVDEM', 'IIAG:AbsLegCorrVDEM', 'IIAG:ConsGovPowerVDEM', 'IIAG:RiotsProtestsACLED'],
+		infoText: "During this period, trust in the the electoral process declined due to corruption, and abuses of power while protests and riots surged. (Sahel Average, 2009=100%)",
+		colors: Chart.colorschemes.brewer.YlOrBr5.slice(1)
+	},
+	{
+		title: "Government Services",
+		inds: ['IIAG:PrimScholCompWB', 'IIAG:SecEducEnroUNESCO', 'IIAG:TertEducEnroUNESCO', 'WDI:SH.STA.BASS.ZS', 'IIAG:RoadNetWEF'],
+		infoText: "The growing electorate distrust was only amplified by a degredation in government services such as education, roads and sanitation. (Sahel Average, 2009=100%)",
+		colors: Chart.colorschemes.brewer.Blues7.slice(1)
+	},
+	{
+		title: "The Refugees Crisis",
+		inds: ["WDI:nigeria:SM.POP.REFG.OR", "WDI:mali:SM.POP.REFG.OR", "WDI:cameroon:SM.POP.REFG", "WDI:chad:SM.POP.REFG"],
+		infoText: "The resulting destabilization created a regional refugee crisis.  Most came from Mali and Nigeria.  Most found asylum from the already stressed governments of Chad and Cameroon. (Reported Numbers)",
+		colors: Chart.colorschemes.brewer.RdYlGn6.slice(1)
+	},
+	{
+		title: "Nigerian Internally Displaced Peoples (IDPs)",
+		inds: ["WDI:VC.IDP.NWDS", "WDI:VC.IDP.NWCV"],
+		infoText: "These numbers, while staggering, pale in comparison to the millions who fled their homes during this period due to state and climate destabilizations in Nigeria alone. (Reported Numbers)",
+		colors: Chart.colorschemes.brewer.BuPu5.slice(2)
+	}	
 ];

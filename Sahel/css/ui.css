@@ -79,7 +79,7 @@ canvas#indicators + #overlay {
 }
 
 canvas#indicators + #overlay #copy {
-  padding: 10px;
+  padding: 12%;
 }
 
 #sec-indicators-by-country #indicators, #sec-sdg-funding #indicators{
