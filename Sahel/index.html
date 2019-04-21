@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="lib/jquery-3.3.1.min.js"></script>
-<!--
     <script src="lib/jquery-ui-1.12.1.min.js"></script>
-    
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/jquery-ui.min.css">
+<!--
+    
     <link rel="stylesheet" href="css/jquery-ui-themes-1.12.1/themes/smoothness/theme.css">
 -->
 
@@ -251,7 +251,6 @@
 	<div id="sec-sdg-funding" class="section">
 		<h2>Multilateral Action: Alignment Change and Progress</h2>
 <!--
-		<div class="vis-container">
 			<canvas id="indicators"></canvas>
 			<div id="overlay"><div id="copy"></div></div>
 		</div>
@@ -260,8 +259,121 @@
 			<span id="title"><h4  style="display:inline;">This Title Here</h4></span>
 			<img id="change-back" class="ui-controls" src="img/angle-left-solid.svg" style="float:left;">
 			<img id="change-frwd" class="ui-controls" src="img/angle-right-solid.svg" style="float:right;">
-		</div>
 -->
+		<div class="vis-container">
+			<div class="slide-container">
+				
+				<span id="change-container">
+					<div id="change"></div>
+					<div id="output">
+						<span id="mid">1</span>% Change
+					</div>
+				</span>
+
+				<div id="window-container">
+					<div id="window"></div>
+					<div id="output">
+						<span id="mid">1</span> Year Window
+					</div>
+				</div>
+
+				
+				<div id="year-container">
+					<div id="year"></div>
+					<div id="output">
+						<span id="low">2000</span>Year Range<span id="high">2017</span>
+					</div>
+				</div>
+				
+
+				
+			</div>
+		</div>		
+			
+			<style>
+				#sdg-results-continer #INDNAME0-item, #sdg-results-continer #INDNAME1-item , #sdg-results-continer #INDNAME2-item{
+					background: lightcoral;
+					width: 80vw;
+					border-radius: 1rem;
+					border: 3px solid black;
+					padding: .5rem;
+					margin: 10px;
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+				}	
+				
+				#sdg-results-continer #INDNAME1-item {
+					background: darkseagreen;
+				}
+				
+				#sdg-results-continer #INDNAME2-item {
+					background: lightpurple;
+				}
+				
+				#sdg-results-continer #copy{
+					margin-right: auto;
+					padding-right: 2px;
+				}
+				
+				.sdg-match-number {
+					padding: .9rem;
+					border-radius: 1rem;
+					color: white;
+					margin-left: 3px;
+				}
+				
+				#sdg-results-continer #bad{
+					background-color: red;
+				}
+				
+				#sdg-results-continer #med-bad{
+					background-color: pink;
+				}
+				
+				#sdg-results-continer #med-good{
+					background-color: yellow;
+				}	
+							
+				#sdg-results-continer #good{
+					background-color: green;
+				}
+			</style>
+			
+			<div id="sdg-results-continer">
+				
+				<div id="INDNAME0-item">
+					<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
+					<span id="bad" class="sdg-match-number">5</span>
+					<span id="med-bad" class="sdg-match-number">6</span>
+					<span id="med-good" class="sdg-match-number">2</span>
+					<span id="good" class="sdg-match-number">8</span>
+				</div>
+				
+				<div id="INDNAME1-item">
+					<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
+					<span id="bad" class="sdg-match-number">5</span>
+					<span id="med-bad" class="sdg-match-number">6</span>
+					<span id="med-good" class="sdg-match-number">2</span>
+					<span id="good" class="sdg-match-number">8</span>
+				</div>
+				
+					
+				<details>
+					<summary>All Indicators</summary>
+					
+					<div id="INDNAME2-item">
+						<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
+						<span id="bad" class="sdg-match-number">5</span>
+						<span id="med-bad" class="sdg-match-number">6</span>
+						<span id="med-good" class="sdg-match-number">2</span>
+						<span id="good" class="sdg-match-number">8</span>
+					</div>
+					
+				</details>
+				
+			</div>
+
 		
 		<div class="vis-text">
 			<p>
@@ -311,6 +423,7 @@
   <script src="js/fsi_star.js"></script>
   <script src="js/wdi.js"></script>
   <script src="js/acled.js"></script>
+  <script src="js/unsdg.js"></script>
 	<script src="js/datasets.js"></script>
 	<script src="js/main.js"></script>
 </html>

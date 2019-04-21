@@ -22,7 +22,8 @@
 // Select specific sdgs
 // resize cb for overlay
 
-// SDG Success - choose indicators
+// SDG Success
+// FIX: ignoring all nonspecific indicator names
 
 // Copenhagen - create
 
@@ -43,7 +44,8 @@ var ds = {
 				"P1: State Legitimacy", "P2: Public Services", "P3: Human Rights", 
 				"S1: Demographic Pressures", "S2: Refugees and IDPs", "X1: External Intervention"],
 	WDIcols: range(1960, 2018),
-	ACLEDcols: ["LATITUDE", "LONGITUDE", "FATALITIES", "TIMESTAMP"]
+	ACLEDcols: ["LATITUDE", "LONGITUDE", "FATALITIES", "TIMESTAMP"],
+	UNSDGcols: ["TimePeriod", "Value"]
 }
 // each dataset is preprocessed to contain a country,year col and only the desired indicators
 // exceptions values can be Number for default number conversion or bespoke function
@@ -65,6 +67,10 @@ var dsImportList = {				// list of all indicators
 		"ACLED/acled_sahel_gt2007.csv":{											
 			exceptions:Object.fromEntries(ds.ACLEDcols.map(d => [d, Number])),
 			initFcn: ACLED_init
+		},
+		"UNSDG/UNSDG.csv":{											
+			exceptions:Object.fromEntries(ds.UNSDGcols.map(d => [d, Number])),
+			initFcn: UNSDG_init
 		}
 	};
 

@@ -65,6 +65,10 @@
 
 /* INDIV & SDG INDICATORS */
 
+canvas#indicators {
+	z-index: -1;
+}
+
 canvas#indicators + #overlay {
 	display: none;
 	position: absolute;
@@ -76,11 +80,64 @@ canvas#indicators + #overlay {
   
 	justify-content: center;
 	align-items: center;
+	z-index: -1;
 }
 
 canvas#indicators + #overlay #copy {
   padding: 12%;
 }
+
+/* SDG CHANGES */
+.slide-container {
+	text-align:	center;
+	display: flex;
+}
+
+.slide-container #output{
+	padding-top: 1rem;
+	font-family: Open Sans;
+  font-weight: bold;
+  transform: translateX(2px);
+}
+
+#change-container #change, #window-container #window, #year-container #year {
+	width:20vw;
+	margin: 0 2vw 0 2vw;
+}
+
+.slide-container #low{
+	float:	left;
+}
+
+.slide-container #high{
+	float:	right;
+}
+
+.ui-widget.ui-widget-content {
+	border: 0px !important;
+	background: black;
+}
+
+.ui-slider-horizontal {
+	height: 2px !important;
+}
+
+.ui-slider-handle {
+	border: 2px solid black !important;
+	background: #fff !important;
+	border-radius: 100% !important;
+	height: 1rem !important;
+}
+
+.ui-slider-handle:hover {
+	background: #000 !important;
+}
+
+:focus {
+	outline: none !important;
+}
+
+/* SECTIONS */
 
 #sec-indicators-by-country #indicators, #sec-sdg-funding #indicators{
 /*
