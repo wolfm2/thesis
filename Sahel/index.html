@@ -266,7 +266,7 @@
 				<span id="change-container">
 					<div id="change"></div>
 					<div id="output">
-						<span id="mid">1</span>% Change
+						<span id="mid">400</span>% Change
 					</div>
 				</span>
 
@@ -281,98 +281,26 @@
 				<div id="year-container">
 					<div id="year"></div>
 					<div id="output">
-						<span id="low">2000</span>Year Range<span id="high">2017</span>
+						<span id="low">2015</span>Year Range<span id="high">2017</span>
 					</div>
 				</div>
 				
-
+				<div id="sdg-search">
+					<img src="img/search-solid.svg" title="Click to search!	">
+					<img id="spinner" src="img/search-spinner.gif" title="Working...">
+				</div>
 				
 			</div>
 		</div>		
 			
-			<style>
-				#sdg-results-continer #INDNAME0-item, #sdg-results-continer #INDNAME1-item , #sdg-results-continer #INDNAME2-item{
-					background: lightcoral;
-					width: 80vw;
-					border-radius: 1rem;
-					border: 3px solid black;
-					padding: .5rem;
-					margin: 10px;
-					display: flex;
-					align-items: center;
-					cursor: pointer;
-				}	
-				
-				#sdg-results-continer #INDNAME1-item {
-					background: darkseagreen;
-				}
-				
-				#sdg-results-continer #INDNAME2-item {
-					background: lightpurple;
-				}
-				
-				#sdg-results-continer #copy{
-					margin-right: auto;
-					padding-right: 2px;
-				}
-				
-				.sdg-match-number {
-					padding: .9rem;
-					border-radius: 1rem;
-					color: white;
-					margin-left: 3px;
-				}
-				
-				#sdg-results-continer #bad{
-					background-color: red;
-				}
-				
-				#sdg-results-continer #med-bad{
-					background-color: pink;
-				}
-				
-				#sdg-results-continer #med-good{
-					background-color: yellow;
-				}	
-							
-				#sdg-results-continer #good{
-					background-color: green;
-				}
-			</style>
+		<div id="sdg-results-container">
 			
-			<div id="sdg-results-continer">
-				
-				<div id="INDNAME0-item">
-					<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
-					<span id="bad" class="sdg-match-number">5</span>
-					<span id="med-bad" class="sdg-match-number">6</span>
-					<span id="med-good" class="sdg-match-number">2</span>
-					<span id="good" class="sdg-match-number">8</span>
-				</div>
-				
-				<div id="INDNAME1-item">
-					<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
-					<span id="bad" class="sdg-match-number">5</span>
-					<span id="med-bad" class="sdg-match-number">6</span>
-					<span id="med-good" class="sdg-match-number">2</span>
-					<span id="good" class="sdg-match-number">8</span>
-				</div>
-				
-					
-				<details>
-					<summary>All Indicators</summary>
-					
-					<div id="INDNAME2-item">
-						<div id="copy"><b>1.1.1</b> This is the indicator info this is a test this is a really long line i dont like it This is the indicator info this is a test this is a really long line i dont like itThis is the indicator info this is a test this is a really long line i dont like it</div>
-						<span id="bad" class="sdg-match-number">5</span>
-						<span id="med-bad" class="sdg-match-number">6</span>
-						<span id="med-good" class="sdg-match-number">2</span>
-						<span id="good" class="sdg-match-number">8</span>
-					</div>
-					
-				</details>
-				
-			</div>
+			<div id="selected"></div>	
+			<details id="unselected">
+				<summary>Indicators Below Percent Threshold (<span id="qty"></span>)</summary>	
+			</details>
+			
+		</div>
 
 		
 		<div class="vis-text">
@@ -392,9 +320,11 @@
 	<div id="sec-copenhagen" class="section">
 		<h2>Making the SDGs more effective: The Copenhagen Consensus</h2>
 		<div class="vis-container">
+<!--
 			<img style="height:50vh;" src="1.png">
 			<img style="height:50vh;" src="2.png">
 			<img style="height:50vh;" src="3.png">
+-->
 <!--
 			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
 -->

@@ -21,4 +21,13 @@ function numRotate(cur, max, action) {
 			cur = action;
 	}
 	return cur;
+} 
+
+// will create indermediary keys automagically
+function autoDict() {
+	return new Proxy({}, {
+						get (target, key) {
+							return target.hasOwnProperty(key) && target[key] || (target[key] = {});
+						}
+					});
 }
