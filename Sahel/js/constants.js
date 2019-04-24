@@ -289,10 +289,54 @@ defCfgLineGraph = {
 	}
 }
 
+defCfgLineGraph.options.tooltips.callbacks = {
+            label: function(tooltipItem, data) {
+								return maxSign(parseFloat(tooltipItem.yLabel), 2);
+								}
+        };
+
 // Deep copy
 var defCfgStackedLineGraph = jQuery.extend(true, {}, defCfgLineGraph);
-defCfgStackedLineGraph.options.scales = {yAxes: [{stacked: true}]};
+defCfgStackedLineGraph.options.scales = {yAxes: [{stacked: true,
+																									ticks: {
+																											beginAtZero:true,
+																											ccallback: function(value, index, values) {
+																												return '$' + (value / 1000000) + 'M'
+																													//~ if(parseInt(value) >= 1000){
+																														 //~ return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+																													//~ } else {
+																														 //~ return '$' + value;
+																													//~ }
+																											},
+																											min: 0,
+																											display: true, 
+																											userCallback: function (tick) {																												
+																												var value = parseInt(tick) / 1000000;
+																												if(value >= 1000){
+																													 return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + 'M';
+																												} else {
+																													 return '$' + value + 'M';
+																												}
+																											},
+																									 }
+																								 }]};
+																								
+defCfgStackedLineGraph.options.tooltips.callbacks = {
+            label: function(tooltipItem, data) {
+								var value = parseInt(tooltipItem.yLabel) / 1000000;
+								if(value >= 1000){
+									 return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + 'M';
+								} else {
+									 return '$' + value + 'M';
+								}
+            }
+        };
+    
 
+// defCfgStackedLineGraph.scaleStartValue = 2000000;
+// defCfgStackedLineGraph.scaleOverride = true;
+defCfgStackedLineGraph.aspectRatio = 3.33;
+defCfgStackedLineGraph.maintainAspectRatio = false;
 
 // IIAG FULL
 //~ var IIAG_FULL_METRICS = [
@@ -658,149 +702,170 @@ VIS0sections = [
 		colors: Chart.colorschemes.brewer.BuPu5.slice(2)
 	}	
 ];
-//~ , , , ,
-		//~ , , ,
-		//~ , , ,
-		//~ 
 
 UNSDG_VIS0indicators = [
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
-		name:"DT.NFL.FAOG.CD",
-		label:"FAOG",
-		func:"getRaw"
+		name:"DT.ODA.ALLD.CD",
+		label:"UN Development and Aid Funds Total",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
+		dset:"WDI",
+		name:"DT.NFL.FAOG.CD",
+		label:"UN Food and Agriculture",
+		func:"getSum"
+	},
+	{
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.IAEA.CD",
 		label:"IAEA",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.IFAD.CD",
-		label:"IFAD",
-		func:"getRaw"
+		label:"Intl. Fund for Agricultural Development",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.ILOG.CD",
 		label:"ILOG",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNAI.CD",
 		label:"UNAI",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNDP.CD",
-		label:"UNDP",
-		func:"getRaw"
+		label:"UN Development Program",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNEC.CD",
 		label:"UNEC",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNFP.CD",
-		label:"UNFP",
-		func:"getRaw"
+		label:"UN Population Fund",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNCR.CD",
-		label:"UNCR",
-		func:"getRaw"
+		label:"UN Commission for Refugees",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNCF.CD",
-		label:"UNCF",
-		func:"getRaw"
+		label:"UN Cooperation Framework",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNPB.CD",
-		label:"UNPB",
-		func:"getRaw"
+		label:"UN Aids Working Group",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNRW.CD",
 		label:"UNRW",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNTA.CD", 
-		label:"UNTA",
-		func:"getRaw"
+		label:"UN Transitional Authority",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.UNWT.CD",
 		label:"UNWT",
-		func:"getRaw"
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.WFPG.CD",
-		label:"WFPG",
-		func:"getRaw"
+		label:"UN Women's Foreign Policy Group",
+		func:"getSum"
 	},
 	{
-		years: range(2009, 2016),
-		countries: ["Mali"],
+		years: range(2000, 2017),
+		countries: sahelNames,
 		dset:"WDI",
 		name:"DT.NFL.WHOL.CD",
-		label:"WHOL",
-		func:"getRaw"
+		label:"UN World Health Organization",
+		func:"getSum"
 	}
 ];
-
+// GrayWarm20.slice(2)
 UNSDG_VIS0sections = [
 	{
-		title: "Total UN Funding",
-		inds: ["WDI:DT.NFL.FAOG.CD", "WDI:DT.NFL.IAEA.CD", "WDI:DT.NFL.IFAD.CD", "WDI:DT.NFL.ILOG.CD",
-		"WDI:DT.NFL.UNAI.CD", "WDI:DT.NFL.UNDP.CD", "WDI:DT.NFL.UNEC.CD", "WDI:DT.NFL.UNFP.CD",
-		"WDI:DT.NFL.UNCR.CD", "WDI:DT.NFL.UNCF.CD", "WDI:DT.NFL.UNPB.CD", "WDI:DT.NFL.UNRW.CD",
-		"WDI:DT.NFL.UNTA.CD", "WDI:DT.NFL.UNWT.CD", "WDI:DT.NFL.WFPG.CD", "WDI:DT.NFL.WHOL.CD"],
-		colors: Chart.colorschemes.brewer.YlGnBu4.slice(1)
+		title: "Total Sahel Funding",
+		inds: ["WDI:DT.ODA.ALLD.CD"],
+		colors: Chart.colorschemes.tableau.ClassicGray5
+	},
+	{
+		title: "Funding By Agency",
+		inds: ["WDI:DT.NFL.UNPB.CD", "WDI:DT.NFL.UNTA.CD","WDI:DT.NFL.FAOG.CD"],
+		colors: Chart.colorschemes.tableau.ClassicGray5
+	},
+	{
+		title: "Funding By Agency",
+		inds: ["WDI:DT.NFL.IFAD.CD", "WDI:DT.NFL.UNDP.CD", "WDI:DT.NFL.UNFP.CD"],
+		colors: Chart.colorschemes.tableau.ClassicGray5
+	},
+	{
+		title: "Funding By Agency",
+		inds: ["WDI:DT.NFL.UNCF.CD"],
+		colors: Chart.colorschemes.tableau.ClassicGray5
+	},
+	{
+		title: "Funding By Agency",
+		inds: ["WDI:DT.NFL.UNCR.CD", "WDI:DT.NFL.WFPG.CD", "WDI:DT.NFL.WHOL.CD"],
+		colors: Chart.colorschemes.tableau.ClassicGray5
 	}
 ];

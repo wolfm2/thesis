@@ -31,3 +31,10 @@ function autoDict() {
 						}
 					});
 }
+
+// js version is crap 
+// significance formatter - does not enforce unneeded float zeros after float
+function maxSign(num, s) {
+	if (s == undefined) s = 2;
+	return (parseInt([num][0]*(1*(10**s)))/(10**s));
+}

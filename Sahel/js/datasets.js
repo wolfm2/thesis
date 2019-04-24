@@ -7,14 +7,8 @@
 // TODO
 // Create warnings log for all missing data. Eg: Mali does not have 2008
 
-// js version is crap 
-// significance formatter - does not enforce unneeded float zeros after float
-function maxSign(num, s) {
-	if (s == undefined) s = 2;
-	return (parseInt([num][0]*(1*(10**s)))/(10**s));
-}
-
 // deepens an array - groups by n indexes
+// i.e. makes a dim 9 array 3x3
 function groupBy(arr, n) {
   var group = [];
   for (var i = 0, end = arr.length / n; i < end; ++i)

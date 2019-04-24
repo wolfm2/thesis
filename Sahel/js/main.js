@@ -20,7 +20,6 @@
 
 // SDG
 // Select specific sdgs
-// resize cb for overlay
 
 // SDG Success
 // FIX: ignoring all nonspecific indicator names
@@ -31,7 +30,10 @@
 // WDI, FSI, FONTAWSOME, Pauline, text citations
 // attrib and link to https://fontawesome.com/license
 
-
+// DANIEL
+// all charts wide
+// legend off to the side
+// indicator colors redo  off to the side / more passive colors / possibly icons?
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal
 

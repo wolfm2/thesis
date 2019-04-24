@@ -48,6 +48,11 @@
 
 .hoverinfo {
 	font-family: Open Sans;
+	color: white;
+	background-color: black !important;
+	border-radius: 5px !important;
+	border: 0px !important;
+	opacity: .9;
 }
 
 #violence-date, #violence-map, #violence-controls {
@@ -66,7 +71,7 @@
 /* INDIV & SDG INDICATORS */
 
 canvas#indicators {
-	z-index: -1;
+	mwz-index: -1;
 }
 
 canvas#indicators + #overlay {
@@ -80,7 +85,7 @@ canvas#indicators + #overlay {
   
 	justify-content: center;
 	align-items: center;
-	z-index: -1;
+	overflow: hidden;
 }
 
 canvas#indicators + #overlay #copy {
@@ -89,18 +94,18 @@ canvas#indicators + #overlay #copy {
 
 /* SDG CHANGES */
 #sdg-results-container .sdg-item{
-	width: 40vw;
+	width: 85vw;
 	border-radius: 3rem;
 	mw-border: 2px solid black;
 	padding: .5rem;
-	margin: 10px;
+	margin: 5px;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 	font-family: Open Sans;
 }	
 
-#sdg-results-container #no-match {
+#sdg-results-container .result-txt {
 	padding-top:	3rem;
 	text-align: center;
 }
@@ -108,10 +113,10 @@ canvas#indicators + #overlay #copy {
 #sdg-results-container #copy{
 	margin-right: auto;
 	padding-right: 2px;
-	padding-left: 1rem;
+	padding-left: 3rem;
 	color: white;
 	font-weight: bold;
-	font-size: 1.8rem;
+	font-size: 2.3rem;
 }
 
 .sdg-match-number {
@@ -120,28 +125,39 @@ canvas#indicators + #overlay #copy {
 	color: white;
 	margin-left: 3px;
 	font-weight: bold;
+  width: 10vh;
+  display: flex;
+  align-items: center;
 }
 
 #sdg-results-container #bad{
-	background-color: #d7191c;
+	bbackground-color: #d7191c;
 }
 
 #sdg-results-container #med-bad{
-	background-color: #fdae61;
+	bbackground-color: #fdae61;
 }
 
 #sdg-results-container #med-good{
-	background-color: #a6d96a;
+	bbackground-color: #a6d96a;
 }	
 			
 #sdg-results-container #good{
-	background-color: #1a9641;
+	bbackground-color: #1a9641;
 	margin-right: 1rem;
 }
 
 .slide-container {
 	text-align:	center;
 	display: flex;
+  padding: 20px 0px 10px 0px;
+}
+
+
+#sdg-results-container #selected{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .slide-container #output{
@@ -156,6 +172,14 @@ canvas#indicators + #overlay #copy {
 	height: 3rem;
 	padding-left: 20px;
 	transform: translateY(-1rem);
+}
+
+#sdg-results-container .result-icons {
+	width: 3rem;
+	height: 3rem;
+	padding-right: 5px;
+	filter: invert(1);
+	opacity: .85;
 }
 
 .slide-container #sdg-search #spinner{
@@ -191,7 +215,8 @@ canvas#indicators + #overlay #copy {
 	border: 2px solid black !important;
 	background: #fff !important;
 	border-radius: 100% !important;
-	height: 1rem !important;
+	height: .9rem !important;
+	width: .9rem !important;
 }
 
 .ui-slider-handle:hover {
@@ -204,11 +229,16 @@ canvas#indicators + #overlay #copy {
 
 /* SECTIONS */
 
-#sec-indicators-by-country #indicators, #sec-sdg-funding #indicators{
+#sec-indicators-by-country #indicators{
 /*
 	max-height: 48vh;
 */
 	max-width: 60%;
+}
+
+#sec-sdg-funding #indicators{
+	max-height: 30vh;
+	max-width: 90%;
 }
 
 #sec-indicators-by-country {
@@ -515,7 +545,7 @@ ul.ui-autocomplete {
 
 .ui-slider-range {
 	border-top: 2px solid var(--fg) !important;
-	border-bottom: 2px solid var(--fg) !important;
+	bborder-bottom: 2px solid var(--fg) !important;
 	width: 2rem !important;
 	transform: translateX(-.55rem);
   background: transparent;

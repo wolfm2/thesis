@@ -19,8 +19,8 @@ UNSDG_VIS0 = {
 	datadep: ["WDI"],
 	indicators: UNSDG_VIS0indicators,
 	sections: UNSDG_VIS0sections,
-	yearMin: 2009,
-	yearMax: 2016,
+	yearMin: 2000,
+	yearMax: 2017,
 	graphCfg: defCfgStackedLineGraph,
 	accessors: {},
 	fill: true
@@ -63,6 +63,7 @@ function glueSetChartData(obj, action){
 			
 		obj.chart.config.data.datasets = datasets;
 		obj.chart.update();
+		return;
 	}
   
 	if (cInfo.infoText != undefined && overlay.css("display") == "none") {

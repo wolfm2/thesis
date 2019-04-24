@@ -9,6 +9,17 @@ function WDI_init(errors, rows) {
 		return i.years.map(d => WDI.nData[i.countries[0]][i.name][0][d])
 	}
 
+	// get summed info for all countries
+	WDI.getSum = function(i) {
+		return (
+			i.years.map(y => {
+				return d3.sum(i.countries.map(c => {
+						return WDI.nData[c][i.name][0][y]
+				}));
+			})
+		);
+	}
+	
 	// aggregated relative series for several countries / one indicator
 	WDI.relAgg = function(ind) {
 		
@@ -48,5 +59,5 @@ function WDI_init(errors, rows) {
 	WDI.yearMax = 2016;
 
 	glueRegister(VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg});
-	glueRegister(UNSDG_VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg});
+	glueRegister(UNSDG_VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg, getSum:WDI.getSum});
 }

@@ -126,18 +126,18 @@ function UNSDG_init (errors, rows) {
 						sdgChangeData.push({s:sdgNum, c:c, i:i, y:yrs, ch:change});
 					})
 					
-				sdgChangeNData = d3.nest().key(k => parseInt(k.s))  // nest the data
-					.key(k => Math.abs(k.ch) >= UNSDG.changePercent?"changed":"unchanged")
-					.key(k => k.i)
-					.key(k => k.ch>0?"good":"bad")
-					.key(k => k.c).object(sdgChangeData);
+				//~ sdgChangeNData = d3.nest().key(k => parseInt(k.s))  // nest the data
+					//~ .key(k => Math.abs(k.ch) >= UNSDG.changePercent?"changed":"unchanged")
+					//~ .key(k => k.i)
+					//~ .key(k => k.ch>0?"good":"bad")
+					//~ .key(k => k.c).object(sdgChangeData);
 					
 			});
 		});
 	}
 	
 	function showChangedSDGs() {
-		$("#sdg-results-container .sdg-item").remove();
+		$("#sdg-results-container .sdg-item, #sdg-results-container .result-txt").remove();
 		
 		var sdgKeys = Object.keys(sdgChangeNData);
 		
@@ -145,16 +145,29 @@ function UNSDG_init (errors, rows) {
 			var changedExists = sdgChangeNData[d].changed!=undefined;
 			var bucket = changedExists?"#selected":"#unselected";
 			var bad = mbad = mgood = good = 0;
+			var badList = mbadList = mgoodList = goodList = "";
 			
 			if (changedExists) {
 				var indKeys = Object.keys(sdgChangeNData[d].changed);
 				indKeys.forEach(k => {
 					var gKey = sdgChangeNData[d].changed[k]["good"];
 					var bKey = sdgChangeNData[d].changed[k]["bad"];
-					if (gKey != undefined && Object.keys(gKey).length == 10) good++;
-					if (gKey != undefined && Object.keys(gKey).length < 10) mgood++;
-					if (bKey != undefined && Object.keys(bKey).length == 10) bad++;
-					if (bKey != undefined && Object.keys(bKey).length < 10) mbad++;
+					if (gKey != undefined && Object.keys(gKey).length == 10) {
+						good++;
+						goodList += ` ${k}`;
+					}
+					if (gKey != undefined && Object.keys(gKey).length < 10) {
+						mgood++;
+						mgoodList += ` ${k}`;
+					}
+					if (bKey != undefined && Object.keys(bKey).length == 10) {
+						bad++;
+						badList += ` ${k}`;
+					}
+					if (bKey != undefined && Object.keys(bKey).length < 10) {
+						mbad++;
+						mbadList += ` ${k}`;
+					}
 					});
 			}
 		
@@ -166,28 +179,48 @@ function UNSDG_init (errors, rows) {
 			$("#sdg-results-container " + bucket).append(`
 				<div id="SDG${i}-item" class="sdg-item" style="background:${SDG.color[i]};">
 					<div id="copy">${sdgCopy[i].title}</div>
-					<span id="bad" class="sdg-match-number" title="${badT}">${bad}</span>
-					<span id="med-bad" class="sdg-match-number" title="${mbadT}">${mbad}</span>
-					<span id="med-good" class="sdg-match-number" title="${mgoodT}">${mgood}</span>
-					<span id="good" class="sdg-match-number" title="${goodT}">${good}</span>
+					<span id="bad" class="sdg-match-number" title="${badT}" data-inds="${badList}"><img class='result-icons' src='img/b.svg'>${bad}</span>
+					<span id="med-bad" class="sdg-match-number" title="${mbadT}" data-inds="${mbadList}"><img class='result-icons' src='img/mb.svg'>${mbad}</span>
+					<span id="med-good" class="sdg-match-number" title="${mgoodT}" data-inds="${mgoodList}"><img class='result-icons' src='img/mg.svg'>${mgood}</span>
+					<span id="good" class="sdg-match-number" title="${goodT}" data-inds="${goodList}"><img class='result-icons' src='img/g.svg'>${good}</span>
 				</div> `);
 			});
 	
 		var numAbove = $("#sdg-results-container #selected .sdg-item").length;
-		if (numAbove == 0) $("#sdg-results-container #selected").html("<h3 id='no-match'>No Matching Indicators</h3>");
+		if (numAbove == 0) $("#sdg-results-container #selected").html("<h3 class='result-txt'>No Matching Indicators</h3>");
 		var numBelow = $("#sdg-results-container #unselected .sdg-item").length;
 		$("#sdg-results-container #unselected #qty").html(numBelow);
 		$("#sdg-results-container #unselected .sdg-match-number").hide();
+		
+		$("#sdg-results-container .sdg-match-number").click(function(e) {
+			$('#sdg-results-container .sdg-results-deeper').remove();
+			
+			var inds = $(this).data("inds");
+		  $(this).parent().after(`<div class='sdg-results-deeper'>${inds	}</div>`);
+		});
+
 	}
 	
 	
 	$(".slide-container #sdg-search").click(e => {
 		$("#sdg-search img").toggle(); // start spinner
+		$("#sdg-results-container #selected").html("<h3 class='result-txt'>Gathering Information... </h3>");
 		
 		setTimeout(()=>{ // super goofy... DOM won't update without js pausing
 			findChange()
-			showChangedSDGs();
-			$("#sdg-search img").toggle(); // end spinner
+			var msg = `<h3 class='result-txt'>Comparing ${sdgChangeData.length} datapoints... </h3>`
+			$("#sdg-results-container #selected").html(msg);
+			
+			setTimeout(()=>{
+				sdgChangeNData = d3.nest().key(k => parseInt(k.s))  // nest the data
+						.key(k => Math.abs(k.ch) >= UNSDG.changePercent?"changed":"unchanged")
+						.key(k => k.i)
+						.key(k => k.ch>0?"good":"bad")
+						.key(k => k.c).object(sdgChangeData);
+						
+				showChangedSDGs();
+				$("#sdg-search img").toggle(); // end spinner
+				},10);
 			},10);
 		
 		});
