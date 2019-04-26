@@ -1,5 +1,5 @@
 SDG = {
-	copyIdx:null,
+	copyIdx:0,
 	targetIdx:0,
 	copy: sdgCopy,
 	color: [
@@ -69,14 +69,16 @@ function sdg_init(){
 		
 		genCopy();
 		$("#sdg-grid #sdg-txt-container").css("background", SDG.color[SDG.copyIdx]);
+		$("#sec-sdg .vis-container").css("background", SDG.color[SDG.copyIdx]);
 		$("#sdg-grid #sdg-txt-container").fadeIn(200);
-		$("#sdg-back, #sdg-frwd").css("filter", "none");
+		$("#sdg-back, #sdg-frwd").css("filter", "invert(100%)");
 		});
 		
 		
 	$("#sdg-txt-container").click(function(e) { 
 		$("#sdg-txt-container").fadeOut(100);
-		$("#sdg-back, #sdg-frwd").css("filter", "invert(100%)");
+		$("#sdg-back, #sdg-frwd").css("filter", "invert(90%)"); 
+		$("#sec-sdg .vis-container").css("background", "#eed");
 		})
 			
 	$("#sdg-back").click(function(e) {

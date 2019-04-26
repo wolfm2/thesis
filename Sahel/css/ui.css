@@ -44,6 +44,7 @@
 	font-family: Open Sans;
 	font-size: 3rem; 
 	transform: translateY(5rem);
+	z-index: 2;
 }
 
 .hoverinfo {
@@ -66,6 +67,8 @@
 #violence-map {
 	border: 0px !important;
 	padding-bottom: 0px !important;
+	ooverflow: hidden;
+	width: 85vw !important;
 }
 
 /* INDIV & SDG INDICATORS */
@@ -119,6 +122,13 @@ canvas#indicators + #overlay #copy {
 	font-size: 2.3rem;
 }
 
+#sdg-results-container #sdg-results-deeper {
+  display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+}
+
 .sdg-match-number {
 	padding: .9rem;
 	border-radius: 1rem;
@@ -136,6 +146,7 @@ canvas#indicators + #overlay #copy {
 
 #sdg-results-container #med-bad{
 	bbackground-color: #fdae61;
+	margin-right: 1rem;
 }
 
 #sdg-results-container #med-good{
@@ -144,7 +155,6 @@ canvas#indicators + #overlay #copy {
 			
 #sdg-results-container #good{
 	bbackground-color: #1a9641;
-	margin-right: 1rem;
 }
 
 .slide-container {
@@ -174,12 +184,37 @@ canvas#indicators + #overlay #copy {
 	transform: translateY(-1rem);
 }
 
+@keyframes imgBreathe {
+  0% {
+		filter: invert(1);
+	}
+	50% {
+		filter: invert(.2);
+	}
+	100% {
+		filter: invert(1);
+	}
+}
+
 #sdg-results-container .result-icons {
 	width: 3rem;
 	height: 3rem;
-	padding-right: 5px;
+	padding: 2px;
+	margin-right: 5px;
 	filter: invert(1);
 	opacity: .85;
+}
+
+#sdg-results-container #good .result-icons, #sdg-results-container #bad .result-icons{
+    border: 2px solid black;
+    border-radius: 30px
+}
+
+.img-invert-breathe {
+	animation-name: imgBreathe;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 2;
+	animation-duration: 1.5s;
 }
 
 .slide-container #sdg-search #spinner{
@@ -232,8 +267,8 @@ canvas#indicators + #overlay #copy {
 #sec-indicators-by-country #indicators{
 /*
 	max-height: 48vh;
-*/
 	max-width: 60%;
+*/
 }
 
 #sec-sdg-funding #indicators{
@@ -259,7 +294,16 @@ canvas#indicators + #overlay #copy {
 	ttext-align: center;
 }
 
+#sec-violent-entrepreneurs .datamap {
+	width: 85vw !important;
+	background-color: #bbb;
+}
+
 /* SDGs */
+#sec-sdg .vis-container {
+  background-color: #eed;
+}
+
 #sdg-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -268,6 +312,7 @@ canvas#indicators + #overlay #copy {
 	grid-area: 1/1;
 	width: fit-content;
 	margin: auto;
+	border: 5px solid transparent;
 }
 
 .sdg-img img{
@@ -287,14 +332,14 @@ canvas#indicators + #overlay #copy {
 }
 
 #sdg-txt-target {
-	width: 30vw;
+	width: 40vw;
 	margin: auto
 }
 
 #sdg-back, #sdg-frwd {
 	height: 3rem;
 	padding: 0px 0px 0px 5px;
-	filter: invert(100%);
+	filter: invert(90%);
 }
 
 

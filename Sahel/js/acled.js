@@ -108,7 +108,7 @@ function ACLED_init(errors, rows) {
 			});
 		return result;
 	})	
-	.style("display", "none");
+	.style("opacity", ".3").style("stroke", "rgb(68, 51, 68, .3)");
 	
 	function getData() {
 		$("#violence-date").html((ACLED.month+1) + "/" + ACLED.year);

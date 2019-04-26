@@ -26,6 +26,19 @@ UNSDG_VIS0 = {
 	fill: true
 }
 
+UNSDG_VIS1 = {
+	container: "#sec-sdg-funding #selected #sdg-results-deeper",
+	indIdx: 0,
+	datadep: ["UNSDG"],
+	indicators: UNSDG_VIS1indicators,
+	sections: UNSDG_VIS1sections,
+	yearMin: 2000,
+	yearMax: 2017,
+	graphCfg: defCfgLineGraph,
+	accessors: {},
+	fill: false
+}
+
 function glueRegister(obj, ds, accessors) {
 	obj.datadep = obj.datadep.filter((d) => {
     return d != ds; // deletes dataset string
