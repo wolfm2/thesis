@@ -245,7 +245,7 @@ Chart.defaults.global.elements.point.pointStyle = "cross";
 Chart.defaults.global.elements.point.radius = 6;
 Chart.defaults.global.legend.labels.boxWidth = 20;
 
-defCfgLineGraph = {
+defCfgLineGraph = {	
 	type: 'line',
 	data: {
 		//labels: range(FSI.yearMin, FSI.yearMax),
@@ -288,6 +288,11 @@ defCfgLineGraph = {
 		}
 	}
 }
+
+// Deep copy
+var defCfgStackedLineGraph = jQuery.extend(true, {}, defCfgLineGraph);
+defCfgStackedLineGraph.options.scales = {yAxes: [{stacked: true}]};
+
 
 // IIAG FULL
 //~ var IIAG_FULL_METRICS = [
@@ -652,4 +657,150 @@ VIS0sections = [
 		infoText: "These numbers, while staggering, pale in comparison to the millions who fled their homes during this period due to state and climate destabilizations in Nigeria alone. (Reported Numbers)",
 		colors: Chart.colorschemes.brewer.BuPu5.slice(2)
 	}	
+];
+//~ , , , ,
+		//~ , , ,
+		//~ , , ,
+		//~ 
+
+UNSDG_VIS0indicators = [
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.FAOG.CD",
+		label:"FAOG",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.IAEA.CD",
+		label:"IAEA",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.IFAD.CD",
+		label:"IFAD",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.ILOG.CD",
+		label:"ILOG",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNAI.CD",
+		label:"UNAI",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNDP.CD",
+		label:"UNDP",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNEC.CD",
+		label:"UNEC",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNFP.CD",
+		label:"UNFP",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNCR.CD",
+		label:"UNCR",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNCF.CD",
+		label:"UNCF",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNPB.CD",
+		label:"UNPB",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNRW.CD",
+		label:"UNRW",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNTA.CD", 
+		label:"UNTA",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.UNWT.CD",
+		label:"UNWT",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.WFPG.CD",
+		label:"WFPG",
+		func:"getRaw"
+	},
+	{
+		years: range(2009, 2016),
+		countries: ["Mali"],
+		dset:"WDI",
+		name:"DT.NFL.WHOL.CD",
+		label:"WHOL",
+		func:"getRaw"
+	}
+];
+
+UNSDG_VIS0sections = [
+	{
+		title: "Total UN Funding",
+		inds: ["WDI:DT.NFL.FAOG.CD", "WDI:DT.NFL.IAEA.CD", "WDI:DT.NFL.IFAD.CD", "WDI:DT.NFL.ILOG.CD",
+		"WDI:DT.NFL.UNAI.CD", "WDI:DT.NFL.UNDP.CD", "WDI:DT.NFL.UNEC.CD", "WDI:DT.NFL.UNFP.CD",
+		"WDI:DT.NFL.UNCR.CD", "WDI:DT.NFL.UNCF.CD", "WDI:DT.NFL.UNPB.CD", "WDI:DT.NFL.UNRW.CD",
+		"WDI:DT.NFL.UNTA.CD", "WDI:DT.NFL.UNWT.CD", "WDI:DT.NFL.WFPG.CD", "WDI:DT.NFL.WHOL.CD"],
+		colors: Chart.colorschemes.brewer.YlGnBu4.slice(1)
+	}
 ];

@@ -48,4 +48,5 @@ function WDI_init(errors, rows) {
 	WDI.yearMax = 2016;
 
 	glueRegister(VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg});
+	glueRegister(UNSDG_VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg});
 }
