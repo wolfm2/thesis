@@ -26,7 +26,7 @@ function ACLED_init(errors, rows) {
     .domain([ACLED.minActorSeverity, ACLED.maxActorSeverity])
     .range([0, 1]);
   
-  var colorInterp = d3.interpolateLab("#FFF4EF", "#6D0012"); // interpolation
+  var colorInterp = d3.interpolateLab("#FFF4EF", "#6D0012"); // ACTOR Color scale
     
   // compile actor colors by severity
   var colorBySeverity = {defaultFill: '#dddddd'};
@@ -130,9 +130,8 @@ function ACLED_init(errors, rows) {
 			});
 			
 		Object.keys(activity).forEach(d=>{  // convert to color
-			//activity[d] = d3.interpolateInferno(activityScale(Math.sqrt(activity[d])));
 
-			activity[d] = d3.interpolateViridis(activityScale(Math.sqrt(activity[d])));
+			activity[d] = d3.interpolateViridis(activityScale(Math.sqrt(activity[d]))); // Country Color Scale
 			})
 			
 		ACLED.map.updateChoropleth(activity);

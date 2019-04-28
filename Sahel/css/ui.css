@@ -35,6 +35,35 @@
 
 /*  VIOLENCE MAP */
 
+#sec-violent-entrepreneurs #mapLegend0  {    
+	transform: translate(6vh,-18vh);
+}
+
+#sec-violent-entrepreneurs #mapLegend1  {
+	transform: translate(6vh,-11vh);
+}
+
+#sec-violent-entrepreneurs .map-legend #top{
+	font-family: Open Sans;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+}
+
+#sec-violent-entrepreneurs .map-legend, #sec-violent-entrepreneurs .map-legend img {
+	width: 20vw;
+	height: 10px;
+}
+
+#sec-violent-entrepreneurs .map-legend #min {
+	float:left;
+}
+
+#sec-violent-entrepreneurs .map-legend #max {
+	float:right;
+}
+
 #sec-violent-entrepreneurs .vis-container {
 	display: flex;
 	flex-direction: column;
@@ -96,6 +125,26 @@ canvas#indicators + #overlay #copy {
 }
 
 /* SDG CHANGES */
+
+.slide-container .ui-button {
+	color: white;
+	background-color: #222;
+	margin: 0px 3vh 0px 3vh;
+	transform: translateY(-2vh);
+	border: none !important;
+	background: #222 !important;
+	box-shadow: none !important;
+}
+
+#averaged-container {
+
+    width: 130px;
+}
+
+.slide-container .ui-state-active {
+	background-color: #777 !important;
+}
+
 #sdg-results-container .sdg-item{
 	width: 85vw;
 	border-radius: 3rem;
@@ -346,6 +395,10 @@ canvas#indicators + #overlay #copy {
 /* STAR */
 .grid-title {
 	text-align: center;
+}
+
+.vis-star {
+    border-radius: 15px;
 }
 
 #grid-outer h5 {

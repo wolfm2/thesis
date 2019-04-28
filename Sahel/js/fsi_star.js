@@ -39,9 +39,12 @@ function fsi_star_cb(t,isSmall) {
 		iC.RadarChart.defaultConfig.color = function() {return chartColor};
 		iC.chart.config({factor: .85, maxValue: FSI.dataMax, minValue: FSI.dataMin, axisText: false, levels: 0, circles: false});
 		
+		$("#vis-ifs-lvl0-Mali").css("border", "5px solid #999")
 		// if not registered - register for iframe clicks
 		if (! FSI.updateList.includes(t)) {
 			$(t).contents().on("click", function(e){
+				$(".vis-star").css("border", "none")
+				$(t).css("border", "5px solid #999	")
 				FSI.bigCountry = $(t).data()["name"];
 				$("#vis-ifs-lvl0-big").each(function() { // should only be one
 					fsi_star_cb(this, false);

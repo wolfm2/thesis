@@ -73,7 +73,7 @@
 		</div>
 					
 		<div style="text-align:center; max-width: 60%; margin:auto; padding-top:1rem;">
-			<span id="title"><h4  style="display:inline;">This Title Here</h4></span>
+			<span id="title"><h4  style="display:inline;">Loading...</h4></span>
 			<img id="back" class="ui-controls" src="img/angle-left-solid.svg" style="float:left;">
 			<img id="frwd" class="ui-controls" src="img/angle-right-solid.svg" style="float:right;">
 		</div>
@@ -136,6 +136,23 @@
 		<div class="vis-container">
 			<div id="violence-date">Loading...</div>
 			<div id="violence-map" style="border:1px dotted blue; width: 700px; height: 350px; position: relative;"></div>
+			
+			<div id="mapLegend0" class="map-legend">
+				<div id="top">
+					<div>Events Per Month (Squared)</div>
+					<img src="img/viridis.png">
+				</div>
+				<div><div id="min">1</div><div id="max">169</div></div>
+			</div>
+
+			<div id="mapLegend1" class="map-legend">
+				<div id="top">
+					<div>Actor Fatality Sum (Squared)</div>
+					<img src="img/redgradient.png">
+				</div>
+				<div><div id="min">0</div><div id="max">13K</div></div>
+			</div>
+			
 			<div id="violence-controls">
 				<img id="violence-back" class="ui-controls" src="img/angle-left-solid.svg">
 				<img id="violence-ctrl" class="ui-controls" src="img/play-circle-solid.svg">
@@ -258,7 +275,7 @@
 		</div>
 					
 		<div style="text-align:center; max-width: 60%; margin:auto; padding-top:1rem;">
-			<span id="title"><h4  style="display:inline;">This Title Here</h4></span>
+			<span id="title"><h4  style="display:inline;">Loading...</h4></span>
 			<img id="change-back" class="ui-controls" src="img/angle-left-solid.svg" style="float:left;">
 			<img id="change-frwd" class="ui-controls" src="img/angle-right-solid.svg" style="float:right;">
 -->
@@ -273,7 +290,7 @@
 		<div id="test">
 			<canvas id="indicators" style="width:100vw; height:30vh;"></canvas>
 			<div style="text-align:center; max-width: 60%; margin:auto; padding-top:1rem;">
-				<span id="title"><h4  style="display:inline;">This Title Here</h4></span>
+				<span id="title"><h4  style="display:inline;">Loading...</h4></span>
 				<img id="back" class="ui-controls" src="img/angle-left-solid.svg" style="float:left;">
 				<img id="frwd" class="ui-controls" src="img/angle-right-solid.svg" style="float:right;">
 			</div>
@@ -284,19 +301,28 @@
 			
 			<div class="slide-container">
 				
+
+				
+				<div id="averaged-container">
+					<label for="avgButton">Sahel Average</label>
+					<input type="checkbox" id="avgButton" />
+				</div>
+				
 				<span id="change-container">
 					<div id="change"></div>
 					<div id="output">
-						<span id="mid">400</span>% Change
+						<span id="mid">1</span>% Change
 					</div>
 				</span>
 
-				<div id="window-container">
+				<div id="window-container" style = "display:none;">
 					<div id="window"></div>
 					<div id="output">
 						<span id="mid">1</span> Year Window
 					</div>
 				</div>
+
+				
 
 				
 				<div id="year-container">

@@ -416,7 +416,7 @@ UNSDG_indLabels = {
 	"EG_EGY_PRIM":"Energy intensity level of primary energy (megajoules)",
 	"NY_GDP_PCAP":"Annual growth rate of real GDP per capita (%)",
 	"FB_ATM_TOTL":"Number of automated teller machines (ATMs) per 100,000 adults",
-	"FB_BNK_ACCSS":"Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+	"FB_BNK_ACCSS":"Adults (>=15 years) with an account at a financial institution or mobile-money-service provider (%)",
 	"FB_CBK_BRCH":"Number of commercial bank branches per 100,000 adults",
 	"SL_EMP_PCAP":"Annual growth rate of real GDP per employed person (%)",
 	"SL_ISV_IFRM":"Proportion of informal employment in non-agriculture employment, by sex (ILO harmonized estimates) (%)",
@@ -506,9 +506,9 @@ UNSDG_indLabels = {
 	"SG_HAZ_CMRMNTRL":"Compliance with the Montreal Protocol on hazardous waste and other chemicals",
 	"SG_HAZ_CMRROTDAM":"Compliance with the Rotterdam Convention on hazardous waste and other chemicals",
 	"SG_HAZ_CMRSTHOLM":"Compliance with the Stockholm Convention on hazardous waste and other chemicals",
-	"ER_FFS_PRTSPC":"Fossil-fuel pre-tax subsidies (consumption and production) per capita (current United States dollars)",
+	"ER_FFS_PRTSPC":"Fossil-fuel pre-tax subsidies (consumption and production) per capita (USD)",
 	"ER_FFS_PRTSPR":"Fossil-fuel pre-tax subsidies (consumption and production) as a proportion of total GDP (%)",
-	"ER_FFS_PRTSST":"Fossil-fuel pre-tax subsidies (consumption and production) (billions of current United States dollars)",
+	"ER_FFS_PRTSST":"Fossil-fuel pre-tax subsidies (consumption and production) (billions USD)",
 	"SG_DSR_LEGREG":"Countries with legislative and/or regulatory provisions been made for managing disaster risk (1 = YES; 0 = NO)",
 	"VC_DSR_AFFCT":"Number of people affected by disaster (number)",
 	"VC_DSR_DADN":"Number damaged dwellings attributed to disasters (number)",
@@ -561,7 +561,7 @@ UNSDG_indLabels = {
 	"GF_XPD_GBPC":"Primary government expenditures as a proportion of original approved budget (%)",
 	"SG_INT_MBRDEV":"Proportion of members of developing countries in international organizations, by organization (%)",
 	"SG_INT_VRTDEV":"Proportion of voting rights of developing countries in international organizations, by organization (%)",
-	"SG_REG_BRTH":"Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+	"SG_REG_BRTH":"Children under 5 years of age whose births have been registered with a civil authority (% < 5 years)",
 	"SG_NHR_IMPLN":"Countries with National Human Rights Institutions in compliance with the Paris Principles, A status (1 = YES; 0 = NO)",
 	"SG_NHR_INTEXSTN":"Countries with National Human Rights Institutions not fully compliant with the Paris Principles, B status (1 = YES; 0 = NO)",
 	"SG_NHR_NOAPPLN":"Countries with no application for accreditation with the Paris Principles, D status  (1 = YES; 0 = NO)",
@@ -579,13 +579,13 @@ UNSDG_indLabels = {
 	"SG_REG_BRTH90N":"Countries with birth registration data that are at least 90 percent complete (1 = YES; 0 = NO)",
 	"SG_REG_CENSUSN":"Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)",
 	"SG_REG_DETH75N":"Countries with death registration data that are at least 75 percent complete (1 = YES; 0 = NO)",
-	"SG_STT_CAPTY":"Dollar value of all resources made available to strengthen statistical capacity in developing countries (current United States dollars)",
+	"SG_STT_CAPTY":"Value of resources made available to strengthen statistical capacity in developing countries (USD)",
 	"BX_TRF_PWKR":"Volume of remittances (in United States dollars) as a proportion of total GDP (%)",
 	"DT_TDS_DECT":"Debt service as a proportion of exports of goods and services (%)",
 	"IT_NET_BBN":"Number of fixed Internet broadband subscriptions, by speed (number)",
 	"IT_NET_BBP":"Fixed Internet broadband subscriptions per 100 inhabitants, by speed (per 100 inhabitants)",
 	"IT_USE_ii99":"Internet users per 100 inhabitants",
-	"DC_FTA_TOTAL":"Total development monies (gross disbursement) for technical cooperation (millions of 2016 United States dollars)"
+	"DC_FTA_TOTAL":"Total development monies disbursed for technical cooperation (millions of 2016 United States dollars)"
 };
 
 
@@ -606,6 +606,7 @@ defCfgLineGraph = {
 		//datasets: setChartData(),
 	},
 	options: {
+    spanGaps: true,
 		legend: {
 			 onClick: (e) => e.stopPropagation()
 		},
@@ -686,7 +687,17 @@ defCfgStackedLineGraph.options.tooltips.callbacks = {
             }
         };
     
-
+defCfgStackedLineGraph.options.annotation = {
+			annotations: [{
+					type: "box",
+					xScaleID: 'x-axis-0',
+					borderColor: 'transparent',
+					borderWidth: 2,
+					backgroundColor: '#0001'
+				}]
+			};
+			
+			
 // defCfgStackedLineGraph.scaleStartValue = 2000000;
 // defCfgStackedLineGraph.scaleOverride = true;
 defCfgStackedLineGraph.aspectRatio = 3.33;
