@@ -40,6 +40,44 @@ function ACLED_init(errors, rows) {
 		.key(k=>new Date(k.EVENT_DATE).getMonth())
 		.object(rows);
 	
+	function typography() {
+		var month = ACLED.nData[2018][11];
+		
+		var canvas = document.getElementById("typography");
+		var ctx = canvas.getContext("2d");
+		ctx.fillStyle = "#555"
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+		var minLat = d3.min(month, d => d.LATITUDE);
+		var maxLat = d3.max(month, d => d.LATITUDE);
+		var minLon = d3.min(month, d => d.LONGITUDE);
+		var maxLon = d3.max(month, d => d.LONGITUDE);
+		var minFat = d3.min(month, d => d.FATALITIES);
+		var maxFat = d3.max(month, d => d.FATALITIES);
+		
+		var colorInterp = d3.interpolateLab("#FFF4EF", "#6D0012");
+		
+		var latScale = d3.scaleLinear().domain([minLat,maxLat]).range([-2000,7000]); // width 2448
+		var lonScale = d3.scaleLinear().domain([minLon,maxLon]).range([-12000,1584]); // height 1584
+		
+		var latScale = d3.scaleLinear().domain([minLat,maxLat]).range([0,2448]); // width 2448
+		var lonScale = d3.scaleLinear().domain([minLon,maxLon]).range([0,1584]); // height 1584
+
+		var colScale = d3.scaleLinear().domain([minFat,maxFat]).range([.9,0]);// font color
+		var sizScale = d3.scaleLinear().domain([minFat,maxFat]).range([10,100]); // font size
+		
+		ctx.textAlign = "center";
+		month.forEach(d => {
+			ctx.fillStyle = d3.interpolateViridis(colScale(d.FATALITIES)) // colorInterp(colScale(d.FATALITIES))
+			ctx.font = sizScale(d.FATALITIES) + "px Open Sans";
+			var a = d.ACTOR1
+			if (a.startsWith("Boko")) a = "Boko Haram"
+			if (a.includes("Military")) a = "Military"
+			ctx.fillText(a, latScale(d.LATITUDE), lonScale(d.LONGITUDE));
+		})
+	}
+	// typography()
+	
 	var countryActivityByMonth = d3.nest()
 		.key(k=>new Date(k.EVENT_DATE).getFullYear())
 		.key(k=>new Date(k.EVENT_DATE).getMonth())

@@ -60,4 +60,17 @@ function WDI_init(errors, rows) {
 
 	glueRegister(VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg});
 	glueRegister(UNSDG_VIS0, "WDI", {getRaw:WDI.getRaw, relAgg:WDI.relAgg, getSum:WDI.getSum});
+	
+	{ // make var scope
+		// deep copy graph data	
+		var data = jQuery.extend(true, {}, UNSDG_VIS0.chart.config.data.datasets[0]);
+		var axis  = jQuery.extend(true, {}, UNSDG_VIS0.chart.config.options.scales.yAxes[0]);
+		data.backgroundColor = data.borderColor = data.pointBorderColor = data.pointBackgroundColor = '#999'
+		data.yAxisID = axis.id='B';
+		axis.position='right';
+		
+		UNSDG.unGraphData = data
+		UNSDG.unAxisData = axis
+	}
+
 }

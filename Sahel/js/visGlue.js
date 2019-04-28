@@ -14,7 +14,7 @@ VIS0 = {
 }
 
 UNSDG_VIS0 = {
-	container: "#sec-sdg-funding",
+	container: "#sec-sdg-funding #test",
 	indIdx: 0,
 	datadep: ["WDI"],
 	indicators: UNSDG_VIS0indicators,
