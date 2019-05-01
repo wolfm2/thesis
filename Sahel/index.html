@@ -22,16 +22,6 @@
     <script src="lib/d3.v4.min.js"></script>
  		<script src="lib/topojson.js"></script>
 		<script src="lib/datamaps.world.js"></script>
-<!--
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <script src="lib/owl.carousel.min.js"></script>
--->
-    
-<!--
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="lib/bootstrap-4.0.0/bootstrap.min.js"></script>
--->
     
     <script src="lib/Chart.bundle.min.js"></script>
 		<script src="lib/chartjs-plugin-colorschemes.min.js"></script>
@@ -45,14 +35,21 @@
   
   <body>
 
+	<div id="fixedHome"><img src="img/home-solid.svg"></div>
+	<div id="introBg"></div>
 	<div id="sec-title">
-		<div id="text">
-			<h1>Sahel and the Sustainable Development Goals</h1>
-			<h2>An Interactive Companion to...</h2>
+		<div id="grid">
+			<img id="map" src="img/sahel.png">
+			<svg id="morph" width="700" height="450"></svg>
+			<div id="text">
+				<h1 id="txt-country">Sahel</h1>
+				<h1>and the Sustainable Development Goals</h1>
+				<h2>An Interactive Companion</h2>
+			</div>
 		</div>
+
 	</div>
 			
-
 	<div id="sec-indicators-by-country" class="section">
 		<h2>What is the Sahel and why is it considered fragile?</h2>
 				 
@@ -79,60 +76,55 @@
 		</div>
 		
 		<div class="vis-text">
+			<div class="quote">
+				<div id="text">
+					"What's happening in Mali doesn't only concern us here but the global community. With the advances in the fight against Islamic State in Syria and Iraq there's a flow back towards Northern Africa Crossing into Libya reaching Mali and the Sahel. We're not only defending our territory we're fighting for you too. The Mediterranean isn't far."
+				</div>
+				<div id="attr">
+					Malian president Keita<br>Bloomberg, 9/20/2018
+				</div>
+			</div>
+			
 			<p>
-			From an ecological perspective Sahel, is a strip running around 4800 miles coast to coast in the top middle section of Africa. The region ranges in width between approximately 100 miles 2 almost 400 miles high end encompasses some 1 million square miles of arid and semi-arid grasslands. a point of clarification, various multilateral organizations may operationalize distinct definitions of what nations constitute the Sahel. As I am featuring the Sustainable Development Goals later in this page, it makes sense to use the definition agreed on by the same stakeholder multilateral organizations. For them, the Sahel is composed of 10 different sovereign states. They include: Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal.
+				<b>Geography</b><br>
+				From an ecological perspective Sahel, is a strip running around 4800 miles coast to coast in the top middle section of Africa. The region ranges in width between approximately 100 miles 2 almost 400 miles high end encompasses some 1 million square miles of arid and semi-arid grasslands. Though the included states may differ between organizations, for the UN, the Sahel is composed Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal.
 			</p>
 			<p>
-				<b>Climate</b>
-				<p>
-				This Western area of the Sahel is largely subject to, and dependent on the rains of the yearly monsoon. The warming of the land encourages the flow a humidity from the ocean and the potential of rain which typically arrives typically between July through August. Many crops although reasonably resilient are still functioning in the upper bounds of their limitations. In this way even small variances in rainfall to have far-ranging effects since it is estimated that 70% of the region relies on the rain to survive. since the 1950s the region has experienced rainfall instability postulated to at least in part be the result of increase climate change precipitating technologies leading to an increase in density of air particulates. in the more than two decades spanning from 1970 to 1993, 20 years of drought were experienced regionally. Since this point the weather has been harder to forecast with what years followed by extremely dry ones making forecasting and agricultural planning extremely difficult.
-				</p>
-				Climatologists have worried that this instability could lead to a circular chain of events where when the land has less vegetation on it it will reflect more sunlight. This would in turn diminish the temperature difference between the land and the sea and in so doing we can the drawing in of humid are so crucial to a healthy monsoon. Additionally, experts agree that this process has been exacerbated by poor farming techniques, overgrazing, lack of a coherent and regional environmental policy, and deforestation.
-				<p>				
-				The situation was made dramatically worse in 2010 when the entire region was affected by a massive heat wave and drought. Temperatures spiked beyond 120F in some towns during this period. As a result crop yields were massively slashed as well as similar numbers for livestock production. Lake Chad a key water reservoir serving populations of more than 20 million people in Cameroon, Chad, Niger, and Nigeria has over the last 40 years seen its water availability shrink by 90%. Due to unsustainable water extraction and the current climate experts suggest the lake is unlikely to ever return to its previous levels without human intervention. 
-				</p>
+				<b>Why is the Sahel becoming more important?</b>
+				While it has historically been largely arid and difficult area in which to survive, the situation has worsened manifold since the region experienced its worst drought for decades in 2010.  The impact to agriculture and livelihoods has stressed governmental services and in concert with spiking inflation and a coup in Mali, it has allowed a new sort of terrorism to flourish.  The UN has organized several missions in the region in hopes of stabilizing the situation but has met with limited success.  While billions of dollars have been poured into the region to date, the violence is worse than ever, refugees and internally displaced peoples (IDPs) have topped 1 million, and the cost in terms of human suffering remains staggering.   
 			</p>
 			<p>
-				<b>Economies</b>
-				<P>
-					Closely related to climate is the damaged the monsoon instability had on the Sahel regions employment numbers. across the entire region agriculture is the largest employer. It is estimated to contribute as much as 45% of the GDP of some countries in the region.
-				</P>
-				<P>
-					Also, between 2007 and 2008 world markets experienced searching food prices as a result of the deprecation of the US dollar, market speculation, and other contributors. The effects of this were disproportionately felt by the world's poor populations. In the Sahara where some countries have household expenditures ranging between 40% and 70% devoted for food purchasing, the effects were severe. By one estimate in Burkina Faso, prices for millet rose 40% between 2007 and 2008. in the aftermath of the price spike, as trading stabilized for much of the first world, prices in much of the developing world including the Sahel remained high regardless.
-				</P>
+				<b>Multilateral Initiatives</b>
+				When trying to understand the challenges and why the UN is trying to help the region, it is useful to understand what is meant by state fragility. Arguably, the role of the state, in part, is to provide services to its citizens thus protecting them from environmental, political, economic shocks and other forms of destabilizing influences. If true, then the legitimacy of a state can be defined in part as the state's ability to provide social services such as sanitation, food, water, health, and education in addition to supporting markets where goods can be bought and sold and, perhaps most importantly for the state, taxed.  If a state is fragile, it is often less able to provide these services and secure the money it needs to run.  This is where, for the Sahel, the UN has stepped in.
 			</p>
-			<p>
-				<b>Politics</b>
-				<P>
-					As with Mali a reduced capacity to provide services and protections challenged the legitimacy of many states in the Sahel region. Opportunists and terrorists alike leveraged the regional porosity of borders which the United Nations Office for Drugs and Crime reports has generated 3.8 billion annually throughout the Sahel while relying on the propagation of illicit products from criminal networks and drug traffickers.
-				</P>
+			
+				<b>Using "fragility" to assess international aid</b>
+				Essential concepts such as fragility and its correlates are featured centrally by most every multilateral policy creation organization such as the IMF, World Bank, United Nations, G5 Sahel, Sahel Alliance et. al. When assessing a country's progress or aid requirements. It would be useful therefore to have a common definition.  Surprisingly, none exists.  That said, organizations like the UN rely, in part, on generalizing measures like "The Fragile States Index" which we will revisit later.  These metrics or "indicators" measure critical aspects of these countries and, because all indicators exist for all countries, allow you to compare things like infrastructure between one country and its neighbors.  
 			</p>
-			<p>
-				<b>Population</b>
-				<p>
-					Numbers for the Sahel can sometimes be difficult to estimate due to spotty local reporting, the fact that the Sahel is not delineated by state boundaries, and the presence of large numbers of nomadic pastoralists. That said, excluding northern Nigeria between 1950 and 2010 populations are reported to have more than tripled, exceeding more than a hundred million people in total.
-				</p>
-				<p>
-					A burgeoning youth demographic saw countries like Burkina Faso hit a population median age of just 17 years, in comparison with 37.2 years for the United States. This situation further disrupted already stressed education services,  job markets, and food supplies. Across most of the region fertility rates remain high while child mortality rates have sunk. Forms of family planning are not incentivized and education programs, while some exist, must contend with underfunded research initiatives and an inability to generate and roll out new programs. This impacts most notably the use of contraception which rates among the lowest in the world. 
-				</p>
-				<p>
-					From the perspective of the UN, sustainable development is defined as one that does not impair the livelihoods of future generations. While proponents of this idea would suggest that curbing population growth is central to the concept of stability the region, it is not expected to achieve zero population growth before 2100.
-				</p>
-			</p>	
-			<p>
-				When trying to understand the regional multilateral initiatives and the nature of the long-standing and pervasive problems in the Sahel and how they abetted in the formation of the current crisis it is useful to understand what is meant by state fragility. Arguably, the role of the state is also in part to provide unified and codified services to its citizens thus protecting them from environmental, political, economic shocks and other forms of destabilizing influences. If this can be assumed to be true, then the legitimacy of a state can therefore be defined in part as the state's ability to provide social services such as sanitation, food, water, health, and education in addition to supporting markets where goods can be bought and sold and, perhaps most importantly for the state, taxed.  
-			</p>
-			<p>
-				Essential concepts such as fragility and its correlates are featured centrally by most every multilateral research, action and or policy creation organization such as the IMF, World Bank, United Nations, G5 Sahel, Sahel Alliance et. al. when assessing a country's progress or aid requirements.  It would be useful for an idea central to much of their rhetoric to have an agreed-upon and common-use definition or, failing this, an explicit contextual note when an organization chooses to attenuate, or expand on a generally available definition.  It is unfortunate that, for the purposes of this discussion, neither exist.  Regardless, since whole initiatives are rarely the exclusive uncoordinated effort of a single organization, and bodies such as the Sahel Alliance, whose stated objectives include facilitating such coordination, exist, it would be most useful to establish an equally general and acceptable cross-organizational notion of fragility. 
-			</p>
-			<p>
-				TODO: Add PH about above exemplar indicators and how they suggest fragility
-			</p>
+		</div>		
+		<div class="vis-text">
+		<details>
+			<summary> Read more about Sahel's challenges here.</summary>
+			<b>Climate</b>
+			This Western area of the Sahel is largely subject to, and dependent on the rains of the yearly monsoon. The warming of the land encourages the flow a humidity from the ocean and the potential of rain which typically arrives typically between July through August. Many crops although reasonably resilient are still functioning in the upper bounds of their limitations. In this way even small variances in rainfall to have far-ranging effects since it is estimated that 70% of the region relies on the rain to survive. since the 1950s the region has experienced rainfall instability postulated to at least in part be the result of increase climate change precipitating technologies leading to an increase in density of air particulates. in the more than two decades spanning from 1970 to 1993, 20 years of drought were experienced regionally. Since this point the weather has been harder to forecast with what years followed by extremely dry ones making forecasting and agricultural planning extremely difficult.
+			Climatologists have worried that this instability could lead to a circular chain of events where when the land has less vegetation on it it will reflect more sunlight. This would in turn diminish the temperature difference between the land and the sea and in so doing we can the drawing in of humid are so crucial to a healthy monsoon. Additionally, experts agree that this process has been exacerbated by poor farming techniques, overgrazing, lack of a coherent and regional environmental policy, and deforestation.
+			The situation was made dramatically worse in 2010 when the entire region was affected by a massive heat wave and drought. Temperatures spiked beyond 120F in some towns during this period. As a result crop yields were massively slashed as well as similar numbers for livestock production. Lake Chad a key water reservoir serving populations of more than 20 million people in Cameroon, Chad, Niger, and Nigeria has over the last 40 years seen its water availability shrink by 90%. Due to unsustainable water extraction and the current climate experts suggest the lake is unlikely to ever return to its previous levels without human intervention.
+			<b>Economies</b>
+			Closely related to climate is the damaged the monsoon instability had on the Sahel regions employment numbers. across the entire region agriculture is the largest employer. It is estimated to contribute as much as 45% of the GDP of some countries in the region.
+			Also, between 2007 and 2008 world markets experienced surging food prices as a result of the deprecation of the US dollar, market speculation, and other contributors. The effects of this were disproportionately felt by the world's poor populations. In the Sahara where some countries have household expenditures ranging between 40% and 70% devoted for food purchasing, the effects were severe. By one estimate in Burkina Faso, prices for millet rose 40% between 2007 and 2008. in the aftermath of the price spike, as trading stabilized for much of the first world, prices in much of the developing world including the Sahel remained high regardless.
+			<b>Politics</b>
+			As with Mali a reduced capacity to provide services and protections challenged the legitimacy of many states in the Sahel region. Opportunists and terrorists alike leveraged the regional porosity of borders which the United Nations Office for Drugs and Crime reports has generated 3.8 billion annually throughout the Sahel while relying on the propagation of illicit products from criminal networks and drug traffickers.
+			<b>Population</b>
+			Numbers for the Sahel can sometimes be difficult to estimate due to spotty local reporting, the fact that the Sahel is not delineated by state boundaries, and the presence of large numbers of nomadic pastoralists. That said, excluding northern Nigeria between 1950 and 2010 populations are reported to have more than tripled, exceeding more than a hundred million people in total.
+			A burgeoning youth demographic saw countries like Burkina Faso hit a population median age of just 17 years, in comparison with 37.2 years for the United States. This situation further disrupted already stressed education services, job markets, and food supplies. Across most of the region fertility rates remain high while child mortality rates have sunk. Forms of family planning are not incentivized and education programs, while some exist, must contend with underfunded research initiatives and an inability to generate and roll out new programs. This impacts most notably the use of contraception which rates among the lowest in the world.
+			From the perspective of the UN, sustainable development is defined as one that does not impair the livelihoods of future generations. While proponents of this idea would suggest that curbing population growth is central to the concept of stability the region, it is not expected to achieve zero population growth before 2100.
+
+		</details>
 		</div>
 	</div>	
 					
 	<div id="sec-violent-entrepreneurs" class="section">
-		<h2>How have "violent entrepreneurs" contributed to the fragility of the region?</h2>
+		<h2>How has violence contributed to regional fragility?</h2>
 		
 <!--
 		<canvas id="typography" width=2448 height=1584></canvas>
@@ -168,12 +160,24 @@
 -->
 		</div>
 		<div class="vis-text">
+			<div class="quote">
+				<div id="text">
+					"Most likely to be the geopolitical Dilemma of 2019"
+				</div>	
+				<div id="attr">
+					Armed Conflict Location and Event Data Project (ACLED)<br>Conflicts to Worry About in 2019
+				</div>
+			</div>
+			
 			<p>
+				<b>Increasing Violence</b>
 				The Armed Conflict Location and Event Data (ACLED) project has created and maintains a trusted, free to use, data set that catalogs "dates actors type of violence locations and fatalities of all reported political violence and protest" in Africa and around the world. Additionally, they author an annual report which encourages stakeholders to learn about crucial conflicts which are often underreported in popular media. most recently in their "Ten Conflicts to Worry About in 2019"  the Sahel region was singled out and brought to the fore as being "most likely  to be the geopolitical Dilemma of 2019"
 			</p>
 			<p>
-				Among other countries the report focuses on the Resurgence of militant activity and conflict in Mali as well as the increasing activities of community-based militias and farmer and herder conflicts which are often involve issues such as access to resources and selectively favorable government policy.			</p>
+				Among other countries the report focuses on the Resurgence of militant activity and conflict in Mali as well as the increasing activities of community-based militias and farmer and herder conflicts which are often involve issues such as access to resources and selectively favorable government policy.			
+			</p>
 			<p>
+				<b>Regional Terrorism</b>
 			Particularly the terrorists in the area present new challenges to governance in that their activities are not always demarcated by national borders.  The Islamic State for its part expressly asserts that they do not wish to govern within borders, instead asserting that their their sovereignty of the caliphate is bounded only by those who accept the bayat (pledge) which includes all believers in all countries wherever they might reside. In creating a unified identity for followers of Islam they have become centrally inspirational to their following.  This gave rise to the phenomena of the transnational fighter who was formed "from the junction between globalised communications/transportation technology and violent dynamics".
 			</p>
 			<p>
@@ -184,7 +188,7 @@
 	
 			
 	<div id="sec-fragility" class="section">
-		<h2>Fragile States Index: One methodology for codifying fragility.</h2>
+		<h2>How might the UN measure and codify fragility across a region?</h2>
 
 		
 		<div id="grid-outer" class="grid-container">
@@ -203,6 +207,8 @@
 				<canvas id="fsi-star-individual-bg" class="hidden"></canvas>
 
 			</div>
+			
+			
 		</div>
 
 		<center>
@@ -214,12 +220,35 @@
 		</center>
 		
 		<div class="vis-text">
+			<div class="quote">
+				<div id="text">
+					"... we cannot hope to address issues of fragility if we are not prepared to talk about it. In so doing, it is equally important that such discussions are based on fact and clear metrics, to avoid terms such as “fragile state” being thrown around casually."
+				</div>	
+				<div id="attr">
+					J.J. Messner (Fragile States Index co-director)<br>IFAD interview
+				</div>
+			</div>
+			
 			<p>
-				In an effort to avoid the potentially problematic and, at times, vertically siloed definition provided by the World Bank it is instructive here to return the focus to the Fund for Peace(FFP).  As mentioned, the FFP is a purveyor of methodologies and data for the assessment of a very well-articulated list of different modes of state fragility. It is particularly germane to the discussion at this point in that, while generating indices that could be thought to be analogs to those existing at the World Bank, the Fund for Peace indicators more commonly known as the Fragile States Index (FSI) are referred to in the work of most of the aforementioned multilateral organizations.  
+				<b>Fragile States Index: One methodology for codifying fragility.</b>
+				As mentioned, organizations like the UN in concert with World Bank et. al. have, in part, used a the measure of a country's fragility to justify taking action.   While fragility can be assessed in many ways, one popular way is to use composite scores to rank vital parts of a state's health.   One such scoring methodology used by several multilateral organizations is assembled by the "Fund for Peace".
 			</p>
 			<p>
-				The Fragile States Index is divided into four major rubrics. They are cohesion, economic, political, and lastly social and cross-cutting indicators (CAST).  That is an enumeration of various social, economic, and political pressures faced by a country.  It is worth noting here that even the FFP asserts that their indicators are non-exhaustive and are "intended only as an entry point for further interpretive analysis by the user".
+				<b>Generalized grades for all countries</b>
+				The "Fund for Peace"(FFP) creates methodologies and data for the assessment different modes of state fragility and is known as the Fragile States Index (FSI).
+				Such indicator sets are very useful because different countries measure very different things about themselves in very different ways and what they measure may change over time.  The FSI does the work of generalizing and normalizing so countries can be compared to one another and a single country can compare its progress over time.
 			</p>
+			<p>
+				<b>The Categories</b>
+				The FSI is divided into four major rubrics and are scored between 1-10, with lower numbers being better. The categories used are cohesion, economic, political, and social and cross-cutting indicators. These grades, taken together, are enumerations of various social, economic, and political pressures faced by a country.  The more fragile a country is, the higher its rank is.  Each of these indicators in turn, are composed of 3 sub-indicators.  It is worth noting here that even the FFP asserts that their indicators are non-exhaustive and are "intended only as an entry point for further interpretive analysis by the user".
+			</p>
+			<p>
+				With the tool above you can explore how an organization like the UN may choose to operationalize a definition of fragility.  While most of the measures get worse for most countries between 2007 and 2018, the declines of Mali, Gambia, and Senegal are the most dramatic.  If you want to dig deeper, choose a country and hover over the left graph.  This will show the sub-categories for each major fragility rubric.  You can select a different rubric by hovering over its name and lastly see the rubrics score by hovering over the blue dots. 
+			</p>
+		</div>
+	<div class="vis-text">
+		<details>
+			<summary> Read more about the FSI's rubrics here.</summary>	<br>	
 			<p>
 				<b>Cohesion</b><br>
 				The cohesion indicator focuses on how power is leveraged to potentially disenfranchise a population and contribute to perceived state legitimacy.  It measures violence and force in a multiplicity of forms. Most useful for this discussion is an account of militias a police force or military attempting to overthrow a rightful government, or a government or using the same to repress a population or proponents of a competing political party.  Acts of terror, banditry and vigilantism of course covered as well as criminality both organized and not, making it extremely relevant for measuring the effect of the illicit trade within the Sahel.
@@ -234,12 +263,13 @@
 				<b>Social &amp; Cross Cutting</b><br>
 				The first component of this indicator is a measure of demographic pressures which is further subdivided into one of two forms; pressures from the citizenry and from geography. While the first considers issues such as population explosions resulting in a large youth demographic, or sustainable population growth with regards to available resources, the letter quantifies what this paper has formally referred "shocks" and will for the purposes of the Sahel analysis be used to explore the result of large scale environmental disruptions such as the region-wide drought.
 			</p>
-		</div>
-	</div>							
-			
-	
+			To read more about the sub-indicators, visit the <a href="https://fragilestatesindex.org/indicators/">FFP website</a>
+		</details>
+	</div>
+			</div>							
+
 	<div id="sec-sdg" class="section">
-		<h2>What are the Sustainable Development Goals?</h2>
+		<h2>What has the UN done in response to fragility?</h2>
 		<div class="vis-container">
 <!--
 			<iframe id="vis-intro" class="vis" src="addons/country"></iframe>
@@ -256,18 +286,38 @@
 		</div>
 		
 		<div class="vis-text">
+			<div class="quote">
+				<div id="text">
+					"Aligning funding and interventions to National priorities: The allocation of public expenditures and partners funding has been biased in favor of security and related concerns to the detriment of Social and Development spending."
+				</div>	
+				<div id="attr">
+					The UN Sahel Support Plan 2018
+				</div>
+			</div>
+			
 			<p>
-				When trying to understand the regional multilateral initiatives and the nature of the long-standing and pervasive problems in the Sahel and how they abetted in the formation of the current crisis it is useful to understand what is meant by state fragility. Arguably, the role of the state is also in part to provide unified and codified services to its citizens thus protecting them from environmental, political, economic shocks and other forms of destabilizing influences. If this can be assumed to be true, then the legitimacy of a state can therefore be defined in part as the state's ability to provide social services such as sanitation, food, water, health, and education in addition to supporting markets where goods can be bought and sold and, perhaps most importantly for the state, taxed.  
+			<b>The Goals</b>
+			In response to state fragility, the UN has organized an enormous umbrella initiative composed of development goals with wide ranging aspirations.  The most recent are the Sustainable Development Goals (SDGs) which began in 2016 and continue till 2030. In contrast to its predecessor, the Millennium Development Goals, (MDGs 2000-2015) which had 8 goals and 21 targets, the SDGs, consist of 17 different goals which in turn include 169 targets. Perhaps most notable is that all 17 are considered applicable for all countries as opposed to the MDG exclusive focus on poor or underdeveloped countries. In moving from the MDGs to the SDGs the goal creation methodology has also changed radically. Where as the MDG goals were created at the UN by a small team of experts the SDGs began with a working group of 30 individuals who in turn represented 70 different countries. By and large the SDGs are considered a much more comprehensive and nuanced set of goals considering the complex interdependencies of development as it relates to poverty including global trade and consumption.
 			</p>
 			<p>
-				Vivamus leo neque, rhoncus et nulla in, consequat posuere ex. Vivamus feugiat ex ut scelerisque pretium. Quisque laoreet metus metus, vel rutrum metus pellentesque ac. Vestibulum sagittis, odio sit amet fermentum gravida, ipsum nunc pulvinar nulla, in interdum orci sem vel ligula. Quisque felis erat, gravida in tempus a, sodales eu lacus. Ut ultrices lectus ut imperdiet dictum. Praesent magna metus, vestibulum sed nulla sed, dictum venenatis nulla. Praesent iaculis blandit ligula, et suscipit lorem molestie vel. Aliquam erat volutpat. Nunc eu elit sed ex tristique euismod. Morbi nec feugiat sapien. Nulla facilisi.
+			Having more than double the scope a previous initiatives however does of course have an effect on the financials. The SDGs are estimated to be radically more resource intensive costing as much as 4.5 trillion per year in state spending investment and a packages.
 			</p>
 			<p>
-				Pellentesque dignissim justo ut dictum consequat. Ut lorem lacus, varius commodo massa eget, rhoncus viverra lectus. Aenean felis lorem, tincidunt sit amet gravida in, elementum sed lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nec mattis ligula. Integer tristique et nunc sit amet sodales. Fusce ultrices justo id orci accumsan, ut volutpat urna viverra. Pellentesque id nisl ac risus varius scelerisque ut quis eros. Praesent eget nibh sit amet augue vulputate ultricies ut in neque. Nam pharetra erat nec ligula convallis, quis mollis sapien interdum. Curabitur varius enim eros, et elementum leo venenatis eget. Mauris feugiat nisi at vestibulum finibus.
+			<b>SDG Funding Gap</b>
+			"Financing has not kept pace with the enormity of the challenges and the needs of the region and the specific countries."  World wide, the budget shortfall for the SDGs is considered to be around 2.5 trillion. Implementation in the Sahel alone is projected to be as high as 157 billion dollars between 2018 and 2022.
 			</p>
 			<p>
-				Donec ac nisi in sapien auctor sollicitudin sed sed magna. Nam congue auctor laoreet. Nullam iaculis ullamcorper ex quis aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit lorem, iaculis a tellus nec, auctor malesuada nisi. Curabitur nec tortor augue. Praesent ut nisl eros. Phasellus diam quam, venenatis non pharetra ac, dignissim sed urna. Nunc molestie turpis vel iaculis luctus. Curabitur in congue purus. Pellentesque eu turpis orci. Sed cursus quam nec commodo aliquet. Mauris ultricies consectetur dapibus. Duis a odio efficitur eros volutpat lacinia ac non sem. Suspendisse potenti.
+			A 2018 briefing to the G5 Sahel Joint Force detailed that a critical pillar of SDG implementation known as MINUSMA reported a funding gap of nearly 30 million dollars in 2018 alone.  The head of United Nations peacekeeping operations, Jean-Pierre Lacroix was quoted as saying, "State authorities, which oversee vast parts of national territories in the region, are fragmented, driven by a lack of government presence – including absence of basic services and facilities – resulting in ungoverned territories which have become hotspots for conflicts and violent extremism."  adding “In the absence of funding, there is not much the Mission can do.”
 			</p>
+			<p>
+			<b>Reconceptualizing fragility</b>
+			Perhaps even more importantly is how the interpretation of these goals has changed over time as different types of fragility have re-evaluated.  The UN's 2018 support plan includes a sizable change in focus from security (read: combating terrorism) to providing services that legitimize rightful governments.   In their report they admit that in failing to correctly tailor policy to the needs of the people, they have allowed violent extremism and transnational crime syndicates in the region to flourish.  
+			</p>
+			<p>
+			<b>Wicked Policy</b>
+			Wicked problems are problems that are often difficult or impossible to remedy because of a lack of data, intricate dependencies and contingent aspects that make solutions (in this case Sahel policy) difficult to formulate.  What is important here is that the UN was only able to pivot from a previous policy decision because they were informed.  In this case the availability of data regarding crime was critical.  This sort of information will be the focus of the last section where you can look at how the UN grades itself.
+			</p>
+
 		</div>
 	</div>
 	
@@ -355,44 +405,40 @@
 		</div>
 
 		
+		
+			
 		<div class="vis-text">
+			
+			<div class="quote">
+				<div id="text">
+				"A sound indicator framework will ...  help countries develop implementation strategies and allocate resources accordingly."
+				</div>	
+				<div id="attr">
+					Indicators and a Monitoring Framework for the SDGs 2015
+				</div>
+			</div>
+			
 			<p>
-				FROM Sahel SUPPORT PLAN:  What they say they say they hae accomplished 
+			<b>Measurement</b>
+				The 2018 Support Plan for the Sahel  devotes a single page out of 56 for the topic of measurement. Equally a problem of both the MDGs and the SDGs is that of quantifying progress.  As late as 2017 the Brookings Institute released a report on the state of data availability in Africa saying that of the 232 indicators used by the SDGs 62% remain untrackable  on average due to lack of data.  They continue saying, "According to the report, only 12 of Africa’s 54 countries have autonomous statistics offices. In addition, Africa’s national statistics offices have often been inhibited by insufficient funding and a lack of autonomy. Data quality is also a  challenge, according to the report, due to differences in methodologies and a lack of coordination across national statistics systems."
+			</p>
+			
+			<p>
+			<b></b>
 			</p>
 			<p>
-				and failed at	
+			<b></b>
 			</p>
 			<p>
-				illustrated by indicators
+			<b></b>
 			</p>
+			<p>
+			<b></b>
+			</p>
+
 		</div>
 	</div>			
-			
-			
-	<div id="sec-copenhagen" class="section">
-		<h2>Making the SDGs more effective: The Copenhagen Consensus</h2>
-		<div class="vis-container">
-<!--
-			<img style="height:50vh;" src="1.png">
-			<img style="height:50vh;" src="2.png">
-			<img style="height:50vh;" src="3.png">
--->
-<!--
-			<iframe id="vis-intro" class="vis" src="http:/thesis/Sahel/addons/country/"></iframe>
--->
-		</div>
-		<div class="vis-text">
-			<p>
-			In addition to the funding gap there are also critics vying for an unequal valuation of the more than 100 SDG targets. The Copenhagen consensus, a think tank which counts among its panel members for Nobel laureates in economy, released an expert panel recommendation for 2030 targets in early 2015. In the 18 months prior to the recommendation, they established a foundation of more than a hundred peer reviewed analyses from 82 "top economists" which call into question the efficacy of creating more than 100 targets for the SDGs.  The 2015 recommendation aggregated this research and rated each target by "value for money" in terms of country development over the lifespan of the project.  Prioritizing 19 targets above all above all others, they assert, would have the effect of doubling or quadrupling foreign aid. The panel suggests that prioritizing most effective goals instead of promising "everything to everyone" implementation would net between 20 to $40 in social benefits per every dollar spent as opposed to less than $10 if all targets are pursued equally.
-			</p>
-			<p>
-				TODO Explain what it is more.	
-			</p>
-			<p>
-				TODO How would you split it up? Change the valuations above to see how they rate
-			</p>
-		</div>
-	</div>		
+
 
   </body>
   
@@ -400,6 +446,8 @@
   <script src="js/constants.js"></script>
   <script src="js/addons.js"></script>
   <script src="js/visGlue.js"></script>
+  <script src="js/intro.js"></script>
+  
   <script src="js/iiag.js"></script>  
   <script src="js/sdg.js"></script>
   <script src="js/fsi_star.js"></script>

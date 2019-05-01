@@ -1,39 +1,16 @@
 // TODO
-// normalize popups
 // extra <> for map/fragility
-
-// Intro - morph effect
-
-// Indicators - choose IIAG
 
 // visGlue
 // use chart year for relAgg not indicator year
 
-// ACLED
-// Cloropleth wrong 6/2016 ? 
-// add new vis to show change over time
-
-// FSI STAR
-// popup font, average FSI.minData
-// move date
-// Star callback before nData initted
-
-// SDG
-// Select specific sdgs
-
 // SDG Success
 // FIX: ignoring all nonspecific indicator names
-
-// Copenhagen - create
 
 // ATTRIBUTIONS
 // WDI, FSI, FONTAWSOME, Pauline, text citations
 // attrib and link to https://fontawesome.com/license
 
-// DANIEL
-// all charts wide
-// legend off to the side
-// indicator colors redo  off to the side / more passive colors / possibly icons?
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal
 
@@ -80,6 +57,29 @@ var dsImportList = {				// list of all indicators
 // MAIN //
 //////////
 $(document).ready(function() {  
+	var showHome = false;
+	
+	
+	
+	$(window).scroll(function() {
+    var height = $(window).scrollTop();
+    
+    if (height > 600 && showHome == false){
+			showHome = true;
+			$("#fixedHome").fadeTo(300, .8);
+		}
+    if (height < 600 && showHome == true){
+			showHome = false;
+			$("#fixedHome").fadeTo(300, 0);
+		};
+		
+	});
+	
+	$("#fixedHome").on("click", d=> {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+		$("#fixedHome").fadeTo(300, 0);
+		});
+	
 	sdg_init();
   ds.obj.init(dsImportList); // init datasets
 });

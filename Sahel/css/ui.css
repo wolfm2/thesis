@@ -3,8 +3,111 @@
 	z-index: -5;
 }
 
+.vis-container {
+padding: 20px 0px 20px 0px;
+}
+
+#sec-fragility .vis-container {
+padding: 20px 0px 00px 0px;
+}
+
+#sec-fragility .ui-controls {
+	transform: translateY(-3vh);
+}
+
 .section {
 	padding: 90px 0px 90px 0px;
+}
+
+.quote {
+	font-family: Open Sans;
+	font-size: 15px;
+}
+
+.quote #text {
+ font-style: italic;
+}
+
+.quote #attr {
+	font-size: 13px;
+  text-align: right;
+}
+
+.vis-text b {    
+	display: block;
+  margin: 3px 0px 3px 0px;
+}
+
+#fixedHome {
+  position: fixed;
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 10px;
+    opacity:0;
+}
+
+/* INTRO */
+
+#introBg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: #EDEDED;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+#sec-title #grid {
+	display: grid;
+	width: 700px;
+	height: 450px;
+	grid-template-columns: 700px, auto;
+	overflow: hidden;
+}
+
+#morph, #sec-title #text, #sec-title #map  {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+#sec-title #map  {
+  transform: translateX(-40px);
+  z-index: -1;
+  opacity:0;
+  filter: hue-rotate(195deg);
+}
+    
+#sec-title #text {
+	margin-top: 100px;
+	width: 700px;
+	height: 450px;
+  z-index: 1;
+  transition: font-size 0.8s ease;
+}  
+
+#sec-title #txt-country {
+  transition: font-size 0.8s ease;
+}
+
+#morph path {
+	fill: #e3e3e3;
+	stroke-width: 0px;
+	stroke: #666;
+	transform: translate(347px,363px) scale(13) rotateX(180deg);
+	ttransform: translate(315px,10px) scale(15);
+}
+
+#morph circle {
+	stroke: none;
+	fill: transparent;
+	transform: translate(347px,363px) scale(13) rotateX(180deg);
+	ttransform: translate(315px,10px) scale(15);
+}
+
+#morph .added {
+	fill: transparent;
 }
 
 #sec-title {
@@ -457,6 +560,7 @@ canvas#indicators + #overlay #copy {
 	column-rule-style: solid;
   column-rule-width: 1px;
   column-rule-color: lightblue;
+  font-size: 1.8rem;
 }
 
 .vis-text p:first-child:first-letter {

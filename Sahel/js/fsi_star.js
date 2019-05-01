@@ -54,7 +54,7 @@ function fsi_star_cb(t,isSmall) {
 		
 		$(`#grid-inner h6[data-name="${d.Country}"]`).html(`Rank: ${d.Rank}`);
 	} else {
-		$("#vis-big-title").html(`${FSI.bigCountry} - ${FSI.bigIsComposite?"Composite":"Individual"}`);
+		$("#vis-big-title").html(`${FSI.bigCountry} <br>(lower numbers are better)`); // - ${FSI.bigIsComposite?"Composite":"Individual"}
 		var d = FSI.nData[FSI.yearCur][FSI.bigCountry][0];
 		iC.RadarChart.defaultConfig.color = function() {return "#7fcdbb"};
 		iC.chart.config({factor: .75, maxValue: FSI.dataMax, minValue: FSI.dataMin, radius: 6});		
