@@ -92,6 +92,12 @@ function glueSetChartData(obj, action){
 		var datasets = range(0,cInfo.inds.length-1).map(i => {
 			var colors = cInfo.colors;
 			var indInfo = obj.indicators[obj.indKey[cInfo.inds[i]]]
+			
+			// HACK BAD HACK HACKY TAKE OUT LATER
+			if (indInfo.label == "Per Woman Births") VIS0.chart.config.options.scales.yAxes[0].ticks.min = 0;
+			else VIS0.chart.config.options.scales.yAxes[0].ticks.min = undefined;
+			
+			
 			return {
 				label: indInfo.label,
 				data: obj.accessors[indInfo.dset][indInfo.func](indInfo),

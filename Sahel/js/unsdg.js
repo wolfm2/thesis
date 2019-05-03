@@ -290,13 +290,19 @@ function UNSDG_init (errors, rows) {
 						//~ <img class='result-icons ${goodList.length?"img-invert-breathe":""}' src='img/better.svg'>${good}</span>
 					//~ <span id="bad" class="sdg-match-number" title="${badT}" data-inds="${badList}">
 						//~ <img class='result-icons ${badList.length?"img-invert-breathe":""}' src='img/worse.svg'>${bad}</span>
+						
+					//<span id="med-good" class="sdg-match-number" title="${mgoodT}" data-inds="${mgoodList}">
+					//	<img class='result-icons ${mgoodList.length?"img-invert-breathe":""}' src='img/up.png'>${mgood}</span>
+						
 			$("#sdg-results-container " + bucket).append(`
-				<div id="SDG${i}-item" class="sdg-item" style="background:${SDG.color[i]};">
+				<div id="SDG${i}-item" class="sdg-item" style="border: 2px solid ${SDG.color[i]};">
 					<div id="copy">${sdgCopy[i].title}</div>
+					
 					<span id="med-good" class="sdg-match-number" title="${mgoodT}" data-inds="${mgoodList}">
-						<img class='result-icons ${mgoodList.length?"img-invert-breathe":""}' src='img/up.png'>${mgood}</span>
+						<div class='result-icons ${mgoodList.length?"img-invert-breathe":""}'><div style="background:${SDG.color[i]};"></div>${mgood}</div></span>
+						
 					<span id="med-bad" class="sdg-match-number" title="${mbadT}" data-inds="${mbadList}">
-						<img class='result-icons ${mbadList.length?"img-invert-breathe":""}' src='img/down.png'>${mbad}</span>
+						<div class='result-icons ${mbadList.length?"img-invert-breathe":""}'><div style="background:${SDG.color[i]};"></div>${mbad}</div></span>
 				</div> `);
 			});
 	
@@ -360,7 +366,7 @@ function UNSDG_init (errors, rows) {
 				return {
 						title: "Avg. " + maxSign(change,2) + "% change between: " + endpoint.y[0] + "-" + endpoint.y[1],
 						inds: inds,
-						colors: Chart.colorschemes.tableau.ClassicLight10 // ClassicGray5
+						colors: UNSDG.showAvg?["#555"]:Chart.colorschemes.tableau.ClassicLight10 // ClassicGray5
 					}
 				});
 			

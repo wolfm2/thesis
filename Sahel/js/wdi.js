@@ -65,7 +65,7 @@ function WDI_init(errors, rows) {
 		// deep copy graph data	
 		var data = jQuery.extend(true, {}, UNSDG_VIS0.chart.config.data.datasets[0]);
 		var axis  = jQuery.extend(true, {}, UNSDG_VIS0.chart.config.options.scales.yAxes[0]);
-		data.backgroundColor = data.borderColor = data.pointBorderColor = data.pointBackgroundColor = '#999'
+		data.backgroundColor = data.borderColor = data.pointBorderColor = data.pointBackgroundColor = '#bbb'
 		data.yAxisID = axis.id='B';
 		axis.position='right';
 		

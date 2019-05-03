@@ -1,3 +1,30 @@
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 9px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #afafaf;
+}
+
+/* ALL CLICKABLES */
+.ui-controls:hover, .sdg-img:hover, #selected .result-icons:hover, #averaged-container:hover, #sdg-search:hover	{
+	opacity: .6;
+	cursor: pointer;
+}
+
+
 .hidden {
 	opacity: 0;
 	z-index: -5;
@@ -122,6 +149,16 @@ padding: 20px 0px 00px 0px;
 	padding: 0px 0px 90px 0px;
 }
 
+
+.ds-srcs {
+	position: absolute;
+  right: 6vw;
+}
+
+#sec-fragility #ds-src {
+	transform: translateY(-8vh);
+}
+
 #vis-intro {
 	border-width: 0px;
 	transform-origin: top left;
@@ -146,6 +183,11 @@ padding: 20px 0px 00px 0px;
 	transform: translate(6vh,-11vh);
 }
 
+#sec-violent-entrepreneurs #mapLegend3  {
+    transform: translate(220px,-5vh);
+    -webkit-transform-origin-x: center;
+}
+
 #sec-violent-entrepreneurs .map-legend #top{
 	font-family: Open Sans;
 	display: flex;
@@ -157,6 +199,8 @@ padding: 20px 0px 00px 0px;
 #sec-violent-entrepreneurs .map-legend, #sec-violent-entrepreneurs .map-legend img {
 	width: 20vw;
 	height: 10px;
+	
+  max-width: 150px;
 }
 
 #sec-violent-entrepreneurs .map-legend #min {
@@ -269,7 +313,7 @@ canvas#indicators + #overlay #copy {
 	margin-right: auto;
 	padding-right: 2px;
 	padding-left: 3rem;
-	color: white;
+	color: #222;
 	font-weight: bold;
 	font-size: 2.3rem;
 }
@@ -284,7 +328,7 @@ canvas#indicators + #overlay #copy {
 .sdg-match-number {
 	padding: .9rem;
 	border-radius: .5rem;
-	color: white;
+	color: #222;
 	margin-left: 3px;
 	font-weight: bold;
   width: 10vh;
@@ -300,11 +344,30 @@ canvas#indicators + #overlay #copy {
 #sdg-results-container #med-bad{
 	bbackground-color: #fdae61;
 	margin-right: 4vw;
+/*
+	mask: url(../img/down.svg);
+	-webkit-mask: url(../img/down.svg);
+*/
 }
 
-#sdg-results-container #med-good{
+
+#sdg-results-container #med-good div div, #sdg-results-container #med-bad div div{
 	bbackground-color: #a6d96a;
+	display: inline-block;
+	mask: url(../img/up.svg) no-repeat center;
+	-webkit-mask: url(../img/up.svg) no-repeat center;
+	-webkit-mask-size: 3rem;
+	background: black;
+	width: 80%;
+	height: 100%;
 }	
+
+#sdg-results-container #med-bad div div{
+	mask: url(../img/down.svg) no-repeat center;
+	-webkit-mask: url(../img/down.svg) no-repeat center;
+	-webkit-mask-size: 3rem;
+}
+	
 			
 #sdg-results-container #good{
 	bbackground-color: #1a9641;
@@ -339,13 +402,13 @@ canvas#indicators + #overlay #copy {
 
 @keyframes imgBreathe {
   0% {
-		filter: invert(1);
+		opacity:1;
 	}
 	50% {
-		filter: invert(.2);
+		opacity:.2;
 	}
 	100% {
-		filter: invert(1);
+		opacity: 1;
 	}
 }
 
@@ -354,13 +417,11 @@ canvas#indicators + #overlay #copy {
 	height: 3rem;
 	padding: 2px;
 	margin-right: 0px;
-	filter: invert(1);
+	ffilter: invert(1);
 	opacity: .85;
-}
-
-#sdg-results-container #good .result-icons, #sdg-results-container #bad .result-icons{
-    border: 2px solid black;
-    border-radius: 30px
+	
+	display: flex;
+	align-items: center;
 }
 
 .img-invert-breathe {
@@ -449,8 +510,14 @@ canvas#indicators + #overlay #copy {
 
 #sec-violent-entrepreneurs .datamap {
 	width: 85vw !important;
-	background-color: #bbb;
+	background-color: transparent;
 }
+
+#sec-violent-entrepreneurs .datamap path{
+	stroke: #333;
+	fill: #333;
+}
+
 
 /* SDGs */
 #sec-sdg .vis-container {
@@ -502,7 +569,7 @@ canvas#indicators + #overlay #copy {
 }
 
 .vis-star {
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 #grid-outer h5 {
@@ -537,6 +604,10 @@ canvas#indicators + #overlay #copy {
   grid-gap: 10px;
 }
 
+#sec-fragility .legend.right {
+	font-size: 2rem;
+}
+
 #fsi-star-year-bg {
 	grid-area: 1/1/5/6;
 	justify-self: center;
@@ -552,15 +623,19 @@ canvas#indicators + #overlay #copy {
 	transition:opacity .2s linear;
 }
 
+.section h2 {
+	margin-bottom: 40px;	
+}
+
 /* TEXT COPY */
 .vis-text {
-	margin: 20px 0px 20px 0px;
+	margin: 60px 0px 20px 0px;
 	column-count: 2;
   column-gap: 40px;
 	column-rule-style: solid;
   column-rule-width: 1px;
   column-rule-color: lightblue;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .vis-text p:first-child:first-letter {

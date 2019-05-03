@@ -66,7 +66,7 @@ $(document).ready(function() {
     
     if (height > 600 && showHome == false){
 			showHome = true;
-			$("#fixedHome").fadeTo(300, .8);
+			$("#fixedHome").fadeTo(300, .5);
 		}
     if (height < 600 && showHome == true){
 			showHome = false;

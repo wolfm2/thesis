@@ -62,7 +62,7 @@ function sdg_init(){
 	
 	$("#sdg-txt-container").fadeOut(100); // init
 	
-	$("#sdg-grid .sdg-img").click(function(e) {
+	$("#sdg-grid .sdg-img:not(:last)").click(function(e) {
 		if (i>17) return;
 		SDG.copyIdx = parseInt($(this).attr("data-idx"));
 		SDG.targetIdx = 0;

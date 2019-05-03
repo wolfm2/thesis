@@ -104,7 +104,7 @@ function ACLED_init(errors, rows) {
 	// country activity by month scale
 	var activityScale = d3.scaleLinear()
     .domain([ACLED.minActivity, ACLED.maxActivity])
-    .range([0, 1]);
+    .range([0.3, 1]);
 	
 	ACLED.map = new Datamap({
 		scope: 'world',
@@ -146,7 +146,7 @@ function ACLED_init(errors, rows) {
 			});
 		return result;
 	})	
-	.style("opacity", ".3").style("stroke", "rgb(68, 51, 68, .3)");
+	.style("opacity", ".2").style("stroke", "#333");
 	
 	function getData() {
 		$("#violence-date").html((ACLED.month+1) + "/" + ACLED.year);

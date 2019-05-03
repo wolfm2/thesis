@@ -39,12 +39,12 @@ function fsi_star_cb(t,isSmall) {
 		iC.RadarChart.defaultConfig.color = function() {return chartColor};
 		iC.chart.config({factor: .85, maxValue: FSI.dataMax, minValue: FSI.dataMin, axisText: false, levels: 0, circles: false});
 		
-		$("#vis-ifs-lvl0-Mali").css("border", "5px solid #999")
+		$("#vis-ifs-lvl0-Mali").css("border-top", "8px solid #333")
 		// if not registered - register for iframe clicks
 		if (! FSI.updateList.includes(t)) {
 			$(t).contents().on("click", function(e){
 				$(".vis-star").css("border", "none")
-				$(t).css("border", "5px solid #999	")
+				$(t).css("border-top", "8px solid #333")
 				FSI.bigCountry = $(t).data()["name"];
 				$("#vis-ifs-lvl0-big").each(function() { // should only be one
 					fsi_star_cb(this, false);
@@ -57,7 +57,7 @@ function fsi_star_cb(t,isSmall) {
 		$("#vis-big-title").html(`${FSI.bigCountry} <br>(lower numbers are better)`); // - ${FSI.bigIsComposite?"Composite":"Individual"}
 		var d = FSI.nData[FSI.yearCur][FSI.bigCountry][0];
 		iC.RadarChart.defaultConfig.color = function() {return "#7fcdbb"};
-		iC.chart.config({factor: .75, maxValue: FSI.dataMax, minValue: FSI.dataMin, radius: 6});		
+		iC.chart.config({factor: .57, maxValue: FSI.dataMax, minValue: FSI.dataMin, radius: 6});		
 		
 		$("#fsi-star-year-bg").html(FSI.yearCur); // Update year
 		
@@ -82,10 +82,10 @@ function fsi_star_cb(t,isSmall) {
 	var starData = [{
 		className: FSI.bigCountry,
 		axes: [
-			{axis: "Cohesion", value: maxSign(cohesion), yOffset: 15}, //xOffset: -20   does not work
+			{axis: "Cohesion", value: maxSign(cohesion), yOffset: 25}, //xOffset: -20   does not work
 			{axis: "Economic", value: maxSign(economic)}, 
-			{axis: "Political", value: maxSign(political), yOffset: -15},  
-			{axis: "Social", value: maxSign(social)},  
+			{axis: "Political", value: maxSign(political), yOffset: -25},  
+			{axis: "Social", value: maxSign(social), xOffset: -25},  
 		]
 	}];
 	
