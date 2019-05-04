@@ -10,6 +10,8 @@
 // ATTRIBUTIONS
 // WDI, FSI, FONTAWSOME, Pauline, text citations
 // attrib and link to https://fontawesome.com/license
+// Ben Curtis. 2012. “Chad Sahel Hunger.” Edited by BC AJP**LON**, April.x
+// Steve McCurry. 1986. MALI. Sachel. Sahel Desert. 1986. A little girl walks in swirls of dust kicked up by hot winds near.©Steve McCurry/Magnum Photos. https://library-artstor-org.libproxy.newschool.edu/asset/AMAGNUMIG_10311536554.
 
 
 // SAHEL Countries:  Burkina Faso, Cameroon, Chad,The Gambia, Guinea, Mali, Mauritania, Niger, Nigeria and Senegal

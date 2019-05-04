@@ -49,16 +49,21 @@
     // d3.shuffle(states);
 		states.push(states[9]); // double the last element
 		
-    draw();
+		$("#sec-title #txt-country").html(stateNames[0]);
+    setTimeout(draw, 100);
 		
     function draw() {
 
-			$("#sec-title #txt-country").html(stateNames[11-states.length]);
+				//~ setTimeout(d=> {
+					//~ $("#sec-title #txt-country").html(stateNames[11-states.length]);
+				//~ }, 10);
+			
 			if (states.length == 1) {
 				$("#morph, #sec-title #txt-country").fadeTo(2000,0, d=> {
 					$("#sec-title #txt-country").html("Sahel").css("font-size", "7rem");
 					$("#sec-title #txt-country").fadeTo(800, 1);
-					$("#sec-title div #map").fadeTo(800,0.2);
+					//$("#sec-title div #map").fadeTo(800,0.2);
+					$("#sec-title div #map").fadeTo(800,1);
 					$("#introBg").fadeTo(800,.2);
 						});
 				return;
@@ -92,6 +97,7 @@
         .on("end", function(){
 					states.shift(); // mw
           // states.push(states.shift());
+          $("#sec-title #txt-country").html(stateNames[11-states.length]);
           setTimeout(draw, 100);
         })
         .attr("d", join(b));
