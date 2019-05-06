@@ -18,6 +18,32 @@
 	background-color: #afafaf;
 }
 
+body {
+
+	overflow-x: hidden;
+}
+
+hr {
+	height:1px; 
+	border:none; 
+	color:#000; 
+	background-color:#000; 
+	width:60%; 
+	text-align:center; 
+	margin: 0 auto;
+}
+
+.chapeau {
+	width: 45vw;
+	padding-bottom: 6rem;
+	font-style: italic !important;
+  font-size: 2.5rem;
+}
+
+.italic {
+	font-style: italic !important;
+}
+
 /* ALL CLICKABLES */
 .ui-controls:hover, .sdg-img:hover, #selected .result-icons:hover, #averaged-container:hover, #sdg-search:hover	{
 	opacity: .6;
@@ -93,6 +119,56 @@ padding: 20px 0px 00px 0px;
 	height: 450px;
 	grid-template-columns: 700px, auto;
 	overflow: hidden;
+}
+
+.full-screen {
+    width: 100vw;
+    height: 105vh;
+    background-position: top right;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.full-screen#pg2{
+    background-image: url(../img/sahelmap.svg.png);
+    background-size: contain;
+		border-top: 4px solid transparent;
+		
+		
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    align-items: center;
+    background-position-x: 90%;
+}
+
+.full-screen#pg2 p{
+    font-size: 2.2rem;
+}
+
+.full-screen#pg3{
+		
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+		border-top: 3px solid grey;
+		border-bottom: 3px solid grey;
+    background-image: url(../img/SahelNiger_Large.jpg);
+    
+    width: 115%;
+    position: relative;
+    left: -5%;
+}
+
+.full-screen#pg3 #copy {
+    width: 50vw;
+    margin-left: -25vw;
+    font-size: 4rem;
+    color: #fafafa;
 }
 
 #background-img {
@@ -240,6 +316,7 @@ padding: 20px 0px 00px 0px;
 #sec-violent-entrepreneurs .vis-container {
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 #violence-date {

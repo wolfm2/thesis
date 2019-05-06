@@ -50,7 +50,7 @@
 		states.push(states[9]); // double the last element
 		
 		$("#sec-title #txt-country").html(stateNames[0]);
-    setTimeout(draw, 100);
+    // setTimeout(draw, 100);
 		
     function draw() {
 

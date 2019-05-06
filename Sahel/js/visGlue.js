@@ -119,6 +119,8 @@ function glueSetChartData(obj, action){
 	}
 }
 
+var test;
+
 glueInit = function(obj) {
 	obj.indKey = {};
 	obj.indicators.forEach((d,i)=> {
@@ -143,10 +145,16 @@ glueInit = function(obj) {
 		glueSetChartData(obj, '+');
 	});
 	
-	$( window ).resize(function() {
+	function visGlueResize() {
 		var overlay = $(obj.container + " canvas#indicators + #overlay")
 
 		overlay.css("width", $(obj.container + " canvas#indicators").width());
 		overlay.css("height", $(obj.container + " canvas#indicators").height());
+	}
+	
+	test = visGlueResize;
+	
+	$( window ).resize(function() {
+		setTimeout(visGlueResize, 100);
 	});
 }

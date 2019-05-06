@@ -29,9 +29,12 @@ function ACLED_init(errors, rows) {
   var colorInterp = d3.interpolateLab("#FFF4EF", "#6D0012"); // ACTOR Color scale
     
   // compile actor colors by severity
+  // var typoSevScale = {};
   var colorBySeverity = {defaultFill: '#dddddd'};
   byActor.forEach(d=>{
-		var rootSumScale = colorScale(Math.sqrt(d3.sum(d.values, e=>e.FATALITIES)));
+		var val = Math.sqrt(d3.sum(d.values, e=>e.FATALITIES));
+		// typoSevScale[d.key] = val;
+		var rootSumScale = colorScale(val);
 		colorBySeverity[d.key] = colorInterp(rootSumScale);
 		});
 	
@@ -41,7 +44,7 @@ function ACLED_init(errors, rows) {
 		.object(rows);
 	
 	function typography() {
-		var month = ACLED.nData[2018][11];
+		var month = ACLED.nData[2014][5];
 		
 		var canvas = document.getElementById("typography");
 		var ctx = canvas.getContext("2d");
@@ -64,19 +67,19 @@ function ACLED_init(errors, rows) {
 		var lonScale = d3.scaleLinear().domain([minLon,maxLon]).range([0,1584]); // height 1584
 
 		var colScale = d3.scaleLinear().domain([minFat,maxFat]).range([.9,0]);// font color
-		var sizScale = d3.scaleLinear().domain([minFat,maxFat]).range([10,100]); // font size
+		var sizScale = d3.scaleLinear().domain([ACLED.minActorSeverity,ACLED.maxActorSeverity]).range([10,50]); // font size
 		
 		ctx.textAlign = "center";
 		month.forEach(d => {
 			ctx.fillStyle = d3.interpolateViridis(colScale(d.FATALITIES)) // colorInterp(colScale(d.FATALITIES))
-			ctx.font = sizScale(d.FATALITIES) + "px Open Sans";
 			var a = d.ACTOR1
+			ctx.font = sizScale(typoSevScale[a]) + "px Open Sans";
 			if (a.startsWith("Boko")) a = "Boko Haram"
 			if (a.includes("Military")) a = "Military"
 			ctx.fillText(a, latScale(d.LATITUDE), lonScale(d.LONGITUDE));
 		})
 	}
-	// typography()
+	//typography()
 	
 	var countryActivityByMonth = d3.nest()
 		.key(k=>new Date(k.EVENT_DATE).getFullYear())
@@ -224,6 +227,10 @@ function ACLED_init(errors, rows) {
 		});
 		
   $("#violence-frwd").click(acledForward);
+  
+  $( window ).resize(function() {
+			ACLED.map.resize();
+	});
   
 }
 

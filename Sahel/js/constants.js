@@ -947,43 +947,43 @@ VIS0indicators = [
 
 VIS0sections = [
 	{
-		title: "Food & Population",
+		title: "Food & Population [1/7]",
 		inds: ["WDI:SP.POP.GROW", "WDI:AG.PRD.FOOD.XD", "WDI:AG.PRD.CREL.MT"],
 		infoText: "Following the 2010 drought food production in general and cereal yields in specific across the Sahel in 2012 dropped more than 10%, the population continued to grow. (Sahel Average, 2009=100%)",
 		colors: Chart.colorschemes.brewer.YlGnBu4.slice(1)
 	},
 	{
-		title: "Inflation Spike",
+		title: "Inflation Spike [2/7]",
 		inds: ["WDI:FP.CPI.TOTL.ZG"],
 		infoText: "At this time commodities inflation worldwide contributed to an already difficult situation. Unfortunately, after the world markets recovered, Sahel did not until mid 2014.  (Sahel Average)",
 		colors: Chart.colorschemes.brewer.Reds3.slice(2)
 	},
 	{
-		title: "Birth Rate",
+		title: "Birth Rate [3/7]",
 		inds: ["WDI:SP.DYN.TFRT.IN"],
 		infoText: "While fertility metrics across the Sahel have reduced in the last decade, in 2016 they still hover at over 5 children per woman. (Sahel Average)",
 		colors: Chart.colorschemes.brewer.Reds3.slice(1)
 	},
 	{
-		title: "Government Legitimacy",
+		title: "Government Legitimacy [4/7]",
 		inds: ['IIAG:FreeFairElecVDEM', 'IIAG:AbsLegCorrVDEM', 'IIAG:ConsGovPowerVDEM', 'IIAG:RiotsProtestsACLED'],
 		infoText: "During this period, trust in the the electoral process declined due to corruption, and abuses of power while protests and riots surged. (Sahel Average, 2009=100%)",
 		colors: Chart.colorschemes.brewer.YlOrBr5.slice(1)
 	},
 	{
-		title: "Government Services",
+		title: "Government Services [5/7]",
 		inds: ['IIAG:PrimScholCompWB', 'IIAG:SecEducEnroUNESCO', 'IIAG:TertEducEnroUNESCO', 'WDI:SH.STA.BASS.ZS', 'IIAG:RoadNetWEF'],
 		infoText: "The growing electorate distrust was only amplified by a degredation in government services such as education, roads and sanitation. (Sahel Average, 2009=100%)",
 		colors: Chart.colorschemes.brewer.Blues7.slice(1)
 	},
 	{
-		title: "The Refugees Crisis",
+		title: "The Refugees Crisis [6/7]",
 		inds: ["WDI:nigeria:SM.POP.REFG.OR", "WDI:mali:SM.POP.REFG.OR", "WDI:cameroon:SM.POP.REFG", "WDI:chad:SM.POP.REFG"],
 		infoText: "The resulting destabilization created a regional refugee crisis.  Most came from Mali and Nigeria.  Most found asylum from the already stressed governments of Chad and Cameroon. (Reported Numbers)",
 		colors: Chart.colorschemes.brewer.RdYlGn6.slice(1)
 	},
 	{
-		title: "Nigerian Internally Displaced Peoples",
+		title: "Nigerian Internally Displaced Peoples [7/7]",
 		inds: ["WDI:VC.IDP.NWDS", "WDI:VC.IDP.NWCV"],
 		infoText: "These numbers, while staggering, pale in comparison to the millions who fled their homes during this period due to state and climate destabilizations in Nigeria alone. (Reported Numbers)",
 		colors: Chart.colorschemes.brewer.BuPu5.slice(2)
@@ -1135,26 +1135,26 @@ UNSDG_VIS0sections = [
 		inds: ["WDI:DT.ODA.ALLD.CD"],
 		colors: Chart.colorschemes.tableau.ClassicGray5
 	},
-	{
-		title: "Funding By Agency",
-		inds: ["WDI:DT.NFL.UNPB.CD", "WDI:DT.NFL.UNTA.CD","WDI:DT.NFL.FAOG.CD"],
-		colors: Chart.colorschemes.tableau.ClassicGray5
-	},
-	{
-		title: "Funding By Agency",
-		inds: ["WDI:DT.NFL.IFAD.CD", "WDI:DT.NFL.UNDP.CD", "WDI:DT.NFL.UNFP.CD"],
-		colors: Chart.colorschemes.tableau.ClassicGray5
-	},
-	{
-		title: "Funding By Agency",
-		inds: ["WDI:DT.NFL.UNCF.CD"],
-		colors: Chart.colorschemes.tableau.ClassicGray5
-	},
-	{
-		title: "Funding By Agency",
-		inds: ["WDI:DT.NFL.UNCR.CD", "WDI:DT.NFL.WFPG.CD", "WDI:DT.NFL.WHOL.CD"],
-		colors: Chart.colorschemes.tableau.ClassicGray5
-	}
+		//~ {
+			//~ title: "Funding By Agency",
+			//~ inds: ["WDI:DT.NFL.UNPB.CD", "WDI:DT.NFL.UNTA.CD","WDI:DT.NFL.FAOG.CD"],
+			//~ colors: Chart.colorschemes.tableau.ClassicGray5
+		//~ },
+		//~ {
+			//~ title: "Funding By Agency",
+			//~ inds: ["WDI:DT.NFL.IFAD.CD", "WDI:DT.NFL.UNDP.CD", "WDI:DT.NFL.UNFP.CD"],
+			//~ colors: Chart.colorschemes.tableau.ClassicGray5
+		//~ },
+		//~ {
+			//~ title: "Funding By Agency",
+			//~ inds: ["WDI:DT.NFL.UNCF.CD"],
+			//~ colors: Chart.colorschemes.tableau.ClassicGray5
+		//~ },
+		//~ {
+			//~ title: "Funding By Agency",
+			//~ inds: ["WDI:DT.NFL.UNCR.CD", "WDI:DT.NFL.WFPG.CD", "WDI:DT.NFL.WHOL.CD"],
+			//~ colors: Chart.colorschemes.tableau.ClassicGray5
+		//~ }
 ];
 
 UNSDG_VIS1indicators = [
