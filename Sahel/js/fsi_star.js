@@ -39,7 +39,7 @@ function fsi_star_cb(t,isSmall) {
 		iC.RadarChart.defaultConfig.color = function() {return chartColor};
 		iC.chart.config({factor: .85, maxValue: FSI.dataMax, minValue: FSI.dataMin, axisText: false, levels: 0, circles: false});
 		
-		$("#vis-ifs-lvl0-Mali").css("border-top", "8px solid #333")
+		
 		// if not registered - register for iframe clicks
 		if (! FSI.updateList.includes(t)) {
 			$(t).contents().on("click", function(e){
@@ -243,6 +243,7 @@ function FSI_init(errors, rows) {
 		$("#fsi-star-individual-bg").addClass("hidden");
 	});
 	
+	$("#vis-ifs-lvl0-Mali").css("border-top", "8px solid #333");
 	
 	var cfg = jQuery.extend(true, {}, defCfgLineGraph);
 	cfg.data.labels = range(FSI.yearMin, FSI.yearMax);
