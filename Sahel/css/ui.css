@@ -130,6 +130,10 @@ padding: 20px 0px 00px 0px;
     background-size: cover;
 }
 
+#pg2 .chapeau {
+	width: 35vw;
+}
+
 .full-screen#pg2{
     background-image: url(../img/sahelmap.svg.png);
     background-size: contain;
