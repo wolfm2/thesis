@@ -1,7 +1,7 @@
 # How Fragile is the Sahel?
 ## An analytical perspective on fragility and its indicators.
 
-## URL
+### URL
 https://wolfm2.github.io/thesis/Sahel/
 
 ### Abstract
