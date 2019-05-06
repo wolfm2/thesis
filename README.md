@@ -13,11 +13,11 @@ In what ways will the turmoil in the Sahel affect all of us?  What is state frag
 
 ### Screenshots
 ![Screencast](preview.gif)
-![Screenshot](1.png)
-![Screenshot](2.png)
-![Screenshot](3.png)
-![Screenshot](4.png)
-![Screenshot](5.png)
+![Screenshot](documentation/1.png)
+![Screenshot](documentation/2.png)
+![Screenshot](documentation/3.png)
+![Screenshot](documentation/4.png)
+![Screenshot](documentation/5.png)
 
 ### Acknowledgements
 Many thanks to my partner and Pauline Gourlet.  Both helped immeasurably in the production of this work.
