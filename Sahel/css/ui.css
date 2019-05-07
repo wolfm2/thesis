@@ -153,6 +153,7 @@ padding: 20px 0px 00px 0px;
 
 .full-screen#pg3{
 		
+  background-image: url(../img/cracked-earth.jpg);
     display: flex;
     align-content: center;
     align-items: center;
@@ -161,7 +162,6 @@ padding: 20px 0px 00px 0px;
 
 		border-top: 3px solid grey;
 		border-bottom: 3px solid grey;
-    background-image: url(../img/SahelNiger_Large.jpg);
     
     width: 115%;
     position: relative;
@@ -172,7 +172,7 @@ padding: 20px 0px 00px 0px;
     width: 50vw;
     margin-left: -25vw;
     font-size: 4rem;
-    color: #fafafa;
+    color: #333;
 }
 
 #background-img {
@@ -694,6 +694,11 @@ canvas#indicators + #overlay #copy {
 
 #grid-inner .grid-item  {
 	transition:opacity .2s linear;
+}
+
+#fsi-biginfo, #fsi-litinfo {
+    border-top: 2px solid black;
+    transform: translateY(-5vh);
 }
 
 #sec-fragility #grid-outer {
