@@ -39,7 +39,7 @@ function fsi_star_cb(t,isSmall) {
 		iC.RadarChart.defaultConfig.color = function() {return chartColor};
 		iC.chart.config({factor: .85, maxValue: FSI.dataMax, minValue: FSI.dataMin, axisText: false, levels: 0, circles: false});
 		
-		$("#vis-ifs-lvl0-Mali").css("border-top", "8px solid #333")
+		
 		// if not registered - register for iframe clicks
 		if (! FSI.updateList.includes(t)) {
 			$(t).contents().on("click", function(e){
@@ -54,7 +54,7 @@ function fsi_star_cb(t,isSmall) {
 		
 		$(`#grid-inner h6[data-name="${d.Country}"]`).html(`Rank: ${d.Rank}`);
 	} else {
-		$("#vis-big-title").html(`${FSI.bigCountry} <br>(lower numbers are better)`); // - ${FSI.bigIsComposite?"Composite":"Individual"}
+		$("#vis-big-title").html(`FSI Indicators for:<br>${FSI.bigCountry}`); // - ${FSI.bigIsComposite?"Composite":"Individual"}
 		var d = FSI.nData[FSI.yearCur][FSI.bigCountry][0];
 		iC.RadarChart.defaultConfig.color = function() {return "#7fcdbb"};
 		iC.chart.config({factor: .57, maxValue: FSI.dataMax, minValue: FSI.dataMin, radius: 6});		
@@ -193,6 +193,8 @@ function FSI_init(errors, rows) {
   
   resizr( ".grid-vis", ".vis", 400, 400, true); // resize all star graphs    
   
+  $("#grid-outer").append('<div id="fsi-biginfo">Scale: 1 to 10 — The more a state is considered fragile, the higher the number.</div> <div id="fsi-litinfo">Click on states’ graph to see the details. Then, hover on a dimension to see the decomposition per indicators and per year.</div>');
+  
   // hook up controls
   function starForward() {
 		FSI.yearCur++;
@@ -243,6 +245,7 @@ function FSI_init(errors, rows) {
 		$("#fsi-star-individual-bg").addClass("hidden");
 	});
 	
+	$("#vis-ifs-lvl0-Mali").css("border-top", "8px solid #333");
 	
 	var cfg = jQuery.extend(true, {}, defCfgLineGraph);
 	cfg.data.labels = range(FSI.yearMin, FSI.yearMax);
