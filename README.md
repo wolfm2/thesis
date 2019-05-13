@@ -21,3 +21,6 @@ In what ways will the turmoil in the Sahel affect all of us?  What is state frag
 
 ### Acknowledgements
 Many thanks to my partner and Pauline Gourlet.  Both helped immeasurably in the production of this work.
+
+### Presentation
+https://docs.google.com/presentation/d/1OA3ttRQljKHarvCSNUUmtezOtOeOeKvCT3JJgeZOl6k/edit?usp=sharing

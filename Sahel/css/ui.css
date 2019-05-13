@@ -47,6 +47,7 @@ hr {
 
 .italic {
 	font-style: italic !important;
+	font-weight: 100;
 }
 
 /* ALL CLICKABLES */
@@ -60,6 +61,18 @@ hr {
 	opacity: 0;
 	z-index: -5;
 }
+
+
+#sources {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    transform-origin: center;
+    transform: scale(1.4);
+}
+
 
 .vis-container {
 padding: 20px 0px 20px 0px;
@@ -156,6 +169,10 @@ padding: 20px 0px 00px 0px;
     font-size: 2.2rem;
 }
 
+.full-screen#pg2 h2{
+    font-family: "PT Sans";
+}
+
 .full-screen#pg3, .full-screen#last{
 		
   background-image: url(../img/cracked-earth.jpg);
@@ -183,16 +200,20 @@ padding: 20px 0px 00px 0px;
     font-size: 4rem;
     color: #333;
 }
+.full-screen#last  #copy h3{
+	font-family: 'PT Sans', sans-serif;;	
+}
 
 .full-screen#last  #copy{
-	
-    width: 60vw;
+	  
+    margin-top: 55vh;
+    width: 65vw;
     font-size: 3rem;
     color: white;
 /*
     background-color: #0002;
 */
-    background-image: linear-gradient(#1110, #1113);
+    background-image: linear-gradient(#1110, #1112);
 }
 
 #background-img {
@@ -239,6 +260,16 @@ padding: 20px 0px 00px 0px;
   z-index: 1;
   transition: font-size 0.8s ease;
 }  
+
+
+#sec-title #text h1, #sec-title #text h3 {
+  font-family: 'PT Sans', sans-serif !important;
+}
+
+
+#sec-title #text h1 {
+  font-size: 7rem; 
+}
 
 #sec-title #txt-country {
   transition: font-size 0.8s ease;
@@ -762,6 +793,7 @@ canvas#indicators + #overlay #copy {
 }
 
 .section h2 {
+	font-family: 'PT Sans', sans-serif;
 	margin-bottom: 40px;	
 }
 
@@ -773,7 +805,7 @@ canvas#indicators + #overlay #copy {
 	column-rule-style: solid;
   column-rule-width: 1px;
   column-rule-color: lightblue;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .vis-text p:first-child:first-letter {
